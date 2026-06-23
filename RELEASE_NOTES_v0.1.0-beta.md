@@ -24,6 +24,16 @@ Download:
 
 Windows SmartScreen warning may appear because this is an unsigned beta executable.
 
+## macOS Experimental Build
+
+An unsigned macOS build workflow is included for testing:
+
+```text
+.github/workflows/build-macos.yml
+```
+
+The generated `USWardExperienceLab_macos_unsigned_v0.1.0-beta.zip` artifact is not signed or notarized. macOS may block it with an unidentified developer warning.
+
 ## Important Notice
 
 This is not an official NCLEX preparation product.

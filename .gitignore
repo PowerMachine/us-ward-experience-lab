@@ -11,6 +11,12 @@ work/pyinstaller*/
 work/*_pybuild/
 work/dist/
 work/mobile_script_check.js
+build-macos/
+dist-macos/
+*.app/
+*_macos_unsigned*.zip
+*_macos_unsigned*.sha256
+work/assets/*.icns
 
 # Local notes or generated temporary files
 *.log

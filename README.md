@@ -32,6 +32,20 @@ Future public builds may also be attached on the GitHub Releases page.
 
 Windows SmartScreen warning may appear because this is an unsigned beta executable.
 
+## macOS Experimental Build
+
+macOS builds are experimental and unsigned.
+
+This repository includes a GitHub Actions workflow that builds an unsigned `USWardExperienceLab.app` zip on a macOS runner:
+
+```text
+.github/workflows/build-macos.yml
+```
+
+Apple Developer Program membership is not required for this experimental build, but macOS Gatekeeper may show an "unidentified developer" warning because the app is not signed or notarized.
+
+For a public beta, attach the generated `USWardExperienceLab_macos_unsigned_v0.1.0-beta.zip` artifact to a GitHub Release and label it clearly as unsigned/experimental.
+
 ## Important Notice
 
 This program is an independent educational simulation.
