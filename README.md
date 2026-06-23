@@ -26,9 +26,15 @@ U.S. Ward Experience Lab is a beta educational simulation for Korean RNs prepari
 
 Recommended beta version:
 
-[Download USWardExperienceLab_v0.1.0-beta.exe](release-assets/USWardExperienceLab_v0.1.0-beta.exe)
+[Download USWardExperienceLab_v0.1.0-beta.exe](https://github.com/PowerMachine/us-ward-experience-lab/releases/download/v0.1.0-beta/USWardExperienceLab_v0.1.0-beta.exe)
 
-Future public builds may also be attached on the GitHub Releases page.
+Public builds are attached on the GitHub Releases page.
+
+GitHub Pages landing page:
+
+```text
+https://PowerMachine.github.io/us-ward-experience-lab
+```
 
 Windows SmartScreen warning may appear because this is an unsigned beta executable.
 

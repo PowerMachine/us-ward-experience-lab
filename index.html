@@ -1,0 +1,606 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>U.S. Ward Experience Lab</title>
+  <meta name="description" content="한국 RN을 위한 미국 병동 첫 주 적응 교육 시뮬레이션 베타 프로그램">
+  <style>
+    :root {
+      --bg: #f7f8fa;
+      --card: #ffffff;
+      --ink: #111827;
+      --muted: #6b7280;
+      --line: #e5e7eb;
+      --teal: #0f766e;
+      --teal-dark: #115e59;
+      --teal-soft: #e6f4f1;
+      --amber-soft: #fff7ed;
+      --amber-line: #fed7aa;
+      --red-soft: #fef2f2;
+      --red-line: #fecaca;
+      --shadow: 0 18px 45px rgba(17, 24, 39, .08);
+      --radius: 22px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans KR", "Malgun Gothic", sans-serif;
+      line-height: 1.65;
+      word-break: keep-all;
+      overflow-wrap: break-word;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 22px 0;
+      gap: 16px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      letter-spacing: -.01em;
+    }
+
+    .brand img {
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .nav-links a {
+      padding: 9px 12px;
+      border-radius: 999px;
+    }
+
+    .nav-links a:hover {
+      background: var(--teal-soft);
+      color: var(--teal-dark);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.08fr) minmax(360px, .92fr);
+      gap: 24px;
+      align-items: stretch;
+      margin: 12px 0 24px;
+    }
+
+    .hero-card,
+    .hero-visual,
+    .card,
+    .download-panel,
+    .notice,
+    .screenshot-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card {
+      padding: 44px;
+      min-height: 520px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border-left: 7px solid var(--teal);
+    }
+
+    .eyebrow {
+      color: var(--teal);
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(38px, 5vw, 64px);
+      line-height: 1.12;
+      letter-spacing: -.04em;
+    }
+
+    .lead {
+      max-width: 720px;
+      margin: 24px 0 0;
+      color: var(--muted);
+      font-size: 19px;
+      line-height: 1.75;
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 32px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 20px;
+      border-radius: 14px;
+      font-weight: 850;
+      transition: transform .16s ease, box-shadow .16s ease, background .16s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-1px);
+    }
+
+    .primary {
+      background: var(--teal);
+      color: #fff;
+      box-shadow: 0 10px 22px rgba(15, 118, 110, .22);
+    }
+
+    .primary:hover {
+      background: var(--teal-dark);
+    }
+
+    .secondary {
+      background: #fff;
+      color: var(--ink);
+      border: 1px solid var(--line);
+    }
+
+    .hero-visual {
+      padding: 18px;
+      overflow: hidden;
+      min-height: 520px;
+    }
+
+    .hero-visual img {
+      width: 100%;
+      height: 100%;
+      min-height: 480px;
+      object-fit: cover;
+      border-radius: 18px;
+      display: block;
+    }
+
+    .hero-foot {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 34px;
+    }
+
+    .mini {
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 16px;
+      background: #fafafa;
+    }
+
+    .mini strong {
+      display: block;
+      color: var(--teal);
+      font-size: 23px;
+      line-height: 1.1;
+    }
+
+    .mini span {
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    section {
+      margin: 56px 0;
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: clamp(26px, 3vw, 38px);
+      line-height: 1.2;
+      letter-spacing: -.03em;
+    }
+
+    .section-head p {
+      margin: 8px 0 0;
+      color: var(--muted);
+      max-width: 760px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .card {
+      padding: 24px;
+      min-height: 186px;
+      border-radius: 20px;
+    }
+
+    .card .tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 5px 10px;
+      border-radius: 999px;
+      background: var(--teal-soft);
+      color: var(--teal-dark);
+      font-size: 12px;
+      font-weight: 900;
+      margin-bottom: 20px;
+    }
+
+    .card h3 {
+      margin: 0 0 9px;
+      font-size: 22px;
+      line-height: 1.25;
+      letter-spacing: -.02em;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .download-panel {
+      padding: 34px;
+      display: grid;
+      grid-template-columns: minmax(0, .95fr) minmax(320px, .8fr);
+      gap: 24px;
+      align-items: start;
+    }
+
+    .release-box {
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 20px;
+      background: #fbfbfb;
+    }
+
+    .release-box h3 {
+      margin: 0 0 8px;
+      font-size: 20px;
+    }
+
+    .release-box p {
+      margin: 0 0 16px;
+      color: var(--muted);
+    }
+
+    .mac-warning {
+      background: var(--amber-soft);
+      border: 1px solid var(--amber-line);
+      border-radius: 18px;
+      padding: 22px;
+    }
+
+    .mac-warning h3 {
+      margin: 0 0 10px;
+      font-size: 21px;
+    }
+
+    .mac-warning ol {
+      margin: 12px 0 0;
+      padding-left: 22px;
+    }
+
+    .mac-warning li {
+      margin: 7px 0;
+    }
+
+    .screenshot-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .screenshot-card {
+      padding: 12px;
+      border-radius: 18px;
+    }
+
+    .screenshot-card img {
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+      object-position: left top;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      display: block;
+    }
+
+    .screenshot-card strong {
+      display: block;
+      padding: 12px 4px 2px;
+      font-size: 15px;
+    }
+
+    .notice {
+      padding: 24px;
+      box-shadow: none;
+      border-color: var(--red-line);
+      background: var(--red-soft);
+    }
+
+    .notice h2 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .notice p {
+      margin: 0;
+      color: #7f1d1d;
+    }
+
+    footer {
+      padding: 30px 0 44px;
+      color: var(--muted);
+      font-size: 14px;
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      border-top: 1px solid var(--line);
+    }
+
+    @media (max-width: 980px) {
+      .hero,
+      .download-panel {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-card,
+      .hero-visual {
+        min-height: auto;
+      }
+
+      .hero-visual img {
+        min-height: 320px;
+      }
+
+      .grid,
+      .screenshot-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .page {
+        width: min(100% - 22px, 1180px);
+      }
+
+      .nav {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .nav-links {
+        flex-wrap: wrap;
+      }
+
+      .hero-card {
+        padding: 28px;
+      }
+
+      h1 {
+        font-size: 36px;
+      }
+
+      .lead {
+        font-size: 16px;
+      }
+
+      .hero-foot,
+      .grid,
+      .screenshot-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .download-panel {
+        padding: 22px;
+      }
+
+      footer {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <nav class="nav" aria-label="Primary navigation">
+      <a class="brand" href="#">
+        <img src="work/assets/us-ward-icon.png" alt="">
+        <span>U.S. Ward Experience Lab</span>
+      </a>
+      <div class="nav-links">
+        <a href="#features">기능</a>
+        <a href="#download">다운로드</a>
+        <a href="#macos">macOS 안내</a>
+        <a href="https://github.com/PowerMachine/us-ward-experience-lab">GitHub</a>
+      </div>
+    </nav>
+
+    <section class="hero">
+      <div class="hero-card">
+        <div>
+          <div class="eyebrow">Beta simulation for Korean RNs</div>
+          <h1>미국 병동 첫 주를<br>먼저 연습합니다</h1>
+          <p class="lead">
+            NCLEX 이후 미국 취업과 이민을 준비하는 한국 RN을 위한 병동 동선, 우선순위 판단,
+            SBAR, handoff, privacy, 영어 표현 기반 교육 시뮬레이션입니다.
+          </p>
+          <div class="cta-row">
+            <a class="button primary" href="https://github.com/PowerMachine/us-ward-experience-lab/releases/download/v0.1.0-beta/USWardExperienceLab_v0.1.0-beta.exe">Windows 베타 다운로드</a>
+            <a class="button secondary" href="https://docs.google.com/forms/d/e/1FAIpQLScUc4cvKVPYf1DdItAYW74V8bXQidAS9CHh7d5akhNyv2Oe5w/viewform?usp=publish-editor">짧은 리뷰 남기기</a>
+          </div>
+        </div>
+        <div class="hero-foot" aria-label="Program scale">
+          <div class="mini"><strong>70+</strong><span>첫 주 적응 장면</span></div>
+          <div class="mini"><strong>240+</strong><span>스테이션 판단</span></div>
+          <div class="mini"><strong>984+</strong><span>영어 학습 카드</span></div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <img src="work/assets/hospital-ward-hero.png" alt="미국 병동 시뮬레이션 이미지">
+      </div>
+    </section>
+
+    <section id="features">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Program overview</div>
+          <h2>강의 자료보다 실제 흐름에 가까운 연습</h2>
+          <p>사진 단서, 구역 지도, 상황 선택, 디브리핑을 반복하며 미국 병동의 업무 감각을 익히도록 설계했습니다.</p>
+        </div>
+      </div>
+      <div class="grid">
+        <article class="card">
+          <span class="tag">First 7 Days</span>
+          <h3>첫 주 적응 시뮬레이션</h3>
+          <p>출근, badge, huddle, EHR, MAR, handoff, provider call 같은 첫 주 장면을 랜덤 케이스로 경험합니다.</p>
+        </article>
+        <article class="card">
+          <span class="tag">Ward Tour</span>
+          <h3>병동 투어</h3>
+          <p>Nurse Station, Medication Room, Patient Room, Supply Room을 사진과 지도 기반으로 따라갑니다.</p>
+        </article>
+        <article class="card">
+          <span class="tag">Clinical Judgment</span>
+          <h3>환자 케이스와 우선순위</h3>
+          <p>낙상, 격리, 투약 지연, 퇴원 압박, 가족 전화, 상태 악화 등 RN이 마주치는 판단을 연습합니다.</p>
+        </article>
+        <article class="card">
+          <span class="tag">Communication</span>
+          <h3>SBAR와 handoff</h3>
+          <p>Provider call, charge RN 보고, read-back, chain of command를 실제 문장 흐름으로 정리합니다.</p>
+        </article>
+        <article class="card">
+          <span class="tag">English</span>
+          <h3>일상 + 간호 영어</h3>
+          <p>미국 생활 대화와 병동 업무 영어를 단어, 문장, 짧은 말하기 드릴로 반복합니다.</p>
+        </article>
+        <article class="card">
+          <span class="tag">Policy aware</span>
+          <h3>시설별 차이 인식</h3>
+          <p>정답을 하나로 고정하지 않고 state, facility, EHR, unit policy가 달라질 수 있음을 함께 안내합니다.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="download">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Download</div>
+          <h2>베타 버전 다운로드</h2>
+          <p>버튼은 GitHub Release 파일의 직접 주소로 연결되어 Release 다운로드 카운트가 누적됩니다.</p>
+        </div>
+      </div>
+      <div class="download-panel">
+        <div class="release-box">
+          <h3>Windows v0.1.0-beta</h3>
+          <p>현재 가장 안정적으로 테스트된 배포판입니다. Windows SmartScreen 경고가 뜰 수 있습니다.</p>
+          <a class="button primary" href="https://github.com/PowerMachine/us-ward-experience-lab/releases/download/v0.1.0-beta/USWardExperienceLab_v0.1.0-beta.exe">USWardExperienceLab_v0.1.0-beta.exe 다운로드</a>
+        </div>
+        <div class="release-box" id="macos">
+          <h3>macOS experimental</h3>
+          <p>macOS 버전은 unsigned 실험판입니다. Release에 파일이 첨부된 경우 아래 Release 페이지에서 받을 수 있습니다.</p>
+          <a class="button secondary" href="https://github.com/PowerMachine/us-ward-experience-lab/releases/tag/v0.1.0-beta">Release 페이지 보기</a>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="mac-warning">
+        <h3>macOS 사용자 필수 안내</h3>
+        <p>본 프로그램은 Apple 공식 인증을 거치지 않아 최초 실행 시 차단 메시지가 뜰 수 있습니다. 당황하지 마시고 아래 순서대로 실행해 주세요.</p>
+        <ol>
+          <li>다운로드된 앱 파일을 우클릭 또는 Control + 클릭합니다.</li>
+          <li>메뉴에서 <strong>열기</strong>를 선택합니다.</li>
+          <li>한 번 더 경고창이 뜨면 <strong>열기</strong> 버튼을 눌러 실행합니다. 이후부터는 더블 클릭으로 실행됩니다.</li>
+        </ol>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Screenshots</div>
+          <h2>프로그램 화면</h2>
+          <p>현재 베타는 교육용 데스크톱 앱이며, 실제 환자 정보 입력 없이 mock data로만 진행합니다.</p>
+        </div>
+      </div>
+      <div class="screenshot-grid">
+        <div class="screenshot-card">
+          <img src="screenshots/main.png" alt="메인 화면">
+          <strong>Simulation Hub</strong>
+        </div>
+        <div class="screenshot-card">
+          <img src="screenshots/first_7_days.png" alt="첫 7일 시뮬레이션 화면">
+          <strong>First 7 Days</strong>
+        </div>
+        <div class="screenshot-card">
+          <img src="screenshots/ward_tour.png" alt="병동 투어 화면">
+          <strong>Ward Tour</strong>
+        </div>
+      </div>
+    </section>
+
+    <section class="notice">
+      <h2>중요 안내</h2>
+      <p>
+        이 프로그램은 독립 제작 교육용 시뮬레이션입니다. NCLEX, NCSBN, 특정 병원 또는 의료기관의 공식 프로그램이 아니며,
+        실제 의료 판단, 법률, 이민, 취업, 병원 policy를 대체하지 않습니다. 실제 환자 정보는 입력하지 마세요.
+      </p>
+    </section>
+
+    <footer>
+      <span>Copyright darkha123@gmail.com</span>
+      <span>U.S. Ward Experience Lab v0.1.0-beta</span>
+    </footer>
+  </main>
+</body>
+</html>

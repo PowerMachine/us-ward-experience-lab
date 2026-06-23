@@ -20,7 +20,7 @@ This is the first beta release of U.S. Ward Experience Lab.
 
 Download:
 
-[USWardExperienceLab_v0.1.0-beta.exe](release-assets/USWardExperienceLab_v0.1.0-beta.exe)
+[USWardExperienceLab_v0.1.0-beta.exe](https://github.com/PowerMachine/us-ward-experience-lab/releases/download/v0.1.0-beta/USWardExperienceLab_v0.1.0-beta.exe)
 
 Windows SmartScreen warning may appear because this is an unsigned beta executable.
 
