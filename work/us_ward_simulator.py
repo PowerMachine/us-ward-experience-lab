@@ -32,6 +32,7 @@ FONT_BOLD = "{Malgun Gothic} 11 bold"
 FONT_HERO = "{Malgun Gothic} 25 bold"
 FONT_HERO_SMALL = "{Malgun Gothic} 12 bold"
 FONT_CHIP = "{Malgun Gothic} 8 bold"
+BUNDLED_FONT_FILES = ("NotoSansKR-Variable.ttf",)
 
 ASSET_FILES = {
     "hero": "hero-banner.png",
@@ -136,6 +137,24 @@ def font_spec(family, size, bold=False):
     return f"{{{family}}} {size}{weight}"
 
 
+def register_bundled_fonts():
+    font_dir = resource_path("assets", "fonts")
+    font_paths = [os.path.join(font_dir, filename) for filename in BUNDLED_FONT_FILES]
+    existing_paths = [path for path in font_paths if os.path.exists(path)]
+    if not existing_paths:
+        return []
+
+    if sys.platform == "win32":
+        try:
+            add_font = ctypes.windll.gdi32.AddFontResourceExW
+            for path in existing_paths:
+                add_font(path, 0x10, 0)  # FR_PRIVATE: app-only font registration.
+        except (AttributeError, OSError):
+            pass
+
+    return existing_paths
+
+
 def configure_font_constants(root):
     global FONT_FAMILY, FONT_NORMAL, FONT_SMALL, FONT_SMALL_BOLD, FONT_TITLE
     global FONT_CARD_TITLE, FONT_SECTION, FONT_SIDEBAR_TITLE, FONT_METRIC
@@ -143,6 +162,7 @@ def configure_font_constants(root):
 
     installed = set(tkfont.families(root))
     preferred = [
+        "Noto Sans KR",
         "Pretendard",
         "Inter",
         "Inter Display",
@@ -150,7 +170,6 @@ def configure_font_constants(root):
         "Segoe UI Variable Text",
         "Segoe UI Variable Display",
         "Segoe UI",
-        "Noto Sans KR",
         "IBM Plex Sans KR",
         "Spoqa Han Sans Neo",
         "맑은 고딕",
@@ -169,6 +188,10 @@ def configure_font_constants(root):
     FONT_HERO = font_spec(FONT_FAMILY, 27, True)
     FONT_HERO_SMALL = font_spec(FONT_FAMILY, 12, True)
     FONT_CHIP = font_spec(FONT_FAMILY, 9, True)
+    try:
+        root.option_add("*Font", FONT_NORMAL)
+    except tk.TclError:
+        pass
 
 
 NAV_ITEMS = [
@@ -2349,6 +2372,7 @@ class WardSimulatorApp(tk.Tk):
             self.iconbitmap(resource_path("assets", "us-ward-icon.ico"))
         except tk.TclError:
             pass
+        self.bundled_font_paths = register_bundled_fonts()
         configure_font_constants(self)
         self.geometry("1180x760")
         self.minsize(1180, 700)

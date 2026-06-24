@@ -15,6 +15,7 @@ This is the first beta release of U.S. Ward Experience Lab.
 - Korean/English support
 - Visual hospital-space assets
 - Feedback button structure
+- Bundled Noto Sans KR font for more consistent Korean UI rendering across Windows systems
 
 ## Download
 

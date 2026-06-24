@@ -15,6 +15,7 @@ Initial beta release.
 - Korean/English support
 - Visual hospital-space assets
 - Feedback link structure
+- Bundled Noto Sans KR font for more consistent Korean UI rendering across Windows systems
 
 ### Known limitations
 

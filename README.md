@@ -21,6 +21,7 @@ U.S. Ward Experience Lab is a beta educational simulation for Korean RNs prepari
 - Job Tracks
 - Korean/English support
 - Short beta feedback button
+- Bundled Noto Sans KR font for more consistent Korean UI rendering
 
 ## Download
 
@@ -65,6 +66,12 @@ This program does not provide medical advice, diagnosis, treatment, clinical jud
 Do not enter real patient information or personally identifiable information.
 
 실제 환자 이름, 병원명, 생년월일, MRN, 전화번호, 주소, 검사결과, 사진 등 식별 가능한 정보는 입력하지 마세요.
+
+## Font Notice
+
+This project bundles Noto Sans KR from Google Fonts under the SIL Open Font License 1.1 for consistent Korean UI rendering.
+
+See [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
 
 ## Feedback
 
