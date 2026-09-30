@@ -184,18 +184,32 @@
     }
 
     .hero-visual {
+      margin: 0;
       padding: 18px;
       overflow: hidden;
       min-height: 520px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 12px;
+      background: #f2f5f3;
     }
 
     .hero-visual img {
       width: 100%;
-      height: 100%;
-      min-height: 480px;
-      object-fit: cover;
+      height: auto;
+      object-fit: contain;
       border-radius: 18px;
       display: block;
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-visual figcaption {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.5;
+      text-align: center;
     }
 
     .hero-foot {
@@ -398,7 +412,7 @@
       }
 
       .hero-visual img {
-        min-height: 320px;
+        min-height: 0;
       }
 
       .grid,
@@ -474,7 +488,7 @@
             SBAR, handoff, privacy, 영어 표현 기반 교육 시뮬레이션입니다.
           </p>
           <div class="cta-row">
-            <a class="button primary" href="https://github.com/PowerMachine/us-ward-experience-lab/releases/download/v0.1.0-beta/USWardExperienceLab_v0.1.0-beta.exe">Windows 베타 다운로드</a>
+            <a class="button primary" href="https://github.com/PowerMachine/us-ward-experience-lab/releases/download/v0.1.1-beta/USWardExperienceLab_v0.1.1-beta.exe">Windows 베타 다운로드</a>
             <a class="button secondary" href="https://docs.google.com/forms/d/e/1FAIpQLScUc4cvKVPYf1DdItAYW74V8bXQidAS9CHh7d5akhNyv2Oe5w/viewform?usp=publish-editor">짧은 리뷰 남기기</a>
           </div>
         </div>
@@ -484,9 +498,10 @@
           <div class="mini"><strong>984+</strong><span>영어 학습 카드</span></div>
         </div>
       </div>
-      <div class="hero-visual">
-        <img src="work/assets/hospital-ward-hero.png" alt="미국 병동 시뮬레이션 이미지">
-      </div>
+      <figure class="hero-visual">
+        <img src="screenshots/main.png?v=0.1.1-beta" alt="U.S. Ward Experience Lab 최신 앱 홈 화면" width="1180" height="700">
+        <figcaption>실제 앱 화면 · Windows v0.1.1-beta</figcaption>
+      </figure>
     </section>
 
     <section id="features">
@@ -541,14 +556,14 @@
       </div>
       <div class="download-panel">
         <div class="release-box">
-          <h3>Windows v0.1.0-beta</h3>
+          <h3>Windows v0.1.1-beta</h3>
           <p>현재 가장 안정적으로 테스트된 배포판입니다. Windows SmartScreen 경고가 뜰 수 있습니다.</p>
-          <a class="button primary" href="https://github.com/PowerMachine/us-ward-experience-lab/releases/download/v0.1.0-beta/USWardExperienceLab_v0.1.0-beta.exe">USWardExperienceLab_v0.1.0-beta.exe 다운로드</a>
+          <a class="button primary" href="https://github.com/PowerMachine/us-ward-experience-lab/releases/download/v0.1.1-beta/USWardExperienceLab_v0.1.1-beta.exe">USWardExperienceLab_v0.1.1-beta.exe 다운로드</a>
         </div>
         <div class="release-box" id="macos">
           <h3>macOS experimental</h3>
           <p>macOS 버전은 unsigned 실험판입니다. Release에 파일이 첨부된 경우 아래 Release 페이지에서 받을 수 있습니다.</p>
-          <a class="button secondary" href="https://github.com/PowerMachine/us-ward-experience-lab/releases/tag/v0.1.0-beta">Release 페이지 보기</a>
+          <a class="button secondary" href="https://github.com/PowerMachine/us-ward-experience-lab/releases/tag/v0.1.1-beta">Release 페이지 보기</a>
         </div>
       </div>
     </section>
@@ -575,15 +590,15 @@
       </div>
       <div class="screenshot-grid">
         <div class="screenshot-card">
-          <img src="screenshots/main.png" alt="메인 화면">
+          <img src="screenshots/main.png?v=0.1.1-beta" alt="메인 화면">
           <strong>Simulation Hub</strong>
         </div>
         <div class="screenshot-card">
-          <img src="screenshots/first_7_days.png" alt="첫 7일 시뮬레이션 화면">
+          <img src="screenshots/first_7_days.png?v=0.1.1-beta" alt="첫 7일 시뮬레이션 화면">
           <strong>First 7 Days</strong>
         </div>
         <div class="screenshot-card">
-          <img src="screenshots/ward_tour.png" alt="병동 투어 화면">
+          <img src="screenshots/ward_tour.png?v=0.1.1-beta" alt="병동 투어 화면">
           <strong>Ward Tour</strong>
         </div>
       </div>
@@ -599,7 +614,7 @@
 
     <footer>
       <span>Copyright darkha123@gmail.com</span>
-      <span>U.S. Ward Experience Lab v0.1.0-beta</span>
+      <span>U.S. Ward Experience Lab v0.1.1-beta</span>
     </footer>
   </main>
 </body>
