@@ -22,12 +22,14 @@ U.S. Ward Experience Lab is a beta educational simulation for Korean RNs prepari
 - Korean/English support
 - Short beta feedback button
 - Bundled Noto Sans KR font for more consistent Korean UI rendering
+- Refreshed interface with clearer navigation and layouts, including smaller window sizes
+- Practice progress and draft persistence for supported exercises
 
 ## Download
 
-Recommended beta version:
+Latest Windows beta:
 
-[Download USWardExperienceLab_v0.1.0-beta.exe](https://github.com/PowerMachine/us-ward-experience-lab/releases/download/v0.1.0-beta/USWardExperienceLab_v0.1.0-beta.exe)
+[Download USWardExperienceLab_v0.1.1-beta.exe](https://github.com/PowerMachine/us-ward-experience-lab/releases/download/v0.1.1-beta/USWardExperienceLab_v0.1.1-beta.exe)
 
 Public builds are attached on the GitHub Releases page.
 
@@ -51,7 +53,7 @@ This repository includes a GitHub Actions workflow that builds an unsigned `USWa
 
 Apple Developer Program membership is not required for this experimental build, but macOS Gatekeeper may show an "unidentified developer" warning because the app is not signed or notarized.
 
-For a public beta, attach the generated `USWardExperienceLab_macos_unsigned_v0.1.0-beta.zip` artifact to a GitHub Release and label it clearly as unsigned/experimental.
+The macOS workflow produces an unsigned experimental artifact. It is not part of the Windows v0.1.1-beta release and has not been verified for this update.
 
 ## Important Notice
 

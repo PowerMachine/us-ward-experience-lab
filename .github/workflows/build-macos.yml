@@ -63,14 +63,14 @@ jobs:
         run: |
           ditto -c -k --sequesterRsrc --keepParent \
             dist-macos/USWardExperienceLab.app \
-            USWardExperienceLab_macos_unsigned_v0.1.0-beta.zip
-          shasum -a 256 USWardExperienceLab_macos_unsigned_v0.1.0-beta.zip > USWardExperienceLab_macos_unsigned_v0.1.0-beta.sha256
+            USWardExperienceLab_macos_unsigned_v0.1.1-beta.zip
+          shasum -a 256 USWardExperienceLab_macos_unsigned_v0.1.1-beta.zip > USWardExperienceLab_macos_unsigned_v0.1.1-beta.sha256
 
       - name: Upload macOS artifact
         uses: actions/upload-artifact@v4
         with:
-          name: USWardExperienceLab_macos_unsigned_v0.1.0-beta
+          name: USWardExperienceLab_macos_unsigned_v0.1.1-beta
           path: |
-            USWardExperienceLab_macos_unsigned_v0.1.0-beta.zip
-            USWardExperienceLab_macos_unsigned_v0.1.0-beta.sha256
+            USWardExperienceLab_macos_unsigned_v0.1.1-beta.zip
+            USWardExperienceLab_macos_unsigned_v0.1.1-beta.sha256
           if-no-files-found: error

@@ -1,5 +1,13 @@
 # Changelog
 
+## v0.1.1-beta
+
+- Refreshed the desktop interface and navigation for clearer, more compact layouts.
+- Improved first-week, ward-tour, and station-practice presentation.
+- Added persistence for supported SBAR drafts and exercise progress.
+- Replaced repository screenshots with captures from the running application.
+- Retained the educational, non-clinical scope and beta limitations.
+
 ## v0.1.0-beta
 
 Initial beta release.

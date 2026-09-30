@@ -17,20 +17,20 @@ from us_ward_i18n import build_english_content
 
 APP_TITLE = "U.S. Ward Experience Lab"
 APP_SUBTITLE = "한국 간호사를 위한 미국 병동 근무 시뮬레이터"
-APP_VERSION = "v0.1.0-beta"
+APP_VERSION = "v0.1.1-beta"
 FEEDBACK_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLScUc4cvKVPYf1DdItAYW74V8bXQidAS9CHh7d5akhNyv2Oe5w/viewform?usp=publish-editor"
 FONT_FAMILY = "Malgun Gothic"
-FONT_NORMAL = "{Malgun Gothic} 11"
-FONT_SMALL = "{Malgun Gothic} 10"
-FONT_SMALL_BOLD = "{Malgun Gothic} 10 bold"
-FONT_TITLE = "{Malgun Gothic} 21 bold"
-FONT_CARD_TITLE = "{Malgun Gothic} 14 bold"
-FONT_SECTION = "{Malgun Gothic} 15 bold"
-FONT_SIDEBAR_TITLE = "{Malgun Gothic} 14 bold"
-FONT_METRIC = "{Malgun Gothic} 24 bold"
-FONT_BOLD = "{Malgun Gothic} 11 bold"
-FONT_HERO = "{Malgun Gothic} 25 bold"
-FONT_HERO_SMALL = "{Malgun Gothic} 12 bold"
+FONT_NORMAL = "{Malgun Gothic} 10"
+FONT_SMALL = "{Malgun Gothic} 9"
+FONT_SMALL_BOLD = "{Malgun Gothic} 9 bold"
+FONT_TITLE = "{Malgun Gothic} 19 bold"
+FONT_CARD_TITLE = "{Malgun Gothic} 12 bold"
+FONT_SECTION = "{Malgun Gothic} 14 bold"
+FONT_SIDEBAR_TITLE = "{Malgun Gothic} 13 bold"
+FONT_METRIC = "{Malgun Gothic} 22 bold"
+FONT_BOLD = "{Malgun Gothic} 10 bold"
+FONT_HERO = "{Malgun Gothic} 23 bold"
+FONT_HERO_SMALL = "{Malgun Gothic} 11 bold"
 FONT_CHIP = "{Malgun Gothic} 8 bold"
 BUNDLED_FONT_FILES = ("NotoSansKR-Variable.ttf",)
 
@@ -56,33 +56,36 @@ ASSET_FILES = {
 }
 
 COLORS = {
-    "bg": "#F7F8FA",
-    "panel": "#FFFFFF",
-    "panel_alt": "#F9FAFB",
-    "ink": "#111827",
-    "muted": "#6B7280",
-    "line": "#E5E7EB",
-    "line_dark": "#9CA3AF",
-    "primary": "#0F766E",
-    "primary_dark": "#115E59",
-    "accent": "#0F766E",
-    "accent_dark": "#0F766E",
-    "success": "#0F766E",
-    "success_dark": "#115E59",
-    "warning": "#B45309",
-    "danger": "#B91C1C",
-    "sidebar": "#FFFFFF",
-    "sidebar_alt": "#F3F4F6",
-    "sidebar_select": "#E6F4F1",
-    "soft_blue": "#EFF6F5",
-    "soft_green": "#ECFDF5",
-    "soft_orange": "#FFF7ED",
-    "soft_gray": "#F3F4F6",
-    "soft_gold": "#FEF3C7",
-    "soft_lavender": "#F5F5F5",
-    "soft_cyan": "#E6F4F1",
-    "card_border": "#E5E7EB",
-    "shadow": "#E5E7EB",
+    "bg": "#F7F7F3",
+    "panel": "#FCFCFA",
+    "panel_alt": "#F3F4F0",
+    "ink": "#202825",
+    "muted": "#68716D",
+    "line": "#E3E6E1",
+    "line_dark": "#B8C0BA",
+    "primary": "#285F58",
+    "primary_dark": "#1F4C47",
+    "accent": "#9A742C",
+    "accent_dark": "#75571F",
+    "success": "#356B58",
+    "success_dark": "#285443",
+    "warning": "#9A742C",
+    "danger": "#A34A44",
+    "sidebar": "#F4F4F0",
+    "sidebar_alt": "#ECEEE9",
+    "sidebar_select": "#E6ECE8",
+    "sidebar_ink": "#202825",
+    "sidebar_muted": "#707873",
+    "sidebar_line": "#DDE1DB",
+    "soft_blue": "#EEF2F0",
+    "soft_green": "#E8F0EB",
+    "soft_orange": "#F7ECE7",
+    "soft_gray": "#EFF0EC",
+    "soft_gold": "#F4EFE2",
+    "soft_lavender": "#F0EEF2",
+    "soft_cyan": "#E8EFEC",
+    "card_border": "#E0E3DE",
+    "shadow": "#ECEDE9",
 }
 
 NAV_BADGES = {
@@ -98,6 +101,26 @@ NAV_BADGES = {
     "checklists": "10",
     "guide": "11",
 }
+
+NAV_MARKERS = {
+    "dashboard": "HM",
+    "first7": "D7",
+    "specialties": "JT",
+    "tour": "WT",
+    "shift": "SB",
+    "quests": "SP",
+    "scenarios": "PC",
+    "english": "EN",
+    "sbar": "SR",
+    "checklists": "CL",
+    "guide": "GD",
+}
+
+NAV_GROUPS = [
+    ("start", ["dashboard", "first7", "tour"]),
+    ("practice", ["shift", "quests", "scenarios", "sbar", "english"]),
+    ("tools", ["specialties", "checklists", "guide"]),
+]
 
 
 def resource_path(*parts):
@@ -176,18 +199,18 @@ def configure_font_constants(root):
         "Malgun Gothic",
     ]
     FONT_FAMILY = next((family for family in preferred if family in installed), "Malgun Gothic")
-    FONT_NORMAL = font_spec(FONT_FAMILY, 11)
-    FONT_SMALL = font_spec(FONT_FAMILY, 10)
-    FONT_SMALL_BOLD = font_spec(FONT_FAMILY, 10, True)
-    FONT_TITLE = font_spec(FONT_FAMILY, 21, True)
-    FONT_CARD_TITLE = font_spec(FONT_FAMILY, 14, True)
-    FONT_SECTION = font_spec(FONT_FAMILY, 16, True)
-    FONT_SIDEBAR_TITLE = font_spec(FONT_FAMILY, 14, True)
-    FONT_METRIC = font_spec(FONT_FAMILY, 24, True)
-    FONT_BOLD = font_spec(FONT_FAMILY, 11, True)
-    FONT_HERO = font_spec(FONT_FAMILY, 27, True)
-    FONT_HERO_SMALL = font_spec(FONT_FAMILY, 12, True)
-    FONT_CHIP = font_spec(FONT_FAMILY, 9, True)
+    FONT_NORMAL = font_spec(FONT_FAMILY, 10)
+    FONT_SMALL = font_spec(FONT_FAMILY, 9)
+    FONT_SMALL_BOLD = font_spec(FONT_FAMILY, 9, True)
+    FONT_TITLE = font_spec(FONT_FAMILY, 19, True)
+    FONT_CARD_TITLE = font_spec(FONT_FAMILY, 12, True)
+    FONT_SECTION = font_spec(FONT_FAMILY, 14, True)
+    FONT_SIDEBAR_TITLE = font_spec(FONT_FAMILY, 13, True)
+    FONT_METRIC = font_spec(FONT_FAMILY, 22, True)
+    FONT_BOLD = font_spec(FONT_FAMILY, 10, True)
+    FONT_HERO = font_spec(FONT_FAMILY, 23, True)
+    FONT_HERO_SMALL = font_spec(FONT_FAMILY, 11, True)
+    FONT_CHIP = font_spec(FONT_FAMILY, 8, True)
     try:
         root.option_add("*Font", FONT_NORMAL)
     except tk.TclError:
@@ -2337,6 +2360,8 @@ FIRST_WEEK_DAYS = select_first_week_days(FIRST_WEEK_DAY_POOLS)
 class ScrollableFrame(ttk.Frame):
     def __init__(self, parent):
         super().__init__(parent)
+        self._layout_stage = None
+        self._layout_transaction = False
         self.canvas = tk.Canvas(self, bg=COLORS["bg"], highlightthickness=0)
         self.scrollbar = ttk.Scrollbar(self, orient="vertical", command=self.canvas.yview)
         self.inner = ttk.Frame(self.canvas, style="Page.TFrame")
@@ -2349,10 +2374,23 @@ class ScrollableFrame(ttk.Frame):
         self.canvas.bind_all("<MouseWheel>", self._on_mousewheel)
 
     def _on_configure(self, _event):
+        if self._layout_transaction:
+            return
         self.canvas.configure(scrollregion=self.canvas.bbox("all"))
 
     def _on_canvas_configure(self, event):
         self.canvas.itemconfigure(self.window_id, width=event.width)
+        if self._layout_stage is not None:
+            stage_id = self._layout_stage["window_id"]
+            self.canvas.itemconfigure(stage_id, width=event.width)
+            view_top = self.canvas.canvasy(0)
+            self.canvas.coords(
+                self._layout_stage["cover_id"],
+                0,
+                view_top,
+                event.width,
+                view_top + max(self.canvas.winfo_height(), 1),
+            )
 
     def _on_mousewheel(self, event):
         if self.winfo_ismapped():
@@ -2361,6 +2399,70 @@ class ScrollableFrame(ttk.Frame):
     def reset_scroll(self):
         self.canvas.update_idletasks()
         self.canvas.yview_moveto(0)
+
+    def begin_layout_stage(self):
+        """Build the next page behind the current one for an atomic swap."""
+        if self._layout_stage is not None:
+            raise RuntimeError("A page layout transaction is already active.")
+        if self.canvas.winfo_width() <= 1:
+            self.canvas.update_idletasks()
+        width = max(self.canvas.winfo_width(), 1)
+        height = max(self.canvas.winfo_height(), 1)
+        view_top = self.canvas.canvasy(0)
+        old_inner = self.inner
+        old_window_id = self.window_id
+        self._layout_transaction = True
+        staging = ttk.Frame(self.canvas, style="Page.TFrame")
+        staging.bind("<Configure>", self._on_configure)
+        # Keep staging inside the current viewport so Tk assigns real geometry
+        # even when the outgoing page is scrolled far down.
+        staging_id = self.canvas.create_window((0, view_top), window=staging, anchor="nw", width=width)
+        self.canvas.tag_lower(staging_id)
+        cover_id = self.canvas.create_rectangle(
+            0,
+            view_top,
+            width,
+            view_top + height,
+            fill=COLORS["bg"],
+            outline="",
+        )
+        self.canvas.tag_lower(cover_id, old_window_id)
+        self.inner = staging
+        self._layout_stage = {
+            "old_inner": old_inner,
+            "old_window_id": old_window_id,
+            "window_id": staging_id,
+            "cover_id": cover_id,
+        }
+        return staging
+
+    def commit_layout_stage(self):
+        stage = self._layout_stage
+        if stage is None:
+            return
+        self.window_id = stage["window_id"]
+        self.canvas.coords(self.window_id, 0, 0)
+        self.canvas.delete(stage["old_window_id"])
+        stage["old_inner"].destroy()
+        self.canvas.delete(stage["cover_id"])
+        self.canvas.tag_raise(self.window_id)
+        self._layout_stage = None
+        self._layout_transaction = False
+        self.canvas.configure(scrollregion=self.canvas.bbox("all"))
+        self.canvas.yview_moveto(0)
+
+    def rollback_layout_stage(self):
+        stage = self._layout_stage
+        if stage is None:
+            return
+        self.canvas.delete(stage["window_id"])
+        self.inner.destroy()
+        self.canvas.delete(stage["cover_id"])
+        self.inner = stage["old_inner"]
+        self.window_id = stage["old_window_id"]
+        self._layout_stage = None
+        self._layout_transaction = False
+        self.canvas.configure(scrollregion=self.canvas.bbox("all"))
 
 
 class WardSimulatorApp(tk.Tk):
@@ -2374,7 +2476,7 @@ class WardSimulatorApp(tk.Tk):
             pass
         self.bundled_font_paths = register_bundled_fonts()
         configure_font_constants(self)
-        self.geometry("1180x760")
+        self.geometry("1280x820")
         self.minsize(1180, 700)
         self.configure(bg=COLORS["bg"])
         self.language = tk.StringVar(value="ko")
@@ -2388,6 +2490,7 @@ class WardSimulatorApp(tk.Tk):
         self.scenario_score = 0
         self.first_week_day = 0
         self.first_week_answers = {}
+        self.first_week_choice_orders = {}
         self.last_first_week_effect = {}
         self.last_first_week_choice_best = None
         self.first_week_feedback = tk.StringVar(value=self.tx("첫날 장면을 보고 어떤 RN으로 행동할지 선택해보세요.", "Read the first-day scene and choose how you would act as the RN."))
@@ -2404,13 +2507,26 @@ class WardSimulatorApp(tk.Tk):
         self.english_drill = tk.StringVar(value="")
         self.check_vars = {}
         self.checklist_progress_labels = {}
+        self.check_var_state_keys = {}
+        self.checklist_state = {}
         self.debrief_note_fields = {}
+        self.debrief_drafts = {}
+        self.sbar_fields = {}
+        self.sbar_draft = {}
+        self.sbar_output_draft = ""
         self.images = {}
         self.asset_paths = {}
         self.small_images = {}
         self._setup_style()
         self._load_assets()
         self._build_shell()
+        self._responsive_wrap_job = None
+        self._responsive_wrap_update_all = True
+        self._responsive_wrap_canvas_width = 0
+        self._responsive_wrap_inner_width = 0
+        self._responsive_wrap_running = False
+        self._responsive_wrap_transaction = False
+        self._enable_responsive_wrapping()
         self.show_page("dashboard")
 
     def _set_language_data(self, code):
@@ -2516,8 +2632,9 @@ class WardSimulatorApp(tk.Tk):
             font=FONT_SMALL,
             padx=10,
             pady=7,
-            wraplength=1100,
+            wraplength=820,
             justify="left",
+            anchor="w",
         ).pack(fill="x", pady=(8, 0))
 
     def set_practice_role(self, role_key):
@@ -2604,27 +2721,85 @@ class WardSimulatorApp(tk.Tk):
         return tags or {"communication"}
 
     def set_language(self, code):
-        if self.language.get() == code:
+        global SHIFT_EVENTS, FIRST_WEEK_DAYS
+
+        old_code = self.language.get()
+        if old_code == code:
             return
+
+        old_content = EN_CONTENT if old_code == "en" else KO_CONTENT
+        new_content = EN_CONTENT if code == "en" else KO_CONTENT
+        old_tour_keys = list(old_content["tour_modes"].keys())
+        new_tour_keys = list(new_content["tour_modes"].keys())
+        old_scenario_keys = list(old_content["scenarios"].keys())
+        new_scenario_keys = list(new_content["scenarios"].keys())
+        old_tour_key = self.tour_mode.get()
+        old_scenario_key = self.scenario_name.get()
+        old_station_is_all = self.quest_station.get() == self.all_station_label()
+
+        tour_index = old_tour_keys.index(old_tour_key) if old_tour_key in old_tour_keys else 0
+        scenario_index = old_scenario_keys.index(old_scenario_key) if old_scenario_key in old_scenario_keys else 0
+
+        old_shift_pool = old_content.get("shift_event_pool", old_content["shift_events"])
+        shift_indices = []
+        for event in SHIFT_EVENTS:
+            try:
+                shift_indices.append(old_shift_pool.index(event))
+            except ValueError:
+                shift_indices = []
+                break
+
+        old_day_pools = old_content.get("first_week_day_pools", [[day] for day in old_content["first_week_days"]])
+        day_variant_indices = []
+        for day_index, day in enumerate(FIRST_WEEK_DAYS):
+            try:
+                day_variant_indices.append(old_day_pools[day_index].index(day))
+            except (IndexError, ValueError):
+                day_variant_indices = []
+                break
+
+        answer_indices = {}
+        for day_index, answer in self.first_week_answers.items():
+            if day_index >= len(FIRST_WEEK_DAYS):
+                continue
+            try:
+                answer_indices[day_index] = FIRST_WEEK_DAYS[day_index]["choices"].index(answer)
+            except ValueError:
+                continue
+
         self.language.set(code)
         self._set_language_data(code)
-        self.scenario_name.set(list(SCENARIOS.keys())[0])
-        self.tour_mode.set(list(TOUR_MODES.keys())[0])
-        self.quest_station.set(self.all_station_label())
-        self.quest_skill.set("all")
-        self.shift_index = 0
-        self.current_zone = "Nurse Station"
-        self.tour_step = 0
-        self.scenario_step = 0
-        self.scenario_score = 0
-        self.first_week_day = 0
-        self.first_week_answers = {}
-        self.last_first_week_effect = {}
-        self.last_first_week_choice_best = None
-        self.first_week_scores = dict(FIRST_WEEK_BASE_SCORES)
-        self.first_week_feedback.set(self.tx("첫날 장면을 보고 어떤 RN으로 행동할지 선택해보세요.", "Read the first-day scene and choose how you would act as the RN."))
-        self.tour_feedback.set(self.tx("구역을 클릭하거나 동선 선택을 시작해보세요.", "Click a zone or start a route decision."))
-        self.quest_feedback.set(self.tx("문항을 선택하면 이곳에 판단 근거가 표시됩니다.", "Select answers to see the reasoning here."))
+
+        new_shift_pool = new_content.get("shift_event_pool", new_content["shift_events"])
+        if shift_indices and all(index < len(new_shift_pool) for index in shift_indices):
+            SHIFT_EVENTS = [new_shift_pool[index] for index in shift_indices]
+
+        new_day_pools = new_content.get("first_week_day_pools", [[day] for day in new_content["first_week_days"]])
+        if day_variant_indices and len(day_variant_indices) == len(new_day_pools):
+            FIRST_WEEK_DAYS = [
+                pool[min(variant_index, len(pool) - 1)]
+                for pool, variant_index in zip(new_day_pools, day_variant_indices)
+            ]
+
+        self.tour_mode.set(new_tour_keys[min(tour_index, len(new_tour_keys) - 1)])
+        self.scenario_name.set(new_scenario_keys[min(scenario_index, len(new_scenario_keys) - 1)])
+        if old_station_is_all:
+            self.quest_station.set(self.all_station_label())
+
+        self.shift_index = min(self.shift_index, len(SHIFT_EVENTS))
+        self.tour_step = min(self.tour_step, len(TOUR_MODES[self.tour_mode.get()]["steps"]))
+        self.scenario_step = min(self.scenario_step, len(SCENARIOS[self.scenario_name.get()]["steps"]))
+        self.first_week_day = min(self.first_week_day, max(len(FIRST_WEEK_DAYS) - 1, 0))
+        self.first_week_answers = {
+            day_index: FIRST_WEEK_DAYS[day_index]["choices"][choice_index]
+            for day_index, choice_index in answer_indices.items()
+            if day_index < len(FIRST_WEEK_DAYS)
+            and choice_index < len(FIRST_WEEK_DAYS[day_index]["choices"])
+        }
+        self.first_week_choice_orders = {}
+        self.first_week_feedback.set(self.tx("언어를 바꿨습니다. 현재 첫 주 진행도는 그대로 유지됩니다.", "Language changed. Your current first-week progress is preserved."))
+        self.tour_feedback.set(self.tx("언어를 바꿨습니다. 현재 동선 진행도는 그대로 유지됩니다.", "Language changed. Your current route progress is preserved."))
+        self.quest_feedback.set(self.tx("언어를 바꿨습니다. 구역과 역량 필터를 유지했습니다.", "Language changed. Zone and skill filters are preserved."))
         self._refresh_shell_language()
         self.show_page(self.current_page_key)
 
@@ -2658,161 +2833,435 @@ class WardSimulatorApp(tk.Tk):
         style.configure("Title.TLabel", background=COLORS["bg"], foreground=COLORS["ink"], font=FONT_TITLE)
         style.configure("Subtitle.TLabel", background=COLORS["bg"], foreground=COLORS["muted"], font=FONT_NORMAL)
         style.configure("CardTitle.TLabel", background=COLORS["panel"], foreground=COLORS["ink"], font=FONT_CARD_TITLE)
-        style.configure("SidebarTitle.TLabel", background=COLORS["sidebar"], foreground=COLORS["primary"], font=FONT_SIDEBAR_TITLE)
-        style.configure("SidebarSub.TLabel", background=COLORS["sidebar"], foreground=COLORS["muted"], font=FONT_SMALL)
-        style.configure("TButton", background=COLORS["panel_alt"], foreground=COLORS["ink"], borderwidth=0, focusthickness=0, padding=(16, 11), font=FONT_BOLD)
-        style.map("TButton", background=[("active", "#E5E7EB"), ("pressed", "#D1D5DB")], foreground=[("active", COLORS["ink"])])
-        style.configure("Primary.TButton", background=COLORS["primary"], foreground="#ffffff", borderwidth=0, focusthickness=0, padding=(16, 10), font=FONT_BOLD)
-        style.map("Primary.TButton", background=[("active", COLORS["primary_dark"])], foreground=[("active", "#ffffff")])
-        style.configure("Accent.TButton", background=COLORS["accent"], foreground="#ffffff", borderwidth=0, padding=(16, 10), font=FONT_BOLD)
-        style.map("Accent.TButton", background=[("active", COLORS["accent_dark"])], foreground=[("active", "#ffffff")])
-        style.configure("Success.Horizontal.TProgressbar", troughcolor=COLORS["line"], background=COLORS["accent"], thickness=12)
+        style.configure("SidebarTitle.TLabel", background=COLORS["sidebar"], foreground=COLORS["sidebar_ink"], font=FONT_SIDEBAR_TITLE)
+        style.configure("SidebarSub.TLabel", background=COLORS["sidebar"], foreground=COLORS["sidebar_muted"], font=FONT_SMALL)
+        style.configure("TButton", background=COLORS["panel_alt"], foreground=COLORS["ink"], borderwidth=1, relief="flat", focusthickness=1, focuscolor=COLORS["primary"], padding=(12, 8), font=FONT_BOLD)
+        style.map("TButton", background=[("active", COLORS["soft_gray"]), ("pressed", COLORS["line"])], foreground=[("active", COLORS["ink"])])
+        style.configure("Primary.TButton", background=COLORS["primary"], foreground="#ffffff", borderwidth=0, focusthickness=1, focuscolor=COLORS["primary_dark"], padding=(13, 8), font=FONT_BOLD)
+        style.map("Primary.TButton", background=[("active", COLORS["primary_dark"]), ("pressed", COLORS["primary_dark"])], foreground=[("active", "#ffffff"), ("pressed", "#ffffff")])
+        style.configure("Accent.TButton", background=COLORS["accent"], foreground="#ffffff", borderwidth=0, focusthickness=1, focuscolor=COLORS["accent_dark"], padding=(13, 8), font=FONT_BOLD)
+        style.map("Accent.TButton", background=[("active", COLORS["accent_dark"]), ("pressed", COLORS["accent_dark"])], foreground=[("active", "#ffffff")])
+        style.configure("Success.Horizontal.TProgressbar", troughcolor=COLORS["line"], background=COLORS["primary"], thickness=12)
+        style.configure(
+            "Vertical.TScrollbar",
+            background=COLORS["soft_gray"],
+            troughcolor=COLORS["bg"],
+            bordercolor=COLORS["bg"],
+            arrowcolor=COLORS["muted"],
+            lightcolor=COLORS["soft_gray"],
+            darkcolor=COLORS["soft_gray"],
+            width=8,
+        )
+        style.map("Vertical.TScrollbar", background=[("active", COLORS["line_dark"]), ("pressed", COLORS["muted"])])
         style.configure("TCheckbutton", background=COLORS["panel"], foreground=COLORS["ink"], font=FONT_NORMAL)
         style.configure("TRadiobutton", background=COLORS["panel"], foreground=COLORS["ink"], font=FONT_NORMAL)
-        style.configure("TCombobox", fieldbackground=COLORS["panel_alt"], background=COLORS["panel_alt"], foreground=COLORS["ink"], arrowcolor=COLORS["accent"], bordercolor=COLORS["card_border"], padding=7)
+        style.configure("TCombobox", fieldbackground=COLORS["panel_alt"], background=COLORS["panel_alt"], foreground=COLORS["ink"], arrowcolor=COLORS["primary"], bordercolor=COLORS["card_border"], padding=5)
 
     def _build_shell(self):
-        self.sidebar = tk.Frame(self, bg=COLORS["sidebar"], width=300, highlightthickness=1, highlightbackground=COLORS["card_border"])
+        self.sidebar = tk.Frame(self, bg=COLORS["sidebar"], width=240, highlightthickness=0)
         self.sidebar.pack(side="left", fill="y")
         self.sidebar.pack_propagate(False)
 
         header = tk.Frame(self.sidebar, bg=COLORS["sidebar"])
-        header.pack(fill="x", padx=20, pady=(18, 12))
-        self.sidebar_brand_1 = tk.Label(header, text="U.S. Ward", bg=COLORS["sidebar"], fg=COLORS["primary"], font=FONT_TITLE)
-        self.sidebar_brand_1.pack(anchor="w")
-        self.sidebar_brand_2 = tk.Label(header, text="Experience Lab", bg=COLORS["sidebar"], fg=COLORS["muted"], font=FONT_SIDEBAR_TITLE)
-        self.sidebar_brand_2.pack(anchor="w")
-        self.sidebar_tagline = tk.Label(
+        header.pack(fill="x", padx=15, pady=(10, 5))
+        brand_mark = tk.Label(
             header,
-            text="첫 7일 적응 시뮬레이터",
-            bg=COLORS["soft_cyan"],
-            fg=COLORS["accent_dark"],
+            text="UW",
+            bg=COLORS["ink"],
+            fg="#ffffff",
             font=FONT_CHIP,
-            padx=10,
-            pady=5,
+            width=3,
+            height=1,
         )
-        self.sidebar_tagline.pack(anchor="w", pady=(11, 0))
+        brand_mark.pack(side="left", padx=(0, 9), ipadx=2, ipady=6)
+        brand_copy = tk.Frame(header, bg=COLORS["sidebar"])
+        brand_copy.pack(side="left", fill="x", expand=True)
+        self.sidebar_brand_1 = tk.Label(brand_copy, text="U.S. Ward", bg=COLORS["sidebar"], fg=COLORS["sidebar_ink"], font=FONT_SIDEBAR_TITLE)
+        self.sidebar_brand_1.pack(anchor="w")
+        self.sidebar_brand_2 = tk.Label(brand_copy, text="Experience Lab", bg=COLORS["sidebar"], fg=COLORS["sidebar_muted"], font=FONT_SMALL_BOLD)
+        self.sidebar_brand_2.pack(anchor="w", pady=(1, 0))
+        self.sidebar_tagline = tk.Label(
+            self.sidebar,
+            text="첫 7일 적응 시뮬레이터",
+            bg=COLORS["sidebar"],
+            fg=COLORS["sidebar_muted"],
+            font=FONT_CHIP,
+            anchor="w",
+        )
+        # Kept for language refresh; the compact shell lets the progress card carry this context.
 
-        status = tk.Frame(self.sidebar, bg=COLORS["sidebar_alt"], highlightthickness=1, highlightbackground=COLORS["card_border"])
-        status.pack(fill="x", padx=16, pady=(0, 10))
-        self.status_mode_label = tk.Label(status, text="RN LANDING MODE", bg=COLORS["sidebar_alt"], fg=COLORS["accent_dark"], font=FONT_CHIP)
-        self.status_mode_label.pack(anchor="w", padx=12, pady=(10, 2))
-        self.status_day_label = tk.Label(status, text="Day 1-7", bg=COLORS["sidebar_alt"], fg=COLORS["primary"], font=FONT_CARD_TITLE)
-        self.status_day_label.pack(anchor="w", padx=12)
-        self.status_version_label = tk.Label(status, text=APP_VERSION, bg=COLORS["sidebar_alt"], fg=COLORS["accent_dark"], font=FONT_SMALL_BOLD)
-        self.status_version_label.pack(anchor="w", padx=12, pady=(1, 0))
-        self.status_flow_label = tk.Label(status, text="보고 · 선택 · 디브리핑", bg=COLORS["sidebar_alt"], fg=COLORS["muted"], font=FONT_SMALL)
-        self.status_flow_label.pack(anchor="w", padx=12, pady=(2, 8))
-        self.status_progress_title = tk.Label(status, text="진행 상태", bg=COLORS["sidebar_alt"], fg=COLORS["muted"], font=FONT_CHIP)
-        self.status_progress_title.pack(anchor="w", padx=12, pady=(2, 1))
-        self.status_progress_label = tk.Label(status, text="Day 1 / 7", bg=COLORS["sidebar_alt"], fg=COLORS["primary"], font=FONT_SMALL_BOLD)
-        self.status_progress_label.pack(anchor="w", padx=12)
-        self.status_progress_bar = tk.Canvas(status, height=16, bg=COLORS["sidebar_alt"], highlightthickness=0)
-        self.status_progress_bar.pack(fill="x", padx=12, pady=(4, 4))
-        self.status_completed_label = tk.Label(status, text="완료 장면 0 / 7", bg=COLORS["sidebar_alt"], fg=COLORS["muted"], font=FONT_SMALL)
-        self.status_completed_label.pack(anchor="w", padx=12, pady=(0, 2))
-        self.status_risk_label = tk.Label(status, text="아직 선택 전", bg=COLORS["sidebar_alt"], fg=COLORS["muted"], font=FONT_CHIP)
-        self.status_risk_label.pack(anchor="w", padx=12, pady=(0, 10))
+        self.sidebar_start_button = tk.Button(
+            self.sidebar,
+            text="＋  오늘 리허설 시작",
+            command=lambda: self.show_page("first7"),
+            bg=COLORS["panel"],
+            fg=COLORS["ink"],
+            activebackground=COLORS["sidebar_select"],
+            activeforeground=COLORS["primary_dark"],
+            relief="flat",
+            borderwidth=0,
+            highlightthickness=1,
+            highlightbackground=COLORS["sidebar_line"],
+            cursor="hand2",
+            font=FONT_SMALL_BOLD,
+            anchor="w",
+            padx=11,
+            pady=7,
+        )
+        self.sidebar_start_button.pack(fill="x", padx=15, pady=(0, 6))
 
-        lang = tk.Frame(self.sidebar, bg=COLORS["sidebar"])
-        lang.pack(fill="x", padx=16, pady=(0, 10))
-        self.language_label = tk.Label(lang, text="언어 선택", bg=COLORS["sidebar"], fg=COLORS["muted"], font=FONT_CHIP)
-        self.language_label.pack(anchor="w", pady=(0, 6))
-        lang_buttons = tk.Frame(lang, bg=COLORS["sidebar"])
-        lang_buttons.pack(fill="x")
-        for code, label in [("ko", "한국어"), ("en", "English")]:
-            button = tk.Button(
-                lang_buttons,
-                text=label,
-                command=lambda lang_code=code: self.set_language(lang_code),
-                relief="flat",
-                borderwidth=0,
-                cursor="hand2",
-                font=FONT_SMALL_BOLD,
-                padx=10,
-                pady=8,
-            )
-            button.pack(side="left", fill="x", expand=True, padx=(0, 5 if code == "ko" else 0))
-            self.lang_buttons[code] = button
+        status = tk.Frame(self.sidebar, bg=COLORS["sidebar"], highlightthickness=0)
+        status.pack(fill="x", padx=15, pady=(0, 3))
+        status_top = tk.Frame(status, bg=COLORS["sidebar"])
+        status_top.pack(fill="x", pady=(2, 0))
+        self.status_mode_label = tk.Label(status_top, text="FIRST WEEK", bg=COLORS["sidebar"], fg=COLORS["primary"], font=FONT_CHIP)
+        self.status_mode_label.pack(side="left")
+        self.status_progress_label = tk.Label(status_top, text="Day 1 / 7", bg=COLORS["sidebar"], fg=COLORS["sidebar_ink"], font=FONT_SMALL_BOLD)
+        self.status_progress_label.pack(side="right")
+        self.status_day_label = tk.Label(status, text="Day 1-7", bg=COLORS["sidebar"], fg=COLORS["sidebar_ink"], font=FONT_CARD_TITLE)
+        self.status_flow_label = tk.Label(status, text="보고 · 선택 · 디브리핑", bg=COLORS["sidebar"], fg=COLORS["sidebar_muted"], font=FONT_SMALL)
+        self.status_progress_title = tk.Label(status, text="진행 상태", bg=COLORS["sidebar"], fg=COLORS["sidebar_muted"], font=FONT_CHIP)
+        self.status_progress_bar = tk.Canvas(status, height=9, bg=COLORS["sidebar"], highlightthickness=0)
+        self.status_progress_bar.pack(fill="x", pady=(3, 1))
+        status_bottom = tk.Frame(status, bg=COLORS["sidebar"])
+        status_bottom.pack(fill="x", pady=(0, 2))
+        self.status_completed_label = tk.Label(status_bottom, text="완료 0 / 7", bg=COLORS["sidebar"], fg=COLORS["sidebar_muted"], font=FONT_CHIP)
+        self.status_completed_label.pack(side="left")
+        self.status_risk_label = tk.Label(status_bottom, text="시작 전", bg=COLORS["sidebar"], fg=COLORS["sidebar_muted"], font=FONT_CHIP)
+        self.status_risk_label.pack(side="right")
+        tk.Frame(self.sidebar, bg=COLORS["sidebar_line"], height=1).pack(fill="x", padx=15, pady=(1, 3))
 
-        nav = tk.Frame(self.sidebar, bg=COLORS["sidebar"])
-        nav.pack(fill="x", padx=14, pady=(0, 8))
+        nav_shell = tk.Frame(self.sidebar, bg=COLORS["sidebar"])
+        nav_shell.pack(fill="both", expand=True, padx=(10, 7), pady=(0, 3))
+        self.nav_canvas = tk.Canvas(
+            nav_shell,
+            bg=COLORS["sidebar"],
+            highlightthickness=0,
+            borderwidth=0,
+            yscrollincrement=1,
+        )
+        self.nav_scrollbar = ttk.Scrollbar(
+            nav_shell,
+            orient="vertical",
+            command=self.nav_canvas.yview,
+        )
+        self.nav_scrollbar.pack(side="right", fill="y")
+        self.nav_canvas.pack(side="left", fill="both", expand=True)
+        self.nav_canvas.configure(yscrollcommand=self.nav_scrollbar.set)
+        nav = tk.Frame(self.nav_canvas, bg=COLORS["sidebar"])
+        self.nav_window_id = self.nav_canvas.create_window((0, 0), window=nav, anchor="nw")
+
+        def update_nav_region(_event=None):
+            self.nav_canvas.configure(scrollregion=self.nav_canvas.bbox("all"))
+
+        def fit_nav_width(event):
+            self.nav_canvas.itemconfigure(self.nav_window_id, width=event.width)
+
+        def scroll_nav(event):
+            if event.delta:
+                direction = -1 if event.delta > 0 else 1
+                self.nav_canvas.yview_scroll(direction * 54, "units")
+            return "break"
+
+        def bind_nav_scroll(widget):
+            widget.bind("<MouseWheel>", scroll_nav)
+            for child in widget.winfo_children():
+                bind_nav_scroll(child)
+
+        nav.bind("<Configure>", update_nav_region)
+        self.nav_canvas.bind("<Configure>", fit_nav_width)
+        self.nav_canvas.bind("<MouseWheel>", scroll_nav)
         self.nav_buttons = {}
-        for key, label in NAV_ITEMS:
-            row = tk.Button(
+        self.nav_group_labels = {}
+        labels = dict(NAV_ITEMS)
+        nav_icons = {
+            "dashboard": "⌂",
+            "first7": "7",
+            "tour": "⌖",
+            "shift": "▤",
+            "quests": "✦",
+            "scenarios": "▣",
+            "sbar": "↗",
+            "english": "A",
+            "specialties": "◎",
+            "checklists": "✓",
+            "guide": "?",
+        }
+
+        def bind_nav_hover(widget, page_key):
+            widget.bind("<Enter>", lambda _event: self._hover_nav_button(page_key, True))
+            widget.bind("<Leave>", lambda _event: self._hover_nav_button(page_key, False))
+            for child in widget.winfo_children():
+                bind_nav_hover(child, page_key)
+
+        for group_key, keys in NAV_GROUPS:
+            group_label = tk.Label(
                 nav,
-                text=f"{NAV_BADGES.get(key, '  ')}   {label}",
-                command=lambda page_key=key: self.show_page(page_key),
+                text=group_key,
                 bg=COLORS["sidebar"],
-                fg=COLORS["muted"],
-                activebackground=COLORS["sidebar_alt"],
-                activeforeground=COLORS["primary"],
-                relief="flat",
-                borderwidth=0,
-                cursor="hand2",
+                fg=COLORS["sidebar_muted"],
+                font=FONT_SMALL_BOLD,
                 anchor="w",
-                font=FONT_BOLD if key == "first7" else FONT_NORMAL,
-                padx=14,
-                pady=6,
             )
-            row.pack(fill="x", pady=1)
-            row.bind("<Enter>", lambda _event, page_key=key: self._hover_nav_button(page_key, True))
-            row.bind("<Leave>", lambda _event, page_key=key: self._hover_nav_button(page_key, False))
-            self.nav_buttons[key] = row
+            group_label.pack(fill="x", padx=9, pady=(7 if group_key != "start" else 3, 3))
+            self.nav_group_labels[group_key] = group_label
+            for key in keys:
+                row = tk.Frame(nav, bg=COLORS["sidebar"], height=56, cursor="hand2")
+                row.pack(fill="x", padx=(0, 2), pady=1)
+                row.pack_propagate(False)
+                bar = tk.Frame(row, bg=COLORS["sidebar"], width=2, height=56)
+                bar.pack(side="left", fill="y")
+                marker = tk.Label(
+                    row,
+                    text=nav_icons.get(key, NAV_MARKERS.get(key, "")),
+                    bg=COLORS["sidebar_alt"],
+                    fg=COLORS["sidebar_muted"],
+                    font=FONT_SMALL_BOLD,
+                    width=2,
+                    padx=3,
+                    pady=4,
+                    cursor="hand2",
+                )
+                marker.pack(side="left", padx=(7, 7), pady=13)
+                copy = tk.Frame(row, bg=COLORS["sidebar"], cursor="hand2")
+                label_widget = tk.Label(
+                    copy,
+                    text=labels.get(key, key),
+                    bg=COLORS["sidebar"],
+                    fg=COLORS["sidebar_ink"],
+                    font=FONT_SMALL_BOLD,
+                    anchor="w",
+                    cursor="hand2",
+                )
+                label_widget.pack(fill="x")
+                description = tk.Label(
+                    copy,
+                    text="",
+                    bg=COLORS["sidebar"],
+                    fg=COLORS["sidebar_muted"],
+                    font=FONT_CHIP,
+                    anchor="w",
+                    cursor="hand2",
+                )
+                description.pack(fill="x", pady=(1, 0))
+                status_dot = tk.Label(
+                    row,
+                    text="●",
+                    bg=COLORS["sidebar"],
+                    fg=COLORS["line_dark"],
+                    font=FONT_CHIP,
+                    cursor="hand2",
+                )
+                status_dot.pack(side="right", padx=(3, 7))
+                copy.pack(side="left", fill="both", expand=True, pady=(7, 5))
+                self._bind_clickable(row, lambda page_key=key: self.show_page(page_key))
+                bind_nav_hover(row, key)
+                bind_nav_scroll(row)
+                self.nav_buttons[key] = {
+                    "frame": row,
+                    "bar": bar,
+                    "marker": marker,
+                    "copy": copy,
+                    "label": label_widget,
+                    "description": description,
+                    "status": status_dot,
+                }
+
+        # Gives the final row enough scroll runway to align to a clean row
+        # boundary while remaining fully visible above the fixed footer.
+        tk.Frame(nav, bg=COLORS["sidebar"], height=24).pack(fill="x")
+
+        bind_nav_scroll(nav)
+
+        def ensure_nav_visible(page_key):
+            widgets = self.nav_buttons.get(page_key)
+            if not widgets:
+                return
+            self.nav_canvas.update_idletasks()
+            region = self.nav_canvas.bbox("all")
+            if not region or region[3] <= self.nav_canvas.winfo_height():
+                return
+            row = widgets["frame"]
+            row_top = row.winfo_y()
+            row_bottom = row_top + row.winfo_height()
+            viewport_height = self.nav_canvas.winfo_height()
+            visible_top = self.nav_canvas.canvasy(0)
+            visible_bottom = visible_top + viewport_height
+            target = None
+            if row_bottom <= viewport_height:
+                target = 0
+            elif row_top < visible_top:
+                target = row_top
+            elif row_bottom > visible_bottom:
+                target = max(0, row_bottom - viewport_height)
+            if target is None:
+                return
+            # Land on a group or row boundary so the viewport never starts with
+            # an orphaned description line from the preceding navigation item.
+            boundaries = [0]
+            boundaries.extend(label.winfo_y() for label in self.nav_group_labels.values())
+            boundaries.extend(item["frame"].winfo_y() for item in self.nav_buttons.values())
+            snapped = min((point for point in boundaries if point >= target), default=target)
+            max_offset = max(0, region[3] - viewport_height)
+            self.nav_canvas.yview_moveto(min(snapped, max_offset) / region[3])
+
+        self._ensure_nav_visible = ensure_nav_visible
 
         footer = tk.Frame(self.sidebar, bg=COLORS["sidebar"])
-        footer.pack(side="bottom", fill="x", padx=20, pady=12)
-        self.footer_title = tk.Label(footer, text="교육용 시뮬레이션", bg=COLORS["sidebar"], fg=COLORS["primary"], font=FONT_SMALL_BOLD)
-        self.footer_title.pack(anchor="w")
-        self.footer_note = tk.Label(footer, text="기관 정책과 state scope는 별도 확인", bg=COLORS["sidebar"], fg=COLORS["muted"], font=FONT_SMALL, wraplength=250, justify="left")
-        self.footer_note.pack(anchor="w", pady=(4, 0))
-        self.feedback_note = tk.Label(footer, text="베타 테스트 후 짧은 피드백을 남겨주세요.", bg=COLORS["sidebar"], fg=COLORS["muted"], font=FONT_SMALL, wraplength=250, justify="left")
-        self.feedback_note.pack(anchor="w", pady=(10, 6))
+        footer.pack(side="bottom", fill="x", padx=14, pady=(1, 6))
+        tk.Frame(footer, bg=COLORS["sidebar_line"], height=1).pack(fill="x", pady=(0, 4))
+        lang = tk.Frame(footer, bg=COLORS["sidebar"])
+        lang.pack(fill="x", pady=(0, 3))
+        self.language_label = tk.Label(lang, text="언어", bg=COLORS["sidebar"], fg=COLORS["sidebar_muted"], font=FONT_CHIP)
+        self.language_label.pack(side="left", padx=(2, 7))
+        for code, label in [("ko", "한국어"), ("en", "EN")]:
+            button = tk.Button(lang, text=label, command=lambda lang_code=code: self.set_language(lang_code), relief="flat", borderwidth=0, cursor="hand2", font=FONT_CHIP, padx=8, pady=3)
+            button.pack(side="left", padx=(0, 4))
+            self.lang_buttons[code] = button
+        self.status_version_label = tk.Label(lang, text=APP_VERSION, bg=COLORS["sidebar"], fg=COLORS["sidebar_muted"], font=FONT_CHIP)
+        self.footer_title = tk.Label(footer, text="교육용 시뮬레이션", bg=COLORS["sidebar"], fg=COLORS["sidebar_muted"], font=FONT_CHIP)
+        self.footer_note = tk.Label(footer, text="기관 정책과 state scope는 별도 확인", bg=COLORS["sidebar"], fg=COLORS["sidebar_muted"], font=FONT_CHIP, wraplength=200, justify="left")
+        self.feedback_note = tk.Label(footer, text="", bg=COLORS["sidebar"], fg=COLORS["sidebar_muted"], font=FONT_CHIP)
         self.feedback_button = tk.Button(
             footer,
             text="피드백 남기기",
             command=self.open_feedback_form,
-            bg=COLORS["soft_cyan"],
+            bg=COLORS["panel"],
             fg=COLORS["ink"],
-            activebackground=COLORS["panel_alt"],
-            activeforeground=COLORS["ink"],
+            activebackground=COLORS["sidebar_alt"],
+            activeforeground=COLORS["sidebar_ink"],
             relief="flat",
             borderwidth=0,
+            highlightthickness=1,
+            highlightbackground=COLORS["sidebar_line"],
             cursor="hand2",
-            font=FONT_SMALL_BOLD,
-            padx=12,
-            pady=7,
+            font=FONT_CHIP,
+            padx=10,
+            pady=4,
         )
-        self.feedback_button.pack(fill="x", pady=(0, 8))
-        self.footer_copyright = tk.Label(footer, text="Copyright darkha123@gmail.com", bg=COLORS["sidebar"], fg=COLORS["muted"], font=FONT_CHIP, wraplength=250, justify="left")
-        self.footer_copyright.pack(anchor="w", pady=(10, 0))
+        self.feedback_button.pack(fill="x")
+        self.footer_copyright = tk.Label(footer, text="", bg=COLORS["sidebar"], fg=COLORS["sidebar_muted"], font=FONT_CHIP)
 
-        self.page = ScrollableFrame(self)
-        self.page.pack(side="right", fill="both", expand=True)
+        self.workspace = tk.Frame(self, bg=COLORS["bg"])
+        self.workspace.pack(side="right", fill="both", expand=True)
+
+        self.topbar = tk.Frame(self.workspace, bg=COLORS["panel"], height=50, highlightthickness=0)
+        self.topbar.pack(side="top", fill="x")
+        self.topbar.pack_propagate(False)
+        topbar_left = tk.Frame(self.topbar, bg=COLORS["panel"])
+        topbar_left.pack(side="left", fill="y", padx=(18, 10))
+        self.topbar_work_label = tk.Label(
+            topbar_left,
+            text="CURRENT WORK · Home",
+            bg=COLORS["panel"],
+            fg=COLORS["ink"],
+            font=FONT_SMALL_BOLD,
+        )
+        self.topbar_work_label.pack(side="left", pady=15)
+
+        topbar_right = tk.Frame(self.topbar, bg=COLORS["panel"])
+        topbar_right.pack(side="right", padx=(10, 18), pady=10)
+        self.topbar_role_label = tk.Label(topbar_right, text="Staff RN", bg=COLORS["panel_alt"], fg=COLORS["ink"], font=FONT_CHIP, padx=9, pady=4)
+        self.topbar_role_label.pack(side="left", padx=(0, 8))
+        self.topbar_version_label = tk.Label(topbar_right, text=APP_VERSION, bg=COLORS["panel"], fg=COLORS["muted"], font=FONT_CHIP)
+        self.topbar_version_label.pack(side="left")
+
+        topbar_status = tk.Frame(self.topbar, bg=COLORS["panel"])
+        topbar_status.pack(side="right", fill="x", expand=True, pady=15)
+        self.topbar_status_labels = []
+        for dot_color, text_value in [
+            (COLORS["success"], "Local practice"),
+            (COLORS["success"], "Synthetic cases"),
+            (COLORS["accent"], "No real PHI"),
+        ]:
+            label = tk.Label(topbar_status, text=f"●  {text_value}", bg=COLORS["panel"], fg=dot_color, font=FONT_CHIP)
+            label.pack(side="left", padx=8)
+            self.topbar_status_labels.append(label)
+
+        tk.Frame(self.workspace, bg=COLORS["line"], height=1).pack(side="top", fill="x")
+        self.page = ScrollableFrame(self.workspace)
+        self.page.pack(side="top", fill="both", expand=True)
         self._refresh_shell_language()
 
     def _refresh_shell_language(self):
         if not hasattr(self, "nav_buttons"):
             return
         self.sidebar_tagline.configure(text=self.tx("첫 7일 적응 시뮬레이터", "First-week adaptation simulator"))
+        self.status_mode_label.configure(text=self.tx("첫 주 진행", "FIRST WEEK"))
         self.status_flow_label.configure(text=self.tx("보고 · 선택 · 디브리핑", "Observe · Decide · Debrief"))
         self.status_version_label.configure(text=APP_VERSION)
         self.status_progress_title.configure(text=self.tx("진행 상태", "Progress"))
-        self.language_label.configure(text=self.tx("언어 선택", "Language"))
+        self.language_label.configure(text=self.tx("언어", "Language"))
         self.footer_title.configure(text=self.tx("교육용 시뮬레이션", "Educational simulation"))
         self.footer_note.configure(text=self.tx("기관 정책과 state scope는 별도 확인", "Verify facility policy and state scope separately."))
         self.feedback_note.configure(text=self.tx("베타 테스트 후 짧은 피드백을 남겨주세요.", "Please leave short beta feedback."))
         self.feedback_button.configure(text=self.tx("피드백 남기기", "Send Feedback"))
+        self.sidebar_start_button.configure(text=self.tx("＋  오늘 리허설 시작", "＋  Start rehearsal"))
         self.footer_copyright.configure(text="Copyright darkha123@gmail.com")
+        if hasattr(self, "topbar_work_label"):
+            current_labels = dict(NAV_ITEMS)
+            current_page = current_labels.get(self.current_page_key, self.current_page_key)
+            self.topbar_work_label.configure(
+                text=self.tx(f"현재 업무 · {current_page}", f"Current work · {current_page}")
+            )
+            status_copy = (
+                ["로컬 연습", "합성 사례", "실제 PHI 금지"]
+                if not self.is_english()
+                else ["Local practice", "Synthetic cases", "No real PHI"]
+            )
+            status_colors = [COLORS["success"], COLORS["success"], COLORS["accent"]]
+            for label, copy, color in zip(self.topbar_status_labels, status_copy, status_colors):
+                label.configure(text=f"●  {copy}", fg=color)
+            self.topbar_role_label.configure(text=self.role_label())
+            self.topbar_version_label.configure(text=APP_VERSION)
+        group_copy = {
+            "start": self.tx("시작하기", "Get started"),
+            "practice": self.tx("실전 연습", "Practice lab"),
+            "tools": self.tx("준비 도구", "Readiness tools"),
+        }
+        nav_descriptions = {
+            "dashboard": self.tx("오늘 학습 한눈에", "Today's overview"),
+            "first7": self.tx("첫 주 장면 연습", "First-week scenes"),
+            "tour": self.tx("병동 동선 익히기", "Learn unit routes"),
+            "shift": self.tx("근무 흐름 따라가기", "Follow a shift"),
+            "quests": self.tx("짧은 판단 훈련", "Quick decisions"),
+            "scenarios": self.tx("환자 변화 대응", "Respond to changes"),
+            "sbar": self.tx("안전한 보고 구성", "Build a safe report"),
+            "english": self.tx("병동 표현 말하기", "Ward phrases"),
+            "specialties": self.tx("역할별 책임 비교", "Compare RN roles"),
+            "checklists": self.tx("나의 준비도 확인", "Check readiness"),
+            "guide": self.tx("정책·안전 참고", "Policy and safety"),
+        }
+        nav_titles = {
+            "dashboard": self.tx("오늘의 홈", "Home"),
+            "first7": self.tx("첫 7일 적응", "First 7 Days"),
+            "tour": self.tx("병동 둘러보기", "Ward Tour"),
+            "shift": self.tx("근무 흐름", "Shift Flow"),
+            "quests": self.tx("상황 판단", "Decision Lab"),
+            "scenarios": self.tx("환자 케이스", "Patient Cases"),
+            "sbar": self.tx("SBAR 보고", "SBAR Reporting"),
+            "english": self.tx("병동 영어", "Ward English"),
+            "specialties": self.tx("직무별 가이드", "Role Guide"),
+            "checklists": self.tx("준비 체크", "Readiness Check"),
+            "guide": self.tx("안전·운영 안내", "Safety Guide"),
+        }
+        for group_key, widget in self.nav_group_labels.items():
+            widget.configure(text=group_copy[group_key])
         for key, label in NAV_ITEMS:
             if key in self.nav_buttons:
-                self.nav_buttons[key].configure(text=f"{NAV_BADGES.get(key, '  ')}   {label}")
+                self.nav_buttons[key]["label"].configure(text=nav_titles.get(key, label))
+                self.nav_buttons[key]["description"].configure(text=nav_descriptions.get(key, ""))
         for code, button in self.lang_buttons.items():
             selected = self.language.get() == code
             button.configure(
-                bg=COLORS["primary"] if selected else COLORS["sidebar_alt"],
-                fg="#ffffff" if selected else COLORS["muted"],
-                activebackground=COLORS["primary_dark"] if selected else COLORS["panel_alt"],
+                bg=COLORS["soft_green"] if selected else COLORS["sidebar_alt"],
+                fg=COLORS["primary_dark"] if selected else COLORS["sidebar_muted"],
+                activebackground=COLORS["sidebar_select"],
+                activeforeground=COLORS["primary_dark"] if selected else COLORS["sidebar_ink"],
+            )
+        if hasattr(self, "nav_canvas"):
+            self.nav_canvas.after_idle(
+                lambda: self.nav_canvas.configure(scrollregion=self.nav_canvas.bbox("all"))
             )
         self._update_sidebar_progress()
 
@@ -2823,29 +3272,29 @@ class WardSimulatorApp(tk.Tk):
         completed = len(self.first_week_answers)
         day_no = min(self.first_week_day + 1, total)
         self.status_progress_label.configure(text=self.tx(f"Day {day_no} / {total}", f"Day {day_no} / {total}"))
-        self.status_completed_label.configure(text=self.tx(f"완료 장면 {completed} / {total}", f"Completed {completed} / {total}"))
+        self.status_completed_label.configure(text=self.tx(f"완료 {completed} / {total}", f"Done {completed} / {total}"))
         if self.last_first_week_choice_best is True:
-            risk_text = self.tx("최근 선택: 안전 흐름", "Latest: safe workflow")
+            risk_text = self.tx("안전 흐름", "Safe")
             risk_bg = COLORS["soft_green"]
             risk_fg = COLORS["success_dark"]
         elif self.last_first_week_choice_best is False:
-            risk_text = self.tx("최근 선택: 리스크 있음", "Latest: risk to review")
+            risk_text = self.tx("복습 필요", "Review")
             risk_bg = COLORS["soft_orange"]
             risk_fg = COLORS["danger"]
         else:
-            risk_text = self.tx("아직 선택 전", "No choice yet")
-            risk_bg = COLORS["sidebar_alt"]
-            risk_fg = COLORS["muted"]
+            risk_text = self.tx("시작 전", "Not started")
+            risk_bg = COLORS["sidebar"]
+            risk_fg = COLORS["sidebar_muted"]
         self.status_risk_label.configure(text=risk_text, bg=risk_bg, fg=risk_fg, padx=7, pady=3)
         canvas = self.status_progress_bar
 
         def draw(_event=None):
             width = max(canvas.winfo_width(), 160)
             canvas.delete("all")
-            self.rounded_rect(canvas, 0, 4, width, 12, 4, fill=COLORS["line"], outline="")
+            self.rounded_rect(canvas, 0, 4, width, 9, 2, fill=COLORS["sidebar_line"], outline="")
             fill_w = int(width * completed / total)
             if fill_w:
-                self.rounded_rect(canvas, 0, 4, max(fill_w, 8), 12, 4, fill=COLORS["accent"], outline="")
+                self.rounded_rect(canvas, 0, 4, max(fill_w, 8), 9, 2, fill=COLORS["primary"], outline="")
 
         canvas.bind("<Configure>", draw)
         canvas.after_idle(draw)
@@ -2859,45 +3308,146 @@ class WardSimulatorApp(tk.Tk):
         key = NAV_ITEMS[selection[0]][0]
         self.show_page(key)
 
-    def show_page(self, key):
-        self.current_page_key = key
-        for child in self.page.inner.winfo_children():
-            child.destroy()
-        for nav_key, button in getattr(self, "nav_buttons", {}).items():
-            selected = nav_key == key
-            button.configure(
-                bg=COLORS["sidebar_select"] if selected else COLORS["sidebar"],
-                fg=COLORS["primary"] if selected else COLORS["muted"],
-                font=FONT_BOLD if selected or nav_key == "first7" else FONT_NORMAL,
+    def _apply_page_shell_state(self, key):
+        labels = dict(NAV_ITEMS)
+        if hasattr(self, "topbar_work_label"):
+            page_name = labels.get(key, key)
+            self.topbar_work_label.configure(
+                text=self.tx(f"현재 업무 · {page_name}", f"Current work · {page_name}")
             )
-        render = getattr(self, f"_render_{key}")
-        render()
-        self._update_sidebar_progress()
-        self.page.reset_scroll()
+            self.topbar_role_label.configure(text=self.role_label())
+        for nav_key, widgets in getattr(self, "nav_buttons", {}).items():
+            selected = nav_key == key
+            bg = COLORS["sidebar_select"] if selected else COLORS["sidebar"]
+            marker_bg = COLORS["soft_green"] if selected else COLORS["sidebar_alt"]
+            widgets["frame"].configure(bg=bg)
+            widgets["bar"].configure(bg=COLORS["primary"] if selected else bg)
+            widgets["marker"].configure(
+                bg=marker_bg,
+                fg=COLORS["primary_dark"] if selected else COLORS["sidebar_muted"],
+            )
+            widgets["copy"].configure(bg=bg)
+            widgets["label"].configure(
+                bg=bg,
+                fg=COLORS["primary_dark"] if selected else COLORS["sidebar_ink"],
+                font=FONT_SMALL_BOLD,
+            )
+            widgets["description"].configure(bg=bg, fg=COLORS["sidebar_muted"])
+            widgets["status"].configure(
+                bg=bg,
+                fg=COLORS["primary"] if selected else COLORS["accent"],
+            )
+
+    def show_page(self, key):
+        self._capture_page_state(getattr(self, "current_page_key", ""))
+        previous_key = getattr(self, "current_page_key", "dashboard")
+        self._cancel_responsive_wrap_job()
+        staging = self.page.begin_layout_stage()
+        self._responsive_wrap_transaction = True
+        self._bind_responsive_inner(staging)
+        committed = False
+        try:
+            self.current_page_key = key
+            self._apply_page_shell_state(key)
+            render = getattr(self, f"_render_{key}")
+            render()
+            self._update_sidebar_progress()
+            self._stabilize_responsive_wraps(max_passes=6)
+            self.page.commit_layout_stage()
+            committed = True
+            self._responsive_wrap_inner_width = self.page.inner.winfo_width()
+            if hasattr(self, "_ensure_nav_visible"):
+                self._ensure_nav_visible(key)
+            # Flush only final-state painting; no geometry-changing work remains.
+            self.update_idletasks()
+        finally:
+            self._responsive_wrap_transaction = False
+            if not committed:
+                self._responsive_wrap_update_all = False
+                self.current_page_key = previous_key
+                self.page.rollback_layout_stage()
+                self._apply_page_shell_state(previous_key)
+
+    def _capture_page_state(self, key):
+        if key == "sbar" and getattr(self, "sbar_fields", None):
+            self.sbar_draft = {
+                name: field.get("1.0", "end").strip()
+                for name, field in self.sbar_fields.items()
+                if field.winfo_exists()
+            }
+            output = getattr(self, "sbar_output", None)
+            if output is not None and output.winfo_exists():
+                self.sbar_output_draft = output.get("1.0", "end").strip()
+        elif key == "checklists" and getattr(self, "check_vars", None):
+            for display_key, variable in self.check_vars.items():
+                state_key = self.check_var_state_keys.get(display_key)
+                if state_key is not None:
+                    self.checklist_state[state_key] = variable.get()
+            self.debrief_drafts = {
+                note_key: text.get("1.0", "end").strip()
+                for note_key, (_title, text) in self.debrief_note_fields.items()
+                if text.winfo_exists()
+            }
 
     def _hover_nav_button(self, key, hovering):
-        button = getattr(self, "nav_buttons", {}).get(key)
-        if not button:
+        widgets = getattr(self, "nav_buttons", {}).get(key)
+        if not widgets:
             return
         selected = getattr(self, "current_page_key", "") == key
         if selected:
             return
-        button.configure(bg=COLORS["sidebar_alt"] if hovering else COLORS["sidebar"], fg=COLORS["primary"] if hovering else COLORS["muted"])
+        bg = COLORS["sidebar_alt"] if hovering else COLORS["sidebar"]
+        widgets["frame"].configure(bg=bg)
+        widgets["bar"].configure(bg=bg)
+        widgets["marker"].configure(
+            bg=COLORS["soft_green"] if hovering else COLORS["sidebar_alt"],
+            fg=COLORS["primary_dark"] if hovering else COLORS["sidebar_muted"],
+        )
+        widgets["copy"].configure(bg=bg)
+        widgets["label"].configure(
+            bg=bg,
+            fg=COLORS["ink"] if hovering else COLORS["sidebar_ink"],
+        )
+        widgets["description"].configure(bg=bg, fg=COLORS["muted"] if hovering else COLORS["sidebar_muted"])
+        widgets["status"].configure(
+            bg=bg,
+            fg=COLORS["primary"] if hovering else COLORS["accent"],
+        )
 
     def page_title(self, title, subtitle):
         frame = tk.Frame(self.page.inner, bg=COLORS["bg"])
-        frame.pack(fill="x", padx=30, pady=(26, 14))
-        tk.Label(
-            frame,
-            text="U.S. WARD SIMULATION",
-            bg=COLORS["bg"],
-            fg=COLORS["primary"],
-            font=FONT_CHIP,
-            padx=0,
-            pady=0,
-        ).pack(anchor="w")
+        frame.pack(fill="x", padx=24, pady=(15, 8))
+        top = tk.Frame(frame, bg=COLORS["bg"])
+        top.pack(fill="x")
+        group_labels = {
+            "first7": self.tx("첫 주 시작", "START HERE"),
+            "tour": self.tx("병동 익히기", "ORIENTATION"),
+            "shift": self.tx("흐름 실습", "WORKFLOW PRACTICE"),
+            "quests": self.tx("판단 실습", "DECISION PRACTICE"),
+            "scenarios": self.tx("케이스 실습", "CASE PRACTICE"),
+            "sbar": self.tx("커뮤니케이션", "COMMUNICATION"),
+            "english": self.tx("언어 준비", "LANGUAGE PRACTICE"),
+            "specialties": self.tx("역할 이해", "ROLE ORIENTATION"),
+            "checklists": self.tx("나의 준비", "MY READINESS"),
+            "guide": self.tx("안전 가이드", "SAFETY GUIDE"),
+        }
+        kicker = group_labels.get(self.current_page_key, self.tx("교육용 시뮬레이션", "EDUCATIONAL SIMULATION"))
+        tk.Label(top, text=kicker, bg=COLORS["bg"], fg=COLORS["primary"], font=FONT_CHIP).pack(side="left")
+        if self.current_page_key == "first7":
+            context_text = f"Day {self.first_week_day + 1} / {max(len(FIRST_WEEK_DAYS), 1)}"
+        elif self.current_page_key in ("tour", "shift", "quests", "scenarios"):
+            context_text = self.role_label()
+        else:
+            context_text = {
+                "specialties": self.tx("역할 렌즈", "ROLE LENS"),
+                "english": self.tx("10분 연습", "10 MIN PRACTICE"),
+                "sbar": self.tx("안전한 보고", "SAFE HANDOFF"),
+                "checklists": self.tx("로컬 메모", "LOCAL NOTES"),
+                "guide": self.tx("운영자용", "FACILITATOR"),
+            }.get(self.current_page_key, self.tx("교육용", "TRAINING"))
+        tk.Label(top, text=context_text, bg=COLORS["panel_alt"], fg=COLORS["muted"], font=FONT_CHIP, padx=8, pady=3).pack(side="right")
         tk.Label(frame, text=title, bg=COLORS["bg"], fg=COLORS["ink"], font=FONT_TITLE).pack(anchor="w", pady=(4, 0))
-        tk.Label(frame, text=subtitle, bg=COLORS["bg"], fg=COLORS["muted"], font=FONT_NORMAL, wraplength=920, justify="left").pack(anchor="w", pady=(8, 0))
+        tk.Label(frame, text=subtitle, bg=COLORS["bg"], fg=COLORS["muted"], font=FONT_NORMAL, wraplength=820, justify="left").pack(anchor="w", pady=(4, 0))
         return frame
 
     def rounded_rect(self, canvas, x1, y1, x2, y2, radius=18, **kwargs):
@@ -2956,28 +3506,37 @@ class WardSimulatorApp(tk.Tk):
 
     def feature_card(self, parent, title, subtitle, kicker, color, command, image_key=None):
         frame = tk.Frame(parent, bg=COLORS["bg"])
-        canvas = tk.Canvas(frame, height=188, bg=COLORS["bg"], highlightthickness=0, cursor="hand2")
+        card_height = 86
+        canvas = tk.Canvas(frame, height=card_height, bg=COLORS["bg"], highlightthickness=0, cursor="hand2", takefocus=True)
         canvas.pack(fill="both", expand=True)
 
-        def draw(_event=None):
-            width = max(canvas.winfo_width(), 260)
+        def draw(_event=None, hovering=False):
+            width = max(canvas.winfo_width(), 220)
             canvas.delete("all")
-            self.rounded_rect(canvas, 5, 7, width - 5, 184, 24, fill=COLORS["shadow"], outline="")
-            self.rounded_rect(canvas, 3, 3, width - 8, 180, 24, fill=COLORS["panel"], outline=COLORS["card_border"])
-            canvas.create_rectangle(3, 28, 8, 152, fill=color, outline=color)
-            canvas.create_text(26, 29, text=kicker, fill=COLORS["accent_dark"], font=FONT_CHIP, anchor="w")
-            text_width = width - 58
-            if image_key:
-                image = self.scaled_image(image_key, 120, 78)
-                if image:
-                    canvas.create_image(width - 28, 48, image=image, anchor="e")
-                    text_width = max(250, width - 190)
-            canvas.create_text(26, 61, text=title, fill=COLORS["ink"], font=FONT_CARD_TITLE, anchor="w", width=text_width)
-            canvas.create_text(26, 94, text=self.clean_text(subtitle), fill=COLORS["muted"], font=FONT_SMALL, anchor="nw", width=text_width)
-            canvas.create_text(width - 28, 157, text=self.tx("열기  ->", "Open  ->"), fill=COLORS["accent_dark"], font=FONT_SMALL_BOLD, anchor="e")
+            outline = COLORS["primary"] if hovering else COLORS["card_border"]
+            card_fill = COLORS["panel_alt"] if hovering else COLORS["panel"]
+            self.rounded_rect(canvas, 2, 2, width - 3, card_height - 3, 10, fill=card_fill, outline=outline, width=2 if hovering else 1)
+            self.rounded_rect(canvas, 14, 18, 50, 68, 9, fill=COLORS["soft_cyan"], outline="")
+            icon = self.icon_image(image_key, 22) if image_key else None
+            if icon:
+                canvas.create_image(32, 43, image=icon, anchor="center")
+            else:
+                canvas.create_oval(27, 38, 37, 48, fill=color, outline=color)
+            title_id = canvas.create_text(62, 17, text=title, fill=COLORS["ink"], font=FONT_SMALL_BOLD, anchor="nw", width=max(120, width - 170))
+            title_box = canvas.bbox(title_id) or (62, 17, 150, 35)
+            tag_x = min(width - 62, title_box[2] + 8)
+            canvas.create_text(tag_x, 19, text=kicker, fill=COLORS["accent_dark"], font=FONT_CHIP, anchor="nw")
+            canvas.create_text(62, 43, text=self.clean_text(subtitle), fill=COLORS["muted"], font=FONT_SMALL, anchor="nw", width=max(120, width - 112))
+            canvas.create_text(width - 22, 43, text="›", fill=COLORS["primary"], font=FONT_SECTION, anchor="center")
 
         canvas.bind("<Configure>", draw)
         canvas.bind("<Button-1>", lambda _event: command())
+        canvas.bind("<Return>", lambda _event: command())
+        canvas.bind("<space>", lambda _event: command())
+        canvas.bind("<Enter>", lambda _event: draw(hovering=True))
+        canvas.bind("<Leave>", lambda _event: draw(hovering=False))
+        canvas.bind("<FocusIn>", lambda _event: draw(hovering=True))
+        canvas.bind("<FocusOut>", lambda _event: draw(hovering=False))
         frame.bind("<Button-1>", lambda _event: command())
         return frame
 
@@ -3087,53 +3646,54 @@ class WardSimulatorApp(tk.Tk):
         canvas.bind("<Configure>", draw)
         return frame
 
-    def _card_shell(self, parent, bg=None, padding=18, border=None):
+    def _card_shell(self, parent, bg=None, padding=16, border=None):
         bg = bg or COLORS["panel"]
         border = border or COLORS["card_border"]
-        outer = tk.Frame(parent, bg=COLORS["shadow"], highlightthickness=0)
-        frame = tk.Frame(outer, bg=bg, highlightthickness=1, highlightbackground=border, padx=padding, pady=padding)
-        frame.pack(fill="both", expand=True, padx=(0, 1), pady=(0, 2))
+        outer = tk.Frame(parent, bg=border, highlightthickness=0)
+        frame = tk.Frame(outer, bg=bg, highlightthickness=0, padx=padding, pady=padding)
+        frame.pack(fill="both", expand=True, padx=1, pady=1)
         return outer, frame
 
-    def panel(self, parent=None, padding=18):
+    def panel(self, parent=None, padding=16):
         parent = parent or self.page.inner
         outer, frame = self._card_shell(parent, padding=padding)
-        outer.pack(fill="x", padx=30, pady=9)
+        outer.pack(fill="x", padx=24, pady=6)
         return frame
 
     def two_columns(self, parent=None):
         parent = parent or self.page.inner
         outer = tk.Frame(parent, bg=COLORS["bg"])
-        outer.pack(fill="x", padx=30, pady=9)
-        outer.columnconfigure(0, weight=1)
-        outer.columnconfigure(1, weight=1)
-        left_outer, left = self._card_shell(outer, padding=18)
-        right_outer, right = self._card_shell(outer, padding=18)
-        left_outer.grid(row=0, column=0, sticky="nsew", padx=(0, 9))
-        right_outer.grid(row=0, column=1, sticky="nsew", padx=(9, 0))
+        outer.pack(fill="x", padx=24, pady=6)
+        outer.columnconfigure(0, weight=1, uniform="content_pair")
+        outer.columnconfigure(1, weight=1, uniform="content_pair")
+        left_outer, left = self._card_shell(outer, padding=16)
+        right_outer, right = self._card_shell(outer, padding=16)
+        left_outer.grid(row=0, column=0, sticky="nsew", padx=(0, 7))
+        right_outer.grid(row=0, column=1, sticky="nsew", padx=(7, 0))
         return left, right
 
     def choice_button(self, parent, text, command, bg=None, active=None, font=None, wraplength=840):
-        bg = bg or COLORS["panel_alt"]
+        bg = bg or COLORS["panel"]
         button = tk.Button(
             parent,
             text=self.clean_text(text),
             command=command,
             bg=bg,
             fg=COLORS["ink"],
-            activebackground=active or COLORS["soft_blue"],
+            activebackground=active or COLORS["soft_cyan"],
             activeforeground=COLORS["ink"],
             relief="flat",
             borderwidth=0,
             highlightthickness=1,
             highlightbackground=COLORS["card_border"],
+            highlightcolor=COLORS["primary"],
             cursor="hand2",
             font=font or FONT_NORMAL,
             anchor="w",
             justify="left",
             wraplength=wraplength,
-            padx=15,
-            pady=11,
+            padx=12,
+            pady=7,
         )
         return button
 
@@ -3244,30 +3804,43 @@ class WardSimulatorApp(tk.Tk):
         draw()
         return row
 
-    def _bind_clickable(self, widget, command):
+    def _bind_clickable(self, widget, command, root=True):
         try:
             widget.configure(cursor="hand2")
         except tk.TclError:
             pass
         widget.bind("<Button-1>", lambda _event: command())
+        if root:
+            try:
+                widget.configure(takefocus=True)
+            except tk.TclError:
+                pass
+            widget.bind("<Return>", lambda _event: command())
+            widget.bind("<space>", lambda _event: command())
         for child in widget.winfo_children():
-            self._bind_clickable(child, command)
+            self._bind_clickable(child, command, root=False)
 
     def selectable_choice_card(self, parent, number, text, command, selected=False, is_best=False, wraplength=720):
-        fill = COLORS["panel"]
-        border = COLORS["primary"] if not selected else (COLORS["success"] if is_best else COLORS["accent"])
-        stripe = COLORS["primary"] if not selected else (COLORS["success"] if is_best else COLORS["accent"])
+        fill = COLORS["soft_green"] if selected and is_best else COLORS["soft_orange"] if selected else COLORS["panel"]
+        border = COLORS["success"] if selected and is_best else COLORS["accent"] if selected else COLORS["card_border"]
+        stripe = COLORS["success"] if selected and is_best else COLORS["accent"] if selected else COLORS["line_dark"]
         card = tk.Frame(parent, bg=fill, highlightthickness=2 if selected else 1, highlightbackground=border)
         card.columnconfigure(2, weight=1)
-        tk.Frame(card, bg=stripe, width=5).grid(row=0, column=0, sticky="ns")
-        badge = tk.Label(card, text=str(number), bg=stripe, fg="#ffffff", font=FONT_SMALL_BOLD, width=3)
-        badge.grid(row=0, column=1, padx=(12, 8), pady=8, sticky="n")
+        tk.Frame(card, bg=stripe if selected else COLORS["panel"], width=4).grid(row=0, column=0, sticky="ns")
+        badge_bg = stripe if selected else COLORS["soft_gray"]
+        badge_fg = "#ffffff" if selected else COLORS["muted"]
+        badge = tk.Label(card, text=chr(64 + number) if 1 <= number <= 26 else str(number), bg=badge_bg, fg=badge_fg, font=FONT_SMALL_BOLD, width=3)
+        badge.grid(row=0, column=1, padx=(11, 7), pady=9, sticky="n")
         body = tk.Label(card, text=self.clean_text(text), bg=fill, fg=COLORS["ink"], font=FONT_NORMAL, wraplength=wraplength, justify="left", anchor="w")
-        body.grid(row=0, column=2, sticky="ew", padx=(4, 12), pady=8)
-        chip_text = self.tx("선택하기", "Choose") if not selected else self.tx("선택됨", "Selected")
-        chip = tk.Label(card, text=chip_text, bg=stripe, fg="#ffffff", font=FONT_CHIP, padx=10, pady=4)
-        chip.grid(row=0, column=3, padx=(0, 14), pady=8, sticky="n")
+        body.grid(row=0, column=2, sticky="ew", padx=(4, 10), pady=9)
+        chip_text = "✓" if selected else "○"
+        chip_bg = stripe if selected else fill
+        chip_fg = "#ffffff" if selected else COLORS["line_dark"]
+        chip = tk.Label(card, text=chip_text, bg=chip_bg, fg=chip_fg, font=FONT_SMALL_BOLD, padx=5, pady=3)
+        chip.grid(row=0, column=3, padx=(0, 9), pady=9, sticky="n")
         self._bind_clickable(card, command)
+        card.bind("<FocusIn>", lambda _event: card.configure(highlightbackground=COLORS["primary"], highlightthickness=2))
+        card.bind("<FocusOut>", lambda _event: card.configure(highlightbackground=border, highlightthickness=2 if selected else 1))
         return card
 
     def bullet_list(self, parent, items, style="Panel.TLabel", wraplength=780):
@@ -3276,7 +3849,7 @@ class WardSimulatorApp(tk.Tk):
 
     def label_block(self, parent, title, body, bg_style="Panel.TLabel"):
         ttk.Label(parent, text=title, style="CardTitle.TLabel").pack(anchor="w")
-        ttk.Label(parent, text=self.clean_text(body), style=bg_style, wraplength=780, justify="left").pack(anchor="w", pady=(5, 10))
+        ttk.Label(parent, text=self.clean_text(body), style=bg_style, wraplength=360, justify="left").pack(anchor="w", pady=(5, 10))
 
     def image_label(self, parent, key, bg=COLORS["panel"], pady=(0, 0)):
         image = self.images.get(key)
@@ -3313,6 +3886,181 @@ class WardSimulatorApp(tk.Tk):
 
     def clean_text(self, text):
         return " ".join(str(text).replace(" -> ", " → ").split())
+
+    def _enable_responsive_wrapping(self):
+        """Keep wrapped copy aligned with the width its card receives."""
+        self._bind_responsive_inner(self.page.inner)
+        self.page.canvas.bind("<Configure>", self._schedule_responsive_wraps, add="+")
+        self._schedule_responsive_wraps(update_all=True)
+
+    def _bind_responsive_inner(self, inner):
+        inner.bind("<Configure>", self._schedule_responsive_wraps, add="+")
+
+    def _cancel_responsive_wrap_job(self):
+        job = getattr(self, "_responsive_wrap_job", None)
+        if job is not None:
+            try:
+                self.after_cancel(job)
+            except tk.TclError:
+                pass
+        self._responsive_wrap_job = None
+
+    def _schedule_responsive_wraps(self, event=None, update_all=False):
+        if event is not None and event.widget is self.page.canvas:
+            width = int(getattr(event, "width", 0))
+            if width == self._responsive_wrap_canvas_width:
+                return
+            self._responsive_wrap_canvas_width = width
+            update_all = True
+        elif event is not None and event.widget is self.page.inner:
+            width = int(getattr(event, "width", 0))
+            if width == self._responsive_wrap_inner_width:
+                return
+            self._responsive_wrap_inner_width = width
+            update_all = True
+        if update_all:
+            self._responsive_wrap_update_all = True
+        if self._responsive_wrap_transaction or self._responsive_wrap_running:
+            return
+        self._cancel_responsive_wrap_job()
+        self._responsive_wrap_job = self.after_idle(self._refresh_responsive_wraps)
+
+    def _refresh_responsive_wraps(self):
+        self._responsive_wrap_job = None
+        self._stabilize_responsive_wraps(max_passes=6)
+
+    def _stabilize_responsive_wraps(self, max_passes=6):
+        """Resolve geometry to a fixed point before the next page is exposed."""
+        if self._responsive_wrap_running:
+            self._responsive_wrap_update_all = True
+            return 0
+        self._cancel_responsive_wrap_job()
+        self._responsive_wrap_running = True
+        seen = set()
+        passes = 0
+        try:
+            for passes in range(1, max_passes + 1):
+                self.update_idletasks()
+                changed, pending, signature = self._run_responsive_wrap_pass(update_all=True)
+                root = getattr(getattr(self, "page", None), "inner", None)
+                geometry = (
+                    root.winfo_width() if root is not None and root.winfo_exists() else 0,
+                    root.winfo_reqheight() if root is not None and root.winfo_exists() else 0,
+                )
+                state = (geometry, signature)
+                if changed == 0 and pending == 0:
+                    break
+                if state in seen:
+                    break
+                seen.add(state)
+        finally:
+            self._responsive_wrap_update_all = False
+            self._responsive_wrap_running = False
+        return passes
+
+    def _run_responsive_wrap_pass(self, update_all=False):
+        root = getattr(getattr(self, "page", None), "inner", None)
+        if root is None or not root.winfo_exists():
+            return 0, 0, ()
+        changes = []
+        pending = 0
+        signature = []
+        stack = [root]
+        while stack:
+            parent = stack.pop()
+            try:
+                children = parent.winfo_children()
+            except tk.TclError:
+                continue
+            stack.extend(children)
+            for widget in children:
+                if not isinstance(widget, (tk.Label, ttk.Label, tk.Button)):
+                    continue
+                try:
+                    base_wrap = int(float(str(widget.cget("wraplength"))))
+                except (ValueError, TypeError, tk.TclError):
+                    continue
+                if base_wrap <= 0 or (getattr(widget, "_responsive_wrap_applied", False) and not update_all):
+                    continue
+                target = self._responsive_wrap_target(widget)
+                if target is None:
+                    pending += 1
+                    continue
+                try:
+                    current = int(float(str(widget.cget("wraplength"))))
+                except (ValueError, TypeError, tk.TclError):
+                    continue
+                widget._responsive_wrap_applied = True
+                signature.append((str(widget), current, target, widget.winfo_width()))
+                if current != target:
+                    changes.append((widget, target))
+        for widget, target in changes:
+            try:
+                if widget.winfo_exists():
+                    widget.configure(wraplength=target)
+            except tk.TclError:
+                continue
+        return len(changes), pending, tuple(signature)
+
+    def _responsive_wrap_target(self, widget):
+        try:
+            manager = widget.winfo_manager()
+            master = widget.master
+            source = widget
+            if not isinstance(widget, tk.Button) and manager == "pack":
+                side = str(widget.pack_info().get("side", "top"))
+                if side in ("top", "bottom"):
+                    source = master
+            elif not isinstance(widget, tk.Button) and manager == "grid":
+                sticky = str(widget.grid_info().get("sticky", ""))
+                if not ("e" in sticky and "w" in sticky):
+                    managed = [child for child in master.winfo_children() if child.winfo_manager()]
+                    source = master if len(managed) == 1 else widget
+        except tk.TclError:
+            return None
+
+        try:
+            if not widget.winfo_exists() or not source.winfo_exists() or source.winfo_width() <= 40:
+                return None
+            try:
+                padx = widget.winfo_pixels(str(widget.cget("padx")))
+            except (ValueError, TypeError, tk.TclError):
+                padx = 0
+            if source is widget:
+                inset = max(6, padx * 2 + 6)
+                available = source.winfo_width() - inset
+            else:
+                left = max(widget.winfo_x(), 0)
+                right = max(left, 12)
+                available = source.winfo_width() - left - right - (padx * 2)
+            return max(120, int(available))
+        except (ValueError, TypeError, tk.TclError):
+            return None
+
+    def _apply_responsive_wrap(self, widget):
+        """Compatibility helper for targeted runtime layout checks."""
+        target = self._responsive_wrap_target(widget)
+        if target is None:
+            return None
+        try:
+            current = int(float(str(widget.cget("wraplength"))))
+            if current != target:
+                widget.configure(wraplength=target)
+            widget._responsive_wrap_applied = True
+            return current != target
+        except (ValueError, TypeError, tk.TclError):
+            return None
+
+    def compact_text(self, text, limit=135):
+        text = self.clean_text(text)
+        if len(text) <= limit:
+            return text
+        cut = text[: limit - 1].rstrip()
+        for marker in [". ", "? ", "! ", "다. ", "요. "]:
+            idx = cut.rfind(marker)
+            if idx >= 42:
+                return cut[: idx + len(marker)].rstrip()
+        return cut.rstrip(" ,./·-") + "..."
 
     def zone_photo_key(self, zone):
         if "Medication" in zone:
@@ -3408,6 +4156,13 @@ class WardSimulatorApp(tk.Tk):
                 parts.append(f"{label} {delta:+d}")
         return " · ".join(parts) if parts else self.tx("지표 변화 없음", "No metric change")
 
+    def first_week_ordered_choices(self, day_index, choices):
+        if day_index not in self.first_week_choice_orders:
+            order = list(range(len(choices)))
+            random.shuffle(order)
+            self.first_week_choice_orders[day_index] = order
+        return [choices[index] for index in self.first_week_choice_orders[day_index] if index < len(choices)]
+
     def first_week_choice_feedback(self, choice):
         outcome = self.tx("안전 흐름에 가까운 선택입니다.", "This choice is close to the safe workflow.") if choice["best"] else self.tx("리스크가 있는 선택입니다.", "This choice has a risk to review.")
         return "\n".join(
@@ -3441,20 +4196,20 @@ class WardSimulatorApp(tk.Tk):
         if compact:
             section = tk.Frame(parent, bg=COLORS["bg"])
             section.pack(fill="x", padx=30, pady=(12, 18))
-            canvas = tk.Canvas(section, height=104, bg=COLORS["bg"], highlightthickness=0)
+            canvas = tk.Canvas(section, height=118, bg=COLORS["bg"], highlightthickness=0)
             canvas.pack(fill="x")
 
             def draw(_event=None):
-                width = max(canvas.winfo_width(), 900)
+                width = max(canvas.winfo_width(), 620)
                 canvas.delete("all")
-                self.rounded_rect(canvas, 3, 3, width - 5, 96, 24, fill=COLORS["panel"], outline=COLORS["card_border"])
-                canvas.create_text(24, 24, text=self.tx("TRUST & SAFETY", "TRUST & SAFETY"), fill=COLORS["accent"], font=FONT_CHIP, anchor="w")
+                self.rounded_rect(canvas, 3, 3, width - 5, 112, 22, fill=COLORS["panel"], outline=COLORS["card_border"])
+                canvas.create_text(24, 22, text=self.tx("TRUST & SAFETY", "TRUST & SAFETY"), fill=COLORS["accent"], font=FONT_CHIP, anchor="w")
                 segment_w = (width - 48) / 3
                 for col, (title, body, color) in enumerate(items):
                     x = 24 + col * segment_w
-                    canvas.create_oval(x, 48, x + 10, 58, fill=color, outline=color)
-                    canvas.create_text(x + 20, 45, text=title, fill=COLORS["ink"], font=FONT_SMALL_BOLD, anchor="nw", width=segment_w - 28)
-                    canvas.create_text(x + 20, 67, text=self.clean_text(body), fill=COLORS["muted"], font=FONT_CHIP, anchor="nw", width=segment_w - 30)
+                    canvas.create_oval(x, 45, x + 10, 55, fill=color, outline=color)
+                    canvas.create_text(x + 20, 42, text=title, fill=COLORS["ink"], font=FONT_SMALL_BOLD, anchor="nw", width=segment_w - 28)
+                    canvas.create_text(x + 20, 65, text=self.clean_text(body), fill=COLORS["muted"], font=FONT_CHIP, anchor="nw", width=segment_w - 30)
 
             canvas.bind("<Configure>", draw)
             draw()
@@ -3467,10 +4222,10 @@ class WardSimulatorApp(tk.Tk):
             card = tk.Frame(notice, bg=COLORS["panel"], padx=14, pady=11, highlightthickness=1, highlightbackground=COLORS["card_border"])
             card.grid(row=0, column=col, sticky="nsew", padx=4, pady=4)
             tk.Label(card, text=title, bg=COLORS["panel"], fg=color, font=FONT_SMALL_BOLD).pack(anchor="w")
-            tk.Label(card, text=self.clean_text(body), bg=COLORS["panel"], fg=COLORS["muted"], font=FONT_SMALL, wraplength=620, justify="left").pack(anchor="w", pady=(2, 0))
+            tk.Label(card, text=self.clean_text(body), bg=COLORS["panel"], fg=COLORS["muted"], font=FONT_SMALL, wraplength=220, justify="left").pack(anchor="w", pady=(2, 0))
 
     def _cue_card(self, parent, title, body, color, icon_key=None, icon_size=32, wraplength=300):
-        card = tk.Frame(parent, bg=color, highlightthickness=1, highlightbackground=COLORS["card_border"], padx=12, pady=10)
+        card = tk.Frame(parent, bg=color, highlightthickness=1, highlightbackground=COLORS["card_border"], padx=10, pady=7)
         icon = self.icon_image(icon_key, icon_size) if icon_key else None
         if icon:
             tk.Label(card, image=icon, bg=color).pack(side="left", padx=(0, 8), anchor="n")
@@ -3505,22 +4260,28 @@ class WardSimulatorApp(tk.Tk):
             ),
         )
 
-        day_nav = self.panel(padding=14)
-        ttk.Label(day_nav, text=self.tx("Day 선택", "Choose Day"), style="CardTitle.TLabel").pack(side="left", padx=(0, 10))
+        day_nav = self.panel(padding=12)
+        day_nav_header = tk.Frame(day_nav, bg=COLORS["panel"])
+        day_nav_header.pack(fill="x", pady=(0, 8))
+        ttk.Label(day_nav_header, text=self.tx("첫 주 진행", "First-week progress"), style="CardTitle.TLabel").pack(side="left")
+        ttk.Button(day_nav_header, text=self.tx("새로운 랜덤 첫 주", "New random week"), command=self.reset_first_week).pack(side="right")
+        day_grid = tk.Frame(day_nav, bg=COLORS["panel"])
+        day_grid.pack(fill="x")
         for index, day in enumerate(FIRST_WEEK_DAYS):
-            style = "Accent.TButton" if index == self.first_week_day else "TButton"
-            day_label = f"{day['day']}일차" if not self.is_english() else f"Day {day['day']}"
-            ttk.Button(day_nav, text=day_label, style=style, command=lambda i=index: self.set_first_week_day(i)).pack(side="left", padx=3)
-        ttk.Button(day_nav, text=self.tx("랜덤 첫 주", "Random Week"), command=self.reset_first_week).pack(side="right")
+            day_grid.columnconfigure(index, weight=1, uniform="week_days")
+            style = "Primary.TButton" if index == self.first_week_day else "TButton"
+            done_mark = "✓ " if index in self.first_week_answers else ""
+            day_label = f"{done_mark}{day['day']}일" if not self.is_english() else f"{done_mark}Day {day['day']}"
+            ttk.Button(day_grid, text=day_label, style=style, command=lambda i=index: self.set_first_week_day(i)).grid(row=0, column=index, sticky="ew", padx=(0, 5) if index < 6 else 0)
 
         top = ttk.Frame(self.page.inner, style="Page.TFrame")
-        top.pack(fill="x", padx=28, pady=8)
-        top.columnconfigure(0, weight=4)
-        top.columnconfigure(1, weight=3)
+        top.pack(fill="x", padx=26, pady=8)
+        top.columnconfigure(0, weight=1, uniform="first_week_columns")
+        top.columnconfigure(1, weight=1, uniform="first_week_columns")
 
         scene_outer, scene_panel = self._card_shell(top, padding=0)
         scene_outer.grid(row=0, column=0, sticky="nsew", padx=(0, 8))
-        self.first_week_canvas = tk.Canvas(scene_panel, height=390, bg=COLORS["panel"], highlightthickness=0)
+        self.first_week_canvas = tk.Canvas(scene_panel, height=410, bg=COLORS["panel"], highlightthickness=0)
         self.first_week_canvas.pack(fill="x")
         self._draw_first_week_scene(self.first_week_canvas, 760)
         self.first_week_canvas.bind("<Configure>", lambda event: self._draw_first_week_scene(event.widget, event.width))
@@ -3536,18 +4297,18 @@ class WardSimulatorApp(tk.Tk):
             highlightbackground=COLORS["card_border"],
         )
         decision_area.pack(fill="x")
-        tk.Label(decision_area, text=f"{day['time']}  {day['title']}", bg=COLORS["panel_alt"], fg=COLORS["ink"], font=FONT_CARD_TITLE).pack(anchor="w")
+        tk.Label(decision_area, text=f"{day['time']}  {day['title']}", bg=COLORS["panel_alt"], fg=COLORS["ink"], font=FONT_CARD_TITLE, wraplength=340, justify="left").pack(anchor="w")
         scene_context = tk.Frame(decision_area, bg=COLORS["panel_alt"])
         scene_context.pack(fill="x", pady=(8, 10))
-        scene_context.columnconfigure(1, weight=1)
-        scene_photo = self.scaled_image(self.scene_photo_key(day["scene"]), 340, 255)
+        scene_context.columnconfigure(0, weight=1)
+        scene_photo = self.scaled_image(self.scene_photo_key(day["scene"]), 220, 155)
         if scene_photo:
-            tk.Label(scene_context, image=scene_photo, bg=COLORS["panel_alt"], highlightthickness=1, highlightbackground=COLORS["card_border"]).grid(row=0, column=0, sticky="nw", padx=(0, 14))
+            tk.Label(scene_context, image=scene_photo, bg=COLORS["panel_alt"], highlightthickness=1, highlightbackground=COLORS["card_border"]).grid(row=0, column=0, sticky="w", pady=(0, 10))
         scene_text = tk.Frame(scene_context, bg=COLORS["panel_alt"])
-        scene_text.grid(row=0, column=1, sticky="new")
+        scene_text.grid(row=1, column=0, sticky="new")
         tk.Label(scene_text, text=self.tx("오늘 보는 장면", "Scene You Are Seeing"), bg=COLORS["panel_alt"], fg=COLORS["primary"], font=FONT_SMALL_BOLD).pack(anchor="w")
-        tk.Label(scene_text, text=self.clean_text(day["setting"]), bg=COLORS["panel_alt"], fg=COLORS["ink"], font=FONT_NORMAL, wraplength=640, justify="left").pack(anchor="w", pady=(4, 6))
-        tk.Label(scene_text, text=self.tx("사진 속 공간 단서와 아래 선택지를 함께 보고, 실제 RN의 다음 행동을 선택합니다.", "Use the photo cues and choices together, then choose the RN's next action."), bg=COLORS["panel_alt"], fg=COLORS["muted"], font=FONT_SMALL, wraplength=640, justify="left").pack(anchor="w")
+        tk.Label(scene_text, text=self.clean_text(day["setting"]), bg=COLORS["panel_alt"], fg=COLORS["ink"], font=FONT_NORMAL, wraplength=340, justify="left").pack(anchor="w", pady=(4, 6))
+        tk.Label(scene_text, text=self.tx("사진 속 공간 단서와 아래 선택지를 함께 보고, 실제 RN의 다음 행동을 선택합니다.", "Use the photo cues and choices together, then choose the RN's next action."), bg=COLORS["panel_alt"], fg=COLORS["muted"], font=FONT_SMALL, wraplength=340, justify="left").pack(anchor="w")
         tk.Label(
             scene_text,
             text=self.tx("보고 판단할 그림 단서", "Visual Cues to Use"),
@@ -3557,19 +4318,20 @@ class WardSimulatorApp(tk.Tk):
         ).pack(anchor="w", pady=(12, 5))
         cue_grid = tk.Frame(scene_text, bg=COLORS["panel_alt"])
         cue_grid.pack(fill="x")
-        cue_colors = [COLORS["soft_blue"], COLORS["soft_gold"], COLORS["soft_green"], COLORS["soft_lavender"]]
+        cue_colors = [COLORS["panel"], COLORS["panel"], COLORS["panel"], COLORS["panel"]]
         for cue_index, (cue_title, cue_body) in enumerate(day["cues"][:4]):
-            cue_grid.columnconfigure(cue_index, weight=1)
+            cue_row, cue_col = divmod(cue_index, 2)
+            cue_grid.columnconfigure(cue_col, weight=1, uniform="scene_cues")
             color = cue_colors[cue_index % len(cue_colors)]
             card = tk.Frame(cue_grid, bg=color, highlightthickness=1, highlightbackground=COLORS["card_border"], padx=8, pady=6)
-            card.grid(row=0, column=cue_index, sticky="nsew", padx=(0, 6) if cue_index < 3 else 0)
+            card.grid(row=cue_row, column=cue_col, sticky="nsew", padx=(0, 5) if cue_col == 0 else 0, pady=(0, 5) if cue_row == 0 else 0)
             icon = self.icon_image(self.cue_icon_key(cue_title), 18)
             cue_header = tk.Frame(card, bg=color)
             cue_header.pack(fill="x")
             if icon:
                 tk.Label(cue_header, image=icon, bg=color).pack(side="left", padx=(0, 5))
             tk.Label(cue_header, text=cue_title, bg=color, fg=COLORS["ink"], font=FONT_CHIP).pack(side="left", anchor="w")
-            tk.Label(card, text=self.clean_text(cue_body), bg=color, fg=COLORS["ink"], font=FONT_CHIP, wraplength=138, justify="left").pack(anchor="w", pady=(3, 0))
+            tk.Label(card, text=self.clean_text(cue_body), bg=color, fg=COLORS["muted"], font=FONT_CHIP, wraplength=120, justify="left").pack(anchor="w", pady=(3, 0))
         tk.Label(
             decision_area,
             text=self.clean_text(day["assignment"]),
@@ -3578,7 +4340,7 @@ class WardSimulatorApp(tk.Tk):
             font=FONT_BOLD,
             anchor="w",
             justify="left",
-            wraplength=920,
+            wraplength=340,
             padx=12,
             pady=7,
         ).pack(fill="x", pady=(0, 7))
@@ -3599,7 +4361,7 @@ class WardSimulatorApp(tk.Tk):
             font=FONT_SMALL,
             anchor="w",
             justify="left",
-            wraplength=920,
+            wraplength=340,
         ).pack(anchor="w", pady=(2, 0))
         tk.Label(
             decision_area,
@@ -3614,78 +4376,93 @@ class WardSimulatorApp(tk.Tk):
 
         tk.Label(
             decision_area,
-            text=self.tx("그림의 단서를 보고 바로 선택하세요", "Use the visual cues, then choose"),
+            text=self.tx("오른쪽 선택 패널에서 실제 RN의 다음 행동을 고르세요.", "Choose the RN's next action in the right decision panel."),
             bg=COLORS["panel_alt"],
             fg=COLORS["primary"],
             font=FONT_SMALL_BOLD,
-        ).pack(anchor="w", pady=(0, 6))
-        for visible_index, choice in enumerate(shuffled_bool_choices([(choice, choice["best"]) for choice in day["choices"]]), start=1):
-            choice_data = choice[0]
+            wraplength=340,
+            justify="left",
+            anchor="w",
+        ).pack(fill="x", pady=(0, 4))
+
+        right_stack = ttk.Frame(top, style="Page.TFrame")
+        right_stack.grid(row=0, column=1, sticky="new", padx=(8, 0))
+
+        choice_outer, choice_panel = self._card_shell(right_stack, padding=16)
+        choice_outer.pack(fill="x")
+        ttk.Label(choice_panel, text=self.tx("선택 패널", "Decision Panel"), style="CardTitle.TLabel").pack(anchor="w")
+        ttk.Label(
+            choice_panel,
+            text=self.tx("좌측 사진과 cue card를 보고 하나를 선택합니다.", "Use the photo and cue cards on the left, then choose one action."),
+            style="Muted.TLabel",
+            wraplength=260,
+            justify="left",
+        ).pack(anchor="w", pady=(3, 10))
+        for visible_index, choice_data in enumerate(self.first_week_ordered_choices(self.first_week_day, day["choices"]), start=1):
             is_selected = selected is choice_data
             self.selectable_choice_card(
-                decision_area,
+                choice_panel,
                 visible_index,
                 choice_data["text"],
                 command=lambda selected_choice=choice_data: self.answer_first_week(selected_choice),
                 selected=is_selected,
                 is_best=choice_data["best"],
-                wraplength=980,
+                wraplength=220,
             ).pack(fill="x", pady=3)
 
-        feedback_area = tk.Frame(decision_area, bg=COLORS["panel"], padx=12, pady=10, highlightthickness=1, highlightbackground=COLORS["card_border"])
+        feedback_area = tk.Frame(choice_panel, bg=COLORS["panel"], padx=12, pady=10, highlightthickness=1, highlightbackground=COLORS["card_border"])
         feedback_area.pack(fill="x", pady=(10, 0))
-        tk.Label(feedback_area, textvariable=self.first_week_feedback, bg=COLORS["panel"], fg=COLORS["ink"], font=FONT_SMALL, wraplength=980, justify="left").pack(anchor="w")
+        tk.Label(feedback_area, textvariable=self.first_week_feedback, bg=COLORS["panel"], fg=COLORS["ink"], font=FONT_SMALL, wraplength=260, justify="left").pack(anchor="w")
         if selected:
             tk.Label(feedback_area, text=self.tx("디브리핑", "Debrief"), bg=COLORS["panel"], fg=COLORS["ink"], font=FONT_SMALL_BOLD).pack(anchor="w", pady=(10, 3))
-            tk.Label(feedback_area, text=self.clean_text(day["debrief"]), bg=COLORS["panel"], fg=COLORS["ink"], font=FONT_SMALL, wraplength=980, justify="left").pack(anchor="w")
+            tk.Label(feedback_area, text=self.clean_text(day["debrief"]), bg=COLORS["panel"], fg=COLORS["ink"], font=FONT_SMALL, wraplength=320, justify="left").pack(anchor="w")
             btns = ttk.Frame(feedback_area, style="Panel.TFrame")
-            btns.pack(anchor="w", pady=(10, 0))
+            btns.pack(fill="x", pady=(10, 0))
             if self.first_week_day < len(FIRST_WEEK_DAYS) - 1:
-                ttk.Button(btns, text=self.tx("다음 날로", "Next Day"), style="Primary.TButton", command=lambda: self.set_first_week_day(self.first_week_day + 1)).pack(side="left", padx=(0, 8))
-            ttk.Button(btns, text=self.tx("병동 투어로 연결", "Go to Ward Tour"), command=lambda: self.show_page("tour")).pack(side="left", padx=(0, 8))
-            ttk.Button(btns, text=self.tx("환자 케이스 연습", "Practice Patient Cases"), command=lambda: self.show_page("scenarios")).pack(side="left")
+                ttk.Button(btns, text=self.tx("다음 날로", "Next Day"), style="Primary.TButton", command=lambda: self.set_first_week_day(self.first_week_day + 1)).pack(fill="x", pady=(0, 6))
+            ttk.Button(btns, text=self.tx("병동 투어로 연결", "Go to Ward Tour"), command=lambda: self.show_page("tour")).pack(fill="x", pady=(0, 6))
+            ttk.Button(btns, text=self.tx("환자 케이스 연습", "Practice Patient Cases"), command=lambda: self.show_page("scenarios")).pack(fill="x")
 
-        score_outer, score_panel = self._card_shell(top, padding=18)
-        score_outer.grid(row=0, column=1, sticky="new", padx=(8, 0))
+        score_outer, score_panel = self._card_shell(right_stack, padding=18)
+        score_outer.pack(fill="x", pady=(12, 0))
         self._render_first_week_score_panel(score_panel)
 
         refs = self.panel(padding=18)
-        ttk.Label(refs, text=self.tx("첫 7일에 같이 익힐 미국 병동 감각", "U.S. ward instincts to build during the first 7 days"), style="CardTitle.TLabel").pack(anchor="w", pady=(0, 8))
+        ttk.Label(refs, text=self.tx("필요할 때 확인하는 핵심 메모", "Quick reference when needed"), style="CardTitle.TLabel").pack(anchor="w", pady=(0, 8))
         grid = tk.Frame(refs, bg=COLORS["panel"])
         grid.pack(fill="x")
-        for index, (title, body) in enumerate(FIRST_WEEK_REFERENCE_CARDS):
-            row, col = divmod(index, 2)
+        for index, (title, body) in enumerate(FIRST_WEEK_REFERENCE_CARDS[:3]):
+            row, col = 0, index
             card = tk.Frame(grid, bg=COLORS["panel_alt"], highlightthickness=2, highlightbackground=COLORS["card_border"])
             card.grid(row=row, column=col, sticky="nsew", padx=5, pady=5)
             grid.columnconfigure(col, weight=1)
             tk.Label(card, text=title, bg=COLORS["panel_alt"], fg=COLORS["ink"], font=FONT_SMALL_BOLD).pack(anchor="w", padx=12, pady=(10, 2))
-            tk.Label(card, text=self.clean_text(body), bg=COLORS["panel_alt"], fg=COLORS["ink"], font=FONT_SMALL, wraplength=760, justify="left").pack(anchor="w", padx=12, pady=(0, 10))
+            tk.Label(card, text=self.clean_text(body), bg=COLORS["panel_alt"], fg=COLORS["ink"], font=FONT_SMALL, wraplength=225, justify="left", anchor="w").pack(anchor="w", padx=12, pady=(0, 10))
 
     def _draw_first_week_scene(self, canvas, width):
         canvas.delete("all")
-        width = max(int(width), 720)
+        width = max(int(width), 420)
         day = FIRST_WEEK_DAYS[self.first_week_day]
         scene = day["scene"]
 
-        scene_h = 390
+        scene_h = 410
         canvas.create_rectangle(0, 0, width, scene_h, fill=COLORS["panel"], outline="")
-        canvas.create_rectangle(0, 0, width, 72, fill=COLORS["primary"], outline="")
-        canvas.create_text(28, 24, text=f"DAY {day['day']}", fill="#ffffff", font=FONT_SECTION, anchor="w")
-        canvas.create_text(28, 53, text=day["title"], fill="#dbeafe", font=FONT_BOLD, anchor="w", width=width - 180)
-        canvas.create_text(width - 28, 34, text=day["time"], fill="#ffffff", font=FONT_SMALL_BOLD, anchor="e")
+        canvas.create_rectangle(0, 0, width, 80, fill=COLORS["primary"], outline="")
+        canvas.create_text(28, 22, text=f"DAY {day['day']}", fill="#ffffff", font=FONT_SECTION, anchor="w")
+        canvas.create_text(width - 28, 22, text=day["time"], fill="#ffffff", font=FONT_SMALL_BOLD, anchor="e")
+        canvas.create_text(28, 42, text=day["title"], fill="#D8F2EE", font=FONT_SMALL_BOLD, anchor="nw", width=width - 56)
 
         # Cue cards stay in a separate rail so movement lines never cut through them.
         cue_count = min(4, len(day["cues"]))
         cue_margin = 36
         cue_gap = 10
-        cue_y = 88
-        cue_h = 48
+        cue_y = 92
+        cue_h = 44
         cue_w = (width - cue_margin * 2 - cue_gap * (cue_count - 1)) / max(cue_count, 1)
         for index, (title, body) in enumerate(day["cues"][:cue_count]):
             cue_x = cue_margin + index * (cue_w + cue_gap)
             canvas.create_rectangle(cue_x, cue_y, cue_x + cue_w, cue_y + cue_h, fill=COLORS["panel_alt"], outline=COLORS["card_border"], width=1)
-            canvas.create_text(cue_x + 12, cue_y + 16, text=title, fill=COLORS["ink"], font=FONT_SMALL_BOLD, anchor="w", width=cue_w - 24)
-            canvas.create_text(cue_x + 12, cue_y + 35, text=self.tx("아래 카드에서 확인", "See detail below"), fill=COLORS["muted"], font=FONT_CHIP, anchor="w", width=cue_w - 24)
+            canvas.create_text((cue_x + cue_x + cue_w) / 2, cue_y + cue_h / 2, text=title, fill=COLORS["ink"], font=FONT_SMALL_BOLD, width=cue_w - 16)
 
         floor_left = 28
         floor_right = width - 28
@@ -3763,25 +4540,27 @@ class WardSimulatorApp(tk.Tk):
 
         for _key, label, x1, y1, x2, y2, fill in room_specs:
             canvas.create_rectangle(x1, y1, x2, y2, fill=fill, outline=COLORS["card_border"], width=1)
-            canvas.create_text((x1 + x2) / 2, y1 + 24, text=label, fill=COLORS["ink"], font=FONT_SMALL_BOLD)
-            canvas.create_text((x1 + x2) / 2, y1 + 54, text="observe / decide", fill=COLORS["muted"], font=FONT_CHIP)
+            node_font = FONT_SMALL_BOLD if width >= 620 else FONT_CHIP
+            canvas.create_text((x1 + x2) / 2, y1 + (30 if width >= 620 else 40), text=label, fill=COLORS["ink"], font=node_font, width=max(42, x2 - x1 - 8))
+            if width >= 620:
+                canvas.create_text((x1 + x2) / 2, y1 + 56, text=self.tx("관찰 · 판단", "observe · decide"), fill=COLORS["muted"], font=FONT_CHIP)
 
         x, _y = room_centers[destination_key]
         rn_y = hall_mid - 2
         canvas.create_oval(x - 14, rn_y - 14, x + 14, rn_y + 14, fill=COLORS["accent"], outline="#ffffff", width=4)
         canvas.create_text(x, rn_y, text="RN", fill="#ffffff", font=FONT_CHIP)
 
-        canvas.create_rectangle(28, 366, width - 28, 388, fill=COLORS["panel_alt"], outline="")
+        canvas.create_rectangle(28, 366, width - 28, 406, fill=COLORS["panel_alt"], outline="")
         canvas.create_text(
             40,
-            377,
+            373,
             text=self.tx(
-                "단서와 동선을 본 뒤, 바로 아래에서 다음 행동을 선택합니다.",
-                "Read the cues and route, then choose the next action directly below.",
+                "동선을 확인한 뒤 아래 선택 패널에서 다음 행동을 고르세요.",
+                "Review the route, then choose the next action below.",
             ),
             fill=COLORS["muted"],
-            font=FONT_SMALL,
-            anchor="w",
+            font=FONT_CHIP,
+            anchor="nw",
             width=width - 80,
         )
 
@@ -3790,11 +4569,11 @@ class WardSimulatorApp(tk.Tk):
         ttk.Label(
             parent,
             text=self.tx(
-                "왼쪽 장면에서 선택을 하면 baseline 대비 변화량이 표시됩니다. 점수 자체보다 어떤 역량이 흔들리는지 보는 패널입니다.",
-                "After you choose in the scene, this panel shows change from baseline. Use it to see which competency is being stressed.",
+                "선택 후 어떤 역량이 흔들리는지만 빠르게 확인합니다.",
+                "After choosing, quickly check which competency moved.",
             ),
             style="Muted.TLabel",
-            wraplength=680,
+            wraplength=300,
             justify="left",
         ).pack(anchor="w", pady=(2, 12))
         current_effect = self.first_week_effect_for_choice(self.first_week_answers.get(self.first_week_day))
@@ -3817,7 +4596,7 @@ class WardSimulatorApp(tk.Tk):
             top.pack(fill="x")
             tk.Label(top, text=label, bg=COLORS["panel"], fg=COLORS["ink"], font=FONT_SMALL_BOLD).pack(side="left")
             tk.Label(top, text=status, bg=chip_color, fg=COLORS["ink"], font=FONT_CHIP, padx=7, pady=2).pack(side="right")
-            bar = self.modern_progress(row, value, maximum=100, height=12, fill=COLORS["accent"], bg=COLORS["panel"])
+            bar = self.modern_progress(row, value, maximum=100, height=12, fill=COLORS["primary"], bg=COLORS["panel"])
             bar.pack(fill="x", pady=(5, 1))
             delta_text = f"{delta:+d}" if delta else "0"
             ttk.Label(row, text=self.tx(f"{value}/100  baseline {base}, 변화 {delta_text}", f"{value}/100  baseline {base}, change {delta_text}"), style="Muted.TLabel").pack(anchor="w")
@@ -3837,12 +4616,12 @@ class WardSimulatorApp(tk.Tk):
         complete_text = self.tx(f"완료한 장면: {completed}/{len(FIRST_WEEK_DAYS)}", f"Completed scenes: {completed}/{len(FIRST_WEEK_DAYS)}")
         ttk.Label(parent, text=complete_text, style="CardTitle.TLabel").pack(anchor="w", pady=(8, 6))
         current = FIRST_WEEK_DAYS[self.first_week_day]
-        ttk.Label(parent, text=self.clean_text(current["bridge"]), style="Panel.TLabel", wraplength=680, justify="left").pack(anchor="w")
+        ttk.Label(parent, text=self.clean_text(current["bridge"]), style="Panel.TLabel", wraplength=320, justify="left").pack(anchor="w")
         hint = self.tx(
             "선택 후 어떤 역량이 흔들리는지 확인하세요.",
             "After each choice, review which competency moved.",
         )
-        tk.Label(parent, text=hint, bg=COLORS["panel_alt"], fg=COLORS["ink"], font=FONT_SMALL, wraplength=680, justify="left", padx=10, pady=8).pack(fill="x", pady=(12, 0))
+        tk.Label(parent, text=hint, bg=COLORS["panel_alt"], fg=COLORS["ink"], font=FONT_SMALL, wraplength=300, justify="left", padx=10, pady=8).pack(fill="x", pady=(12, 0))
 
     def set_first_week_day(self, index):
         self.first_week_day = max(0, min(index, len(FIRST_WEEK_DAYS) - 1))
@@ -3876,6 +4655,7 @@ class WardSimulatorApp(tk.Tk):
         FIRST_WEEK_DAYS = select_first_week_days(FIRST_WEEK_DAY_POOLS)
         self.first_week_day = 0
         self.first_week_answers = {}
+        self.first_week_choice_orders = {}
         self.last_first_week_effect = {}
         self.last_first_week_choice_best = None
         self.first_week_scores = dict(FIRST_WEEK_BASE_SCORES)
@@ -3884,24 +4664,18 @@ class WardSimulatorApp(tk.Tk):
 
     def _render_dashboard(self):
         hero = self.panel(padding=0)
-        hero_canvas = tk.Canvas(hero, height=560, bg=COLORS["bg"], highlightthickness=0)
+        hero_canvas = tk.Canvas(hero, height=182, bg=COLORS["panel"], highlightthickness=0)
         hero_canvas.pack(fill="x")
-        self._draw_dashboard_canvas(hero_canvas, 900)
+        self._draw_dashboard_canvas(hero_canvas, 820)
         hero_canvas.bind("<Configure>", lambda event: self._draw_dashboard_canvas(event.widget, event.width))
 
-        self._render_top_stats()
-        self._render_program_benefits()
-        self._render_journey_timeline()
-        self._render_social_proof()
-        self._render_safety_notice(self.page.inner, compact=True)
-
         module_header = tk.Frame(self.page.inner, bg=COLORS["bg"])
-        module_header.pack(fill="x", padx=30, pady=(6, 2))
+        module_header.pack(fill="x", padx=24, pady=(8, 2))
         tk.Label(
             module_header,
-            text=self.tx("04 / PRACTICE MODULES", "04 / PRACTICE MODULES"),
+            text=self.tx("PRACTICE MODES", "PRACTICE MODES"),
             bg=COLORS["bg"],
-            fg=COLORS["accent"],
+            fg=COLORS["primary"],
             font=FONT_CHIP,
         ).pack(anchor="w")
         tk.Label(
@@ -3913,46 +4687,80 @@ class WardSimulatorApp(tk.Tk):
         ).pack(anchor="w", pady=(3, 0))
 
         dashboard_grid = ttk.Frame(self.page.inner, style="Page.TFrame")
-        dashboard_grid.pack(fill="x", padx=30, pady=(12, 9))
+        dashboard_grid.pack(fill="x", padx=24, pady=(6, 6))
         mode_cards = [
-            (self.tx("첫 7일", "First 7 Days"), self.tx(f"미국 병동 첫 주 장면 {sum(len(pool) for pool in FIRST_WEEK_DAY_POOLS)}개 중 랜덤 진행", f"Randomized first-week scenes from a {sum(len(pool) for pool in FIRST_WEEK_DAY_POOLS)}-scene pool"), COLORS["soft_blue"], "first7", "day_flow"),
-            (self.tx("직무 트랙", "Specialty Tracks"), self.tx("응급, 중증, 회복실 등 부서별 task와 escalation 감각", "Specialty task and escalation differences across ED, ICU, PACU, and more"), COLORS["soft_cyan"], "specialties", "scenarios"),
-            (self.tx("병동 투어", "Ward Tour"), self.tx("사진 단서와 구역 지도를 보며 RN 동선을 따라가기", "Follow RN movement with photo cues and a ward map"), COLORS["soft_green"], "tour", "tour"),
-            (self.tx("스테이션 실습", "Station Practice"), self.tx(f"스테이션별 판단 과제 {len(QUESTIONS)}개에서 랜덤 연습", f"Random practice from {len(QUESTIONS)} station decision tasks"), COLORS["soft_cyan"], "quests", "photo_nurse_station"),
-            (self.tx("환자 케이스", "Patient Cases"), self.tx(f"상태 변화, 퇴원, 격리, 가족 전화 등 {len(SCENARIOS)}개 케이스", f"{len(SCENARIOS)} cases: changes, discharge, isolation, family calls"), COLORS["soft_green"], "scenarios", "photo_patient_room"),
-            (self.tx("영어 연습", "English Practice"), self.tx("일상 정착 영어와 병동 업무 영어를 카드로 반복", "Repeat daily settlement and nursing-work English cards"), COLORS["soft_blue"], "english", "ward_collage"),
+            (self.tx("첫 7일", "First 7 Days"), self.tx("사진 단서 → 선택 → 디브리핑", "Photo cue → choice → debrief"), self.tx("추천", "RECOMMENDED"), COLORS["primary"], "first7", "icon_nurse"),
+            (self.tx("병동 투어", "Ward Tour"), self.tx("구역을 이동하며 RN 동선 익히기", "Move through unit zones"), self.tx("공간", "SPACES"), COLORS["success"], "tour", "icon_supply"),
+            (self.tx("스테이션 실습", "Station Practice"), self.tx("오늘 문항만 짧게 풀기", "Short daily decision set"), self.tx("10분", "10 MIN"), COLORS["primary"], "quests", "icon_safety"),
+            (self.tx("환자 케이스", "Patient Cases"), self.tx("상태 변화에서 다음 행동 선택", "Choose next action from patient cues"), self.tx("판단", "DECIDE"), COLORS["success"], "scenarios", "icon_bed"),
+            (self.tx("영어 연습", "English Practice"), self.tx("일상 + 병동 표현 10분 루틴", "10-minute daily + clinical language"), self.tx("말하기", "SPEAK"), COLORS["primary"], "english", "icon_handoff"),
+            (self.tx("SBAR", "SBAR"), self.tx("provider call 문장으로 정리", "Structure provider calls"), self.tx("보고", "REPORT"), COLORS["accent"], "sbar", "icon_handoff"),
         ]
-        for col in range(3):
+        for col in range(2):
             dashboard_grid.columnconfigure(col, weight=1, uniform="dashboard")
-        for index, (title, desc, color, key, image_key) in enumerate(mode_cards):
-            row, col = divmod(index, 3)
+        for index, (title, desc, tag, color, key, image_key) in enumerate(mode_cards):
+            row, col = divmod(index, 2)
             card = self.feature_card(
                 dashboard_grid,
                 title,
                 desc,
-                f"{NAV_BADGES.get(key, '')} / {self.tx('MODULE', 'MODULE')}",
+                tag,
                 color,
                 lambda page=key: self.show_page(page),
                 image_key=image_key,
             )
-            card.grid(row=row, column=col, sticky="nsew", padx=6, pady=6)
+            card.grid(row=row, column=col, sticky="nsew", padx=5, pady=4)
 
-        stats = [
-            (str(sum(len(pool) for pool in FIRST_WEEK_DAY_POOLS)), self.tx("첫 주 랜덤 장면", "random first-week scenes"), COLORS["soft_blue"]),
-            (str(len(SPECIALTY_TRACKS)), self.tx("직무 트랙", "specialty tracks"), COLORS["soft_cyan"]),
-            (str(len(TOUR_MODES)), self.tx("투어 모드", "tour modes"), COLORS["soft_green"]),
-            (str(len(QUESTIONS)), self.tx("스테이션 과제", "station tasks"), COLORS["soft_cyan"]),
-            (str(len(SCENARIOS)), self.tx("환자 케이스", "patient cases"), COLORS["soft_green"]),
-            (str(sum(len(topic["words"]) + len(topic["sentences"]) for topics in ENGLISH_STUDY_TOPICS.values() for topic in topics)), self.tx("영어 카드", "English cards"), COLORS["soft_blue"]),
-        ]
-        for index, (num, label, color) in enumerate(
-            [
-                *stats,
-            ]
-        ):
-            row, col = divmod(index, 3)
-            card = self.metric_card(dashboard_grid, num, label, color)
-            card.grid(row=row + 2, column=col, sticky="nsew", padx=6, pady=6)
+        self._render_today_session()
+        self._render_safety_notice(self.page.inner, compact=True)
+
+    def _render_today_session(self):
+        panel = self.panel(padding=14)
+        top = tk.Frame(panel, bg=COLORS["panel"])
+        top.pack(fill="x")
+        top.columnconfigure(0, weight=1)
+        left = tk.Frame(top, bg=COLORS["panel"])
+        left.grid(row=0, column=0, sticky="nsew")
+        right = tk.Frame(top, bg=COLORS["panel"])
+        right.grid(row=0, column=1, sticky="ne", padx=(18, 0))
+        tk.Label(
+            left,
+            text=self.tx("오늘의 10분 리허설", "Today's 10-minute rehearsal"),
+            bg=COLORS["panel"],
+            fg=COLORS["ink"],
+            font=FONT_CARD_TITLE,
+        ).pack(anchor="w")
+        today = FIRST_WEEK_DAYS[self.first_week_day]
+        tk.Label(
+            left,
+            text=self.tx(
+                f"Day {today['day']} · {today['time']} · {today['title']}",
+                f"Day {today['day']} · {today['time']} · {today['title']}",
+            ),
+            bg=COLORS["panel"],
+            fg=COLORS["primary"],
+            font=FONT_SMALL_BOLD,
+            wraplength=560,
+            justify="left",
+        ).pack(anchor="w", pady=(5, 2))
+        tk.Label(
+            left,
+            text=self.clean_text(today["setting"]),
+            bg=COLORS["panel"],
+            fg=COLORS["muted"],
+            font=FONT_SMALL,
+            wraplength=560,
+            justify="left",
+        ).pack(anchor="w")
+        tk.Label(
+            left,
+            text=self.tx("01 관찰   →   02 판단   →   03 디브리핑", "01 Observe   →   02 Decide   →   03 Debrief"),
+            bg=COLORS["panel"],
+            fg=COLORS["muted"],
+            font=FONT_CHIP,
+        ).pack(anchor="w", pady=(7, 0))
+        ttk.Button(right, text=self.tx("바로 시작", "Start now"), style="Primary.TButton", command=lambda: self.show_page("first7")).pack(fill="x")
+        ttk.Button(right, text=self.tx("랜덤 첫 주", "Randomize week"), command=self.reset_first_week).pack(fill="x", pady=(6, 0))
 
     def _render_top_stats(self):
         first_week_total = sum(len(pool) for pool in FIRST_WEEK_DAY_POOLS)
@@ -4355,128 +5163,31 @@ class WardSimulatorApp(tk.Tk):
 
     def _draw_dashboard_canvas(self, canvas, width):
         canvas.delete("all")
-        width = max(int(width), 900)
-        height = 560
-        canvas.create_rectangle(0, 0, width, height, fill=COLORS["bg"], outline="")
-
-        margin = 24
-        gap = 18
-        top_y = 24
-        top_h = 236
-        overview_y = top_y + top_h + gap
-        overview_h = 126
-        bottom_y = overview_y + overview_h + gap
-        bottom_h = 104
-        usable_w = width - margin * 2
-        image_w = min(980, max(720, int(usable_w * 0.52))) if usable_w >= 1120 else 0
-        left_w = usable_w - image_w - (gap if image_w else 0)
-        if image_w and left_w < 560:
-            left_w = 560
-            image_w = usable_w - left_w - gap
-        left_w = max(560, left_w)
-        card_radius = 22
-
-        def bind_card(tag, page):
-            canvas.tag_bind(tag, "<Button-1>", lambda _event, target=page: self.show_page(target))
-            canvas.tag_bind(tag, "<Enter>", lambda _event: canvas.configure(cursor="hand2"))
-            canvas.tag_bind(tag, "<Leave>", lambda _event: canvas.configure(cursor=""))
-
-        tl = (margin, top_y, margin + left_w, top_y + top_h)
-        tag = "hero_bento_start"
-        self.rounded_rect(canvas, tl[0] + 2, tl[1] + 3, tl[2] + 2, tl[3] + 4, card_radius, fill=COLORS["shadow"], outline="", tags=(tag,))
-        self.rounded_rect(canvas, *tl, card_radius, fill=COLORS["panel"], outline=COLORS["card_border"], tags=(tag,))
-        canvas.create_rectangle(tl[0], tl[1] + 28, tl[0] + 5, tl[3] - 28, fill=COLORS["primary"], outline=COLORS["primary"], tags=(tag,))
-        canvas.create_text(tl[0] + 28, tl[1] + 30, text="U.S. WARD EXPERIENCE LAB", fill=COLORS["primary"], font=FONT_CHIP, anchor="w", tags=(tag,))
-        hero_title_font = font_spec(FONT_FAMILY, 17, True)
-        canvas.create_text(
-            tl[0] + 28,
-            tl[1] + 70,
-            text=self.tx("미국 병동 첫 주 실전 적응 훈련", "First Week U.S. Ward Practice"),
-            fill=COLORS["ink"],
-            font=hero_title_font,
-            anchor="nw",
-            width=left_w - 58,
-            tags=(tag,),
+        width = max(int(width), 640)
+        height = 182
+        canvas.create_rectangle(0, 0, width, height, fill=COLORS["panel"], outline="")
+        day_no = self.first_week_day + 1
+        completed = len(self.first_week_answers)
+        center_x = width / 2
+        canvas.create_text(center_x, 19, text="U.S. WARD EXPERIENCE LAB  ·  LOCAL TRAINING", fill=COLORS["primary"], font=FONT_CHIP)
+        hero_title = self.tx("오늘 어떤 병동 상황을 연습할까요?", "What would you like to rehearse today?")
+        title_width = tkfont.Font(font=FONT_HERO).measure(hero_title)
+        title_group_width = 34 + 14 + title_width
+        title_start_x = max(24, center_x - (title_group_width / 2))
+        canvas.create_oval(title_start_x, 49, title_start_x + 34, 83, fill=COLORS["ink"], outline="")
+        canvas.create_text(title_start_x + 17, 66, text="UW", fill="#ffffff", font=FONT_CHIP)
+        canvas.create_text(title_start_x + 48, 66, text=hero_title, fill=COLORS["ink"], font=FONT_HERO, anchor="w")
+        hero_body = self.tx(
+            "장면을 고르고, 다음 행동을 판단한 뒤 근거를 짧게 확인하세요.",
+            "Choose a scene, decide the next action, then review the rationale.",
         )
-        canvas.create_text(
-            tl[0] + 28,
-            tl[1] + 134,
-            text=self.tx("한국 RN이 미국 병동의 동선, 커뮤니케이션, 정책 감각을 안전하게 리허설합니다.", "A clinical simulation worksheet for Korean RNs preparing for U.S. hospital practice."),
-            fill=COLORS["muted"],
-            font=FONT_SMALL,
-            anchor="nw",
-            width=left_w - 58,
-            tags=(tag,),
+        canvas.create_text(center_x, 107, text=hero_body, fill=COLORS["muted"], font=FONT_NORMAL)
+        progress_text = self.tx(
+            f"Day {day_no} / 7  ·  완료 {completed} / 7  ·  관찰 → 판단 → 디브리핑",
+            f"Day {day_no} / 7  ·  Done {completed} / 7  ·  Observe → Decide → Debrief",
         )
-        start_x, start_y = tl[0] + 28, tl[1] + 180
-        self.rounded_rect(canvas, start_x, start_y, start_x + 116, start_y + 34, 10, fill=COLORS["primary"], outline=COLORS["primary"], tags=(tag,))
-        canvas.create_text(start_x + 58, start_y + 17, text=self.tx("시작하기", "Start"), fill="#ffffff", font=FONT_SMALL_BOLD, tags=(tag,))
-        bind_card(tag, "first7")
-
-        if image_w:
-            image_tag = "hero_image"
-            vr = (tl[2] + gap, top_y, width - margin, top_y + top_h)
-            self.rounded_rect(canvas, vr[0] + 2, vr[1] + 3, vr[2] + 2, vr[3] + 4, card_radius, fill=COLORS["shadow"], outline="", tags=(image_tag,))
-            self.rounded_rect(canvas, *vr, card_radius, fill=COLORS["panel"], outline=COLORS["card_border"], tags=(image_tag,))
-            image = self.scaled_image("hospital_hero", image_w - 34, top_h - 32)
-            if image:
-                canvas.create_image((vr[0] + vr[2]) / 2, (vr[1] + vr[3]) / 2, image=image, anchor="center", tags=(image_tag,))
-            bind_card(image_tag, "tour")
-
-        overview_tag = "hero_overview"
-        ox1, oy1, ox2, oy2 = margin, overview_y, width - margin, overview_y + overview_h
-        self.rounded_rect(canvas, ox1 + 2, oy1 + 3, ox2 + 2, oy2 + 4, 20, fill=COLORS["shadow"], outline="", tags=(overview_tag,))
-        self.rounded_rect(canvas, ox1, oy1, ox2, oy2, 20, fill=COLORS["panel"], outline=COLORS["card_border"], tags=(overview_tag,))
-        canvas.create_text(ox1 + 24, oy1 + 22, text=self.tx("Overview & Checkpoints", "Overview & Checkpoints"), fill=COLORS["ink"], font=FONT_CARD_TITLE, anchor="w", tags=(overview_tag,))
-        canvas.create_text(
-            ox1 + 24,
-            oy1 + 48,
-            text=self.tx("시뮬레이션 흐름과 안전 체크포인트를 한 화면에서 확인합니다.", "Simulation flow and safety checkpoints in one view."),
-            fill=COLORS["muted"],
-            font=FONT_SMALL,
-            anchor="w",
-            tags=(overview_tag,),
-        )
-        checkpoints = [
-            self.tx("Nurse Station workflow", "Nurse Station workflow"),
-            self.tx("Med Room / ADC safety", "Med Room / ADC safety"),
-            self.tx("Critical care escalation", "Critical care escalation"),
-            self.tx("Documentation checkpoints", "Documentation checkpoints"),
-            self.tx("SBAR & handoff practice", "SBAR & handoff practice"),
-            "contact: darkha123@gmail.com",
-        ]
-        col_w = (usable_w - 72) / 3
-        for index, item in enumerate(checkpoints):
-            col = index % 3
-            row = index // 3
-            x = ox1 + 26 + col * col_w
-            y = oy1 + 76 + row * 24
-            canvas.create_oval(x, y + 4, x + 8, y + 12, fill=COLORS["primary"], outline=COLORS["primary"], tags=(overview_tag,))
-            canvas.create_text(x + 18, y, text=item, fill=COLORS["ink"], font=FONT_SMALL_BOLD, anchor="nw", width=col_w - 28, tags=(overview_tag,))
-        bind_card(overview_tag, "guide")
-
-        bottom_cards = [
-            (self.tx("Observe", "Observe"), self.tx("사진과 병동 지도를 보고 단서를 찾습니다.", "Use photos and maps to identify cues."), "tour"),
-            (self.tx("Decide", "Decide"), self.tx("RN의 다음 행동을 선택합니다.", "Choose the RN's next action."), "quests"),
-            (self.tx("Debrief", "Debrief"), self.tx("위험, 정책 차이, 영어 표현을 정리합니다.", "Review risk, policy variation, and English."), "checklists"),
-        ]
-        card_w = (usable_w - gap * 2) / 3
-        for index, (title, body, page) in enumerate(bottom_cards):
-            x1 = margin + index * (card_w + gap)
-            y1 = bottom_y
-            x2 = x1 + card_w
-            y2 = bottom_y + bottom_h
-            tag = f"hero_process_{index}"
-            self.rounded_rect(canvas, x1 + 2, y1 + 3, x2 + 2, y2 + 4, 18, fill=COLORS["shadow"], outline="", tags=(tag,))
-            self.rounded_rect(canvas, x1, y1, x2, y2, 18, fill=COLORS["panel"], outline=COLORS["card_border"], tags=(tag,))
-            canvas.create_text(x1 + 24, y1 + 18, text=f"{index + 1:02d}", fill=COLORS["primary"], font=FONT_CHIP, anchor="w", tags=(tag,))
-            canvas.create_text(x1 + 24, y1 + 46, text=title, fill=COLORS["ink"], font=FONT_CARD_TITLE, anchor="w", tags=(tag,))
-            canvas.create_text(x1 + 24, y1 + 68, text=body, fill=COLORS["muted"], font=FONT_SMALL, anchor="nw", width=card_w - 104, tags=(tag,))
-            canvas.create_text(x2 - 24, y2 - 18, text=self.tx("열기", "Open"), fill=COLORS["primary"], font=FONT_CHIP, anchor="e", tags=(tag,))
-            bind_card(tag, page)
-
-        canvas.create_text(margin, height - 18, text="Copyright darkha123@gmail.com", fill=COLORS["muted"], font=FONT_CHIP, anchor="w")
-        canvas.create_text(width - margin, height - 18, text=f"{APP_VERSION} / educational simulation", fill=COLORS["muted"], font=FONT_CHIP, anchor="e")
+        self.rounded_rect(canvas, center_x - 190, 132, center_x + 190, 160, 12, fill=COLORS["panel_alt"], outline=COLORS["line"])
+        canvas.create_text(center_x, 146, text=progress_text, fill=COLORS["muted"], font=FONT_CHIP)
 
     def _render_specialties(self):
         self.page_title(
@@ -4488,31 +5199,48 @@ class WardSimulatorApp(tk.Tk):
         )
 
         audit = self.panel(padding=18)
-        ttk.Label(audit, text=self.tx("실무 적합성 재평가", "Practice Usefulness Re-check"), style="CardTitle.TLabel").pack(anchor="w")
+        ttk.Label(audit, text=self.tx("역할이 달라지면 보는 단서도 달라집니다", "A different role changes what you watch for"), style="CardTitle.TLabel").pack(anchor="w")
         audit_text = self.tx(
-            "도움이 되는 지점: 첫 7일의 낯선 시스템, 병동 동선, HIPAA/인수인계/투약/퇴원 압박을 간접 경험하게 합니다. 보강이 필요한 지점: 실제 부서별 acuity와 task 차이를 더 분리해야 합니다. 그래서 이 페이지와 추가 스테이션 문항을 넣었습니다.",
-            "What helps: it lets nurses rehearse the unfamiliar first-week system, unit movement, HIPAA, handoff, medication workflow, and discharge pressure. What needed strengthening: specialty-specific acuity and task differences. This page and the added station items address that gap.",
+            "Staff RN, Charge RN, Preceptor, LPN/LVN, PCT/CNA는 같은 장면에서도 서로 다른 책임과 멈춤 지점을 봅니다. 아래 트랙에서 익숙한 역할과 준비 중인 역할을 비교해보세요.",
+            "Staff RNs, charge RNs, preceptors, LPN/LVNs, and PCT/CNAs notice different responsibilities and pause points in the same scene. Compare the role you know with the role you are preparing for.",
         )
-        ttk.Label(audit, text=audit_text, style="Panel.TLabel", wraplength=880, justify="left").pack(anchor="w", pady=(6, 0))
+        ttk.Label(audit, text=audit_text, style="Panel.TLabel", wraplength=800, justify="left").pack(anchor="w", pady=(6, 0))
 
         photo_panel = self.panel(padding=14)
         photo_row = tk.Frame(photo_panel, bg=COLORS["panel"])
         photo_row.pack(fill="x")
         photo_items = [
-            ("photo_nurse_station", self.tx("Nurse Station", "Nurse Station")),
-            ("photo_med_room", self.tx("Medication Room", "Medication Room")),
-            ("photo_patient_room", self.tx("Patient Room", "Patient Room")),
-            ("photo_supply_room", self.tx("Supply / PPE Room", "Supply / PPE Room")),
+            ("photo_nurse_station", self.tx("간호사 스테이션", "Nurse Station"), self.tx("업무 배정 · 호출", "Assignments · calls")),
+            ("photo_med_room", self.tx("투약실", "Medication Room"), self.tx("투약 준비 · 확인", "Prepare · verify")),
+            ("photo_patient_room", self.tx("환자 병실", "Patient Room"), self.tx("직접 간호 · 관찰", "Care · observe")),
+            ("photo_supply_room", self.tx("물품실", "Supply / PPE Room"), self.tx("물품 · PPE 준비", "Supplies · PPE")),
         ]
-        for col, (image_key, label) in enumerate(photo_items):
+        for col in range(4):
             photo_row.columnconfigure(col, weight=1)
-            tile = self.photo_tile(photo_row, image_key, title=label, bg=COLORS["panel_alt"], max_width=360, max_height=270)
-            tile.grid(row=0, column=col, sticky="nsew", padx=5)
+        for col, (image_key, title, body) in enumerate(photo_items):
+            tile = tk.Frame(
+                photo_row,
+                bg=COLORS["panel_alt"],
+                highlightthickness=1,
+                highlightbackground=COLORS["card_border"],
+                padx=10,
+                pady=9,
+            )
+            tile.grid(row=0, column=col, sticky="nsew", padx=4, pady=4)
+            compact = tk.Frame(tile, bg=COLORS["panel_alt"])
+            compact.pack(anchor="center")
+            image = self.scaled_image(image_key, 96, 76)
+            if image:
+                tk.Label(compact, image=image, bg=COLORS["panel_alt"], borderwidth=0).pack(side="left", padx=(0, 10))
+            copy = tk.Frame(compact, bg=COLORS["panel_alt"])
+            copy.pack(side="left", anchor="center")
+            tk.Label(copy, text=title, bg=COLORS["panel_alt"], fg=COLORS["ink"], font=FONT_SMALL_BOLD, wraplength=112, justify="left").pack(anchor="w")
+            tk.Label(copy, text=body, bg=COLORS["panel_alt"], fg=COLORS["muted"], font=FONT_CHIP, wraplength=112, justify="left").pack(anchor="w", pady=(3, 0))
 
         grid_outer = tk.Frame(self.page.inner, bg=COLORS["bg"])
         grid_outer.pack(fill="x", padx=28, pady=8)
         for col in range(2):
-            grid_outer.columnconfigure(col, weight=1)
+            grid_outer.columnconfigure(col, weight=1, uniform="specialty_tracks")
         for index, track in enumerate(SPECIALTY_TRACKS):
             row, col = divmod(index, 2)
             outer, card = self._card_shell(grid_outer, bg=COLORS["panel"], padding=16)
@@ -4525,17 +5253,17 @@ class WardSimulatorApp(tk.Tk):
             if icon:
                 tk.Label(header, image=icon, bg=COLORS["panel"]).pack(side="right")
             tk.Label(card, text=track["tag"], bg=track["color"], fg=COLORS["ink"], font=FONT_CHIP, padx=9, pady=4).pack(anchor="w", pady=(8, 10))
-            tk.Label(card, text=self.clean_text(track["focus"]), bg=COLORS["panel"], fg=COLORS["ink"], font=FONT_NORMAL, wraplength=900, justify="left").pack(anchor="w", pady=(0, 10))
+            tk.Label(card, text=self.clean_text(track["focus"]), bg=COLORS["panel"], fg=COLORS["ink"], font=FONT_NORMAL, wraplength=360, justify="left").pack(anchor="w", pady=(0, 10))
             tk.Label(card, text=self.tx("요구 task", "Required tasks"), bg=COLORS["panel"], fg=COLORS["ink"], font=FONT_SMALL_BOLD).pack(anchor="w")
             for task in track["tasks"]:
-                tk.Label(card, text=f"• {self.clean_text(task)}", bg=COLORS["panel"], fg=COLORS["ink"], font=FONT_SMALL, wraplength=900, justify="left").pack(anchor="w", pady=2)
+                tk.Label(card, text=f"• {self.clean_text(task)}", bg=COLORS["panel"], fg=COLORS["ink"], font=FONT_SMALL, wraplength=360, justify="left").pack(anchor="w", pady=2)
             tk.Label(card, text=self.tx("적응 리스크", "Adaptation risk"), bg=COLORS["panel"], fg=COLORS["ink"], font=FONT_SMALL_BOLD).pack(anchor="w", pady=(11, 2))
-            tk.Label(card, text=self.clean_text(track["risk"]), bg=COLORS["panel"], fg=COLORS["ink"], font=FONT_SMALL, wraplength=900, justify="left").pack(anchor="w")
+            tk.Label(card, text=self.clean_text(track["risk"]), bg=COLORS["panel"], fg=COLORS["ink"], font=FONT_SMALL, wraplength=360, justify="left").pack(anchor="w")
 
             practice = tk.Frame(card, bg=COLORS["panel"], highlightthickness=1, highlightbackground=COLORS["card_border"], padx=10, pady=8)
             practice.pack(fill="x", pady=(12, 0))
             tk.Label(practice, text=self.tx("추천 연습", "Recommended Practice"), bg=COLORS["panel"], fg=COLORS["ink"], font=FONT_SMALL_BOLD).pack(anchor="w")
-            tk.Label(practice, text=self.clean_text(track["practice"]), bg=COLORS["panel"], fg=COLORS["ink"], font=FONT_SMALL_BOLD, wraplength=860, justify="left").pack(anchor="w", pady=(3, 6))
+            tk.Label(practice, text=self.clean_text(track["practice"]), bg=COLORS["panel"], fg=COLORS["ink"], font=FONT_SMALL_BOLD, wraplength=360, justify="left").pack(anchor="w", pady=(3, 6))
             chip_row = tk.Frame(practice, bg=COLORS["panel"])
             chip_row.pack(fill="x")
             for label, color in [
@@ -4546,22 +5274,20 @@ class WardSimulatorApp(tk.Tk):
                 tk.Label(chip_row, text=label, bg=color, fg=COLORS["ink"], font=FONT_CHIP, padx=8, pady=3).pack(side="left", padx=(0, 5))
 
         bottom = self.panel(padding=18)
-        ttk.Label(bottom, text=self.tx("이 프로그램이 실제 간호사에게 도움이 되려면", "For This to Be Useful to Practicing Nurses"), style="CardTitle.TLabel").pack(anchor="w")
+        ttk.Label(bottom, text=self.tx("직무 트랙을 활용하는 법", "How to use the specialty tracks"), style="CardTitle.TLabel").pack(anchor="w")
         self.bullet_list(
             bottom,
             (
                 [
-                    "예비 간호사 수준 설명보다, 이미 임상 경험이 있는 RN이 미국 시스템에서 헷갈리는 경계와 workflow를 다뤄야 합니다.",
-                    "정답 암기보다 상황 단서, 우선순위, delegation, escalation, privacy를 반복 선택하게 해야 합니다.",
-                    "병동 공통 흐름과 specialty별 task 차이를 분리해야 실제 이직/이민 준비에 더 가깝습니다.",
-                    "실제 병원 정책과 state scope는 대체할 수 없으므로, 이 프로그램은 landing 전에 감각을 만드는 pre-brief 도구로 쓰는 것이 적절합니다.",
+                    "먼저 자신의 현재 역할과 가장 가까운 트랙에서 익숙한 업무와 다른 경계를 표시합니다.",
+                    "그다음 준비 중인 역할로 바꿔 delegation, escalation, privacy 단서를 다시 비교합니다.",
+                    "정답을 외우기보다 facility policy와 state scope를 어디서 확인해야 하는지 메모합니다.",
                 ]
                 if not self.is_english()
                 else [
-                    "It should target experienced RNs learning U.S. workflow boundaries, not novice nursing content.",
-                    "It should repeat cue recognition, prioritization, delegation, escalation, and privacy decisions instead of answer memorization.",
-                    "Common floor workflow and specialty-specific tasks should be separated for immigration/job-transition readiness.",
-                    "It cannot replace facility policy or state scope; it works best as a pre-landing rehearsal tool.",
+                    "Start with the track closest to your current role and mark familiar tasks versus unfamiliar boundaries.",
+                    "Switch to the role you are preparing for and compare delegation, escalation, and privacy cues.",
+                    "Focus on where to verify facility policy and state scope instead of memorizing one universal answer.",
                 ]
             ),
             wraplength=1500,
@@ -4586,88 +5312,115 @@ class WardSimulatorApp(tk.Tk):
         mode.bind("<<ComboboxSelected>>", lambda _event: self.reset_tour_route())
         ttk.Button(mode_row, text=self.tx("랜덤 동선", "Random Route"), command=self.random_tour_mode).pack(side="left", padx=(0, 8))
         ttk.Button(mode_row, text=self.tx("동선 초기화", "Reset Route"), command=self.reset_tour_route).pack(side="left", padx=(0, 12))
-        ttk.Label(mode_row, textvariable=self.tour_feedback, style="Muted.TLabel", wraplength=680).pack(side="left", fill="x", expand=True)
         self._render_role_selector(controls, "tour")
+        tk.Label(
+            controls,
+            textvariable=self.tour_feedback,
+            bg=COLORS["soft_blue"],
+            fg=COLORS["ink"],
+            font=FONT_SMALL,
+            anchor="w",
+            justify="left",
+            wraplength=820,
+            padx=10,
+            pady=7,
+        ).pack(fill="x", pady=(8, 0))
 
         outer = ttk.Frame(self.page.inner, style="Page.TFrame")
-        outer.pack(fill="both", expand=True, padx=28, pady=8)
-        outer.columnconfigure(0, weight=4)
-        outer.columnconfigure(1, weight=2)
+        outer.pack(fill="x", padx=24, pady=6)
+        outer.columnconfigure(0, weight=3, uniform="tour_main")
+        outer.columnconfigure(1, weight=2, uniform="tour_main")
 
         map_outer, map_panel = self._card_shell(outer, padding=18)
-        map_outer.grid(row=0, column=0, sticky="nsew", padx=(0, 8))
+        map_outer.grid(row=0, column=0, sticky="new", padx=(0, 8))
         ttk.Label(map_panel, text="4 West Med-Surg/Telemetry Unit", style="CardTitle.TLabel").pack(anchor="w")
-        ttk.Label(map_panel, text=self.tx("공간 이름을 누르면 오른쪽 업무 오브젝트와 판단 카드가 바뀝니다.", "Click a zone to update workflow objects and decision cards."), style="Muted.TLabel").pack(anchor="w", pady=(2, 10))
-        self.map_canvas = tk.Canvas(map_panel, height=590, bg=COLORS["panel_alt"], highlightthickness=1, highlightbackground=COLORS["card_border"])
+        ttk.Label(
+            map_panel,
+            text=self.tx("지도에서 구역을 클릭하면 곧바로 다음 동선 선택으로 처리됩니다.", "Click a zone on the map to choose the next route step."),
+            style="Muted.TLabel",
+            wraplength=350,
+            justify="left",
+        ).pack(anchor="w", pady=(2, 10))
+        self.map_canvas = tk.Canvas(map_panel, height=382, bg=COLORS["panel_alt"], highlightthickness=1, highlightbackground=COLORS["card_border"])
         self.map_canvas.pack(fill="x")
         self._draw_ward_map()
         self.map_canvas.bind("<Configure>", lambda event: self._draw_ward_map())
 
-        self.flow_panel = tk.Frame(map_panel, bg=COLORS["panel"])
-        self.flow_panel.pack(fill="x", pady=(14, 0))
+        right_stack = ttk.Frame(outer, style="Page.TFrame")
+        right_stack.grid(row=0, column=1, sticky="new", padx=(8, 0))
+
+        flow_outer, self.flow_panel = self._card_shell(right_stack, padding=16)
+        flow_outer.pack(fill="x")
         self._render_tour_flow()
 
-        zone_outer, self.zone_panel = self._card_shell(outer, padding=18)
-        zone_outer.grid(row=0, column=1, sticky="nsew", padx=(8, 0))
+        zone_outer, self.zone_panel = self._card_shell(self.page.inner, padding=16)
+        zone_outer.pack(fill="x", padx=24, pady=(2, 6))
         self._render_zone_details(self.current_zone)
 
     def _draw_ward_map(self):
         c = self.map_canvas
         c.delete("all")
-        canvas_w = max(c.winfo_width(), 840)
-        base_left, base_right = 28, 812
-        draw_left, draw_right = 28, canvas_w - 28
-        scale_x = (draw_right - draw_left) / (base_right - base_left)
-
-        def sx(value):
-            return draw_left + (value - base_left) * scale_x
-
-        self.rounded_rect(c, draw_left, 24, draw_right, 536, 28, fill=COLORS["panel"], outline=COLORS["card_border"], width=1)
-        self.rounded_rect(c, sx(90), 254, sx(750), 314, 20, fill=COLORS["panel_alt"], outline="")
-        c.create_text((draw_left + draw_right) / 2, 284, text="main hallway", fill=COLORS["muted"], font=FONT_SMALL_BOLD)
-
-        zones = {
-            "Medication Room": (48, 52, 256, 232),
-            "Nurse Station": (288, 48, 548, 236),
-            "Supply Room": (592, 52, 770, 232),
-            "Patient Room": (48, 348, 256, 528),
-            "Utility / Isolation": (296, 348, 532, 528),
-            "Handoff Zone": (584, 348, 770, 528),
-        }
-        scaled_zones = {name: (sx(x1), y1, sx(x2), y2) for name, (x1, y1, x2, y2) in zones.items()}
+        canvas_w = max(c.winfo_width(), 320)
+        draw_left, draw_right = 18, canvas_w - 18
+        gap = 12
+        card_w = (draw_right - draw_left - gap * 2) / 3
+        top_y1, top_y2 = 20, 128
+        bottom_y1, bottom_y2 = 218, 326
+        names = [
+            "Medication Room",
+            "Nurse Station",
+            "Supply Room",
+            "Patient Room",
+            "Utility / Isolation",
+            "Handoff Zone",
+        ]
+        scaled_zones = {}
+        for index, name in enumerate(names):
+            row, col = divmod(index, 3)
+            x1 = draw_left + col * (card_w + gap)
+            y1, y2 = (top_y1, top_y2) if row == 0 else (bottom_y1, bottom_y2)
+            scaled_zones[name] = (x1, y1, x1 + card_w, y2)
         centers = {name: ((xy[0] + xy[2]) / 2, (xy[1] + xy[3]) / 2) for name, xy in scaled_zones.items()}
+        hall_y = 173
+        self.rounded_rect(c, draw_left + 18, 152, draw_right - 18, 194, 14, fill=COLORS["soft_gray"], outline="")
+        c.create_text((draw_left + draw_right) / 2, hall_y, text="4 WEST · MAIN HALLWAY", fill=COLORS["muted"], font=FONT_CHIP)
+
+        def draw_route(first, second, color, line_width):
+            ax, ay = centers[first]
+            bx, by = centers[second]
+            c.create_line(ax, ay, ax, hall_y, bx, hall_y, bx, by, fill=color, width=line_width, capstyle="round", joinstyle="round")
+
         route_steps = TOUR_MODES[self.tour_mode.get()]["steps"]
         route_names = [item[0] for item in route_steps]
         for first, second in zip(route_names, route_names[1:]):
-            c.create_line(*centers[first], *centers[second], fill=COLORS["line"], width=5, capstyle="round", joinstyle="round")
+            draw_route(first, second, COLORS["line_dark"], 3)
         completed_names = route_names[: min(self.tour_step + 1, len(route_names))]
         for first, second in zip(completed_names, completed_names[1:]):
-            c.create_line(*centers[first], *centers[second], fill=COLORS["accent"], width=5, capstyle="round", joinstyle="round")
+            draw_route(first, second, COLORS["primary"], 4)
 
         for name, coords in scaled_zones.items():
             data = WARD_ZONES[name]
-            fill = data["color"]
+            fill = COLORS["soft_cyan"] if name == self.current_zone else COLORS["panel"]
             is_current_route = self.tour_step < len(route_steps) and name == route_steps[self.tour_step][0]
-            outline = COLORS["accent"] if name == self.current_zone else (COLORS["primary"] if is_current_route else COLORS["line_dark"])
-            width = 4 if name == self.current_zone else (3 if is_current_route else 1)
+            outline = COLORS["primary"] if name == self.current_zone else (COLORS["warning"] if is_current_route else COLORS["card_border"])
+            width = 3 if name == self.current_zone else (2 if is_current_route else 1)
             tag = "zone_" + name.replace(" ", "_").replace("/", "_")
-            self.rounded_rect(c, *coords, 16, fill=fill, outline=outline, width=width, tags=(tag,))
+            self.rounded_rect(c, *coords, 12, fill=fill, outline=outline, width=width, tags=(tag,))
             x1, y1, x2, y2 = coords
-            photo = self.scaled_image(self.zone_photo_key(name), min(210, x2 - x1 - 20), 124)
-            if photo:
-                c.create_image((x1 + x2) / 2, y1 + 70, image=photo, anchor="center", tags=(tag,))
-                title_y = y1 + 139
-                korean_y = y1 + 163
-            else:
-                title_y = y1 + 31
-                korean_y = y1 + 59
-            c.create_text((x1 + x2) / 2, title_y, text=data["title"], width=(x2 - x1 - 16), fill=COLORS["ink"], font=FONT_SMALL_BOLD, tags=(tag,))
-            c.create_text((x1 + x2) / 2, korean_y, text=data["korean"], width=(x2 - x1 - 16), fill=COLORS["muted"], font=FONT_CHIP, tags=(tag,))
-            c.tag_bind(tag, "<Button-1>", lambda _event, zone=name: self.select_zone(zone))
+            icon = self.icon_image(self.zone_icon_key(name), 34)
+            if icon:
+                c.create_image((x1 + x2) / 2, y1 + 27, image=icon, anchor="center", tags=(tag,))
+            display_title = data["title"] if self.is_english() else data["korean"]
+            node_font = FONT_CHIP if (x2 - x1) < 130 else FONT_SMALL_BOLD
+            c.create_text((x1 + x2) / 2, y1 + 50, text=display_title, width=(x2 - x1 - 12), fill=COLORS["ink"], font=node_font, anchor="n", tags=(tag,))
+            state_text = self.tx("현재", "CURRENT") if name == self.current_zone else self.tx("다음", "NEXT") if is_current_route else ""
+            if state_text:
+                c.create_text((x1 + x2) / 2, y2 - 12, text=state_text, fill=outline, font=FONT_CHIP, tags=(tag,))
+            c.tag_bind(tag, "<Button-1>", lambda _event, zone=name: self.choose_tour_next(zone))
             c.tag_bind(tag, "<Enter>", lambda _event: c.configure(cursor="hand2"))
             c.tag_bind(tag, "<Leave>", lambda _event: c.configure(cursor=""))
 
-        c.create_text((draw_left + draw_right) / 2, 564, text=self.tx("교육용 mock layout입니다. 병원마다 구조와 장비 배치는 다를 수 있습니다.", "Educational mock layout. Real units vary by facility."), fill=COLORS["muted"], font=FONT_SMALL)
+        c.create_text((draw_left + draw_right) / 2, 362, text=self.tx("교육용 mock layout · 실제 구조와 장비 배치는 병원마다 다릅니다.", "Educational mock layout · real units vary by facility."), fill=COLORS["muted"], font=FONT_CHIP)
 
     def _render_tour_flow(self):
         for child in self.flow_panel.winfo_children():
@@ -4676,37 +5429,64 @@ class WardSimulatorApp(tk.Tk):
         complete = self.tour_step >= len(steps)
         progress = int((min(self.tour_step, len(steps)) / len(steps)) * 100)
         progress_label = self.tx(f"{self.tour_mode.get()}  {progress}% 완료", f"{self.tour_mode.get()}  {progress}% complete")
-        ttk.Label(self.flow_panel, text=progress_label, style="CardTitle.TLabel").pack(anchor="w")
-        self.modern_progress(self.flow_panel, progress, maximum=100, height=12, fill=COLORS["accent"], bg=COLORS["panel"]).pack(fill="x", pady=(8, 10))
+        ttk.Label(self.flow_panel, text=self.tx("동선 선택", "Route Choices"), style="CardTitle.TLabel").pack(anchor="w")
+        ttk.Label(self.flow_panel, text=progress_label, style="Muted.TLabel", wraplength=300, justify="left").pack(anchor="w", pady=(2, 0))
+        self.modern_progress(self.flow_panel, progress, maximum=100, height=12, fill=COLORS["primary"], bg=COLORS["panel"]).pack(fill="x", pady=(8, 10))
         lane = tk.Frame(self.flow_panel, bg=COLORS["panel"])
         lane.pack(fill="x", pady=(0, 10))
         for index, (zone, _note) in enumerate(steps):
-            lane.columnconfigure(index, weight=1)
             is_done = index < self.tour_step
             is_current = index == self.tour_step and not complete
             color = COLORS["soft_green"] if is_done else (WARD_ZONES[zone]["color"] if is_current else COLORS["panel_alt"])
             border = COLORS["success"] if is_done else (COLORS["primary"] if is_current else COLORS["card_border"])
-            card = tk.Frame(lane, bg=color, highlightthickness=2, highlightbackground=border, padx=8, pady=7)
-            card.grid(row=0, column=index, sticky="nsew", padx=4)
-            top = tk.Frame(card, bg=color)
-            top.pack(fill="x")
-            tk.Label(top, text=str(index + 1), bg=COLORS["primary"] if is_current else COLORS["line_dark"], fg="#ffffff", font=FONT_CHIP, width=3).pack(side="left", padx=(0, 6))
+            card = tk.Frame(lane, bg=color, highlightthickness=1, highlightbackground=border, padx=8, pady=6)
+            card.pack(fill="x", pady=2)
+            tk.Label(card, text=str(index + 1), bg=COLORS["primary"] if is_current else COLORS["line_dark"], fg="#ffffff", font=FONT_CHIP, width=3).pack(side="left", padx=(0, 7))
+            tk.Label(card, text=WARD_ZONES[zone]["korean"], bg=color, fg=COLORS["ink"], font=FONT_SMALL_BOLD, wraplength=155, justify="left", anchor="w").pack(side="left", fill="x", expand=True)
+            state_text = self.tx("완료" if is_done else ("다음" if is_current else "대기"), "done" if is_done else ("next" if is_current else "queued"))
+            tk.Label(card, text=state_text, bg=color, fg=COLORS["primary"] if is_current or is_done else COLORS["muted"], font=FONT_CHIP, padx=5).pack(side="right")
             route_icon = self.icon_image(self.zone_icon_key(zone), 24)
             if route_icon:
-                tk.Label(top, image=route_icon, bg=color).pack(side="right")
-            tk.Label(card, text=WARD_ZONES[zone]["korean"], bg=color, fg=COLORS["ink"], font=FONT_SMALL_BOLD, wraplength=165, justify="left").pack(anchor="w", pady=(4, 0))
-            tk.Label(card, text=self.tx("완료" if is_done else ("다음" if is_current else "대기"), "done" if is_done else ("next" if is_current else "queued")), bg=color, fg=COLORS["muted"], font=FONT_CHIP).pack(anchor="w")
+                tk.Label(card, image=route_icon, bg=color).pack(side="right", padx=(4, 2))
         if complete:
-            ttk.Label(self.flow_panel, text=self.tx("동선을 끝냈습니다. 다른 모드로 바꿔 다시 돌려보세요.", "Route complete. Choose another mode and run it again."), style="Panel.TLabel").pack(anchor="w")
+            ttk.Label(
+                self.flow_panel,
+                text=self.tx("동선을 끝냈습니다. 다른 모드로 바꿔 다시 돌려보세요.", "Route complete. Choose another mode and run it again."),
+                style="Panel.TLabel",
+                wraplength=300,
+                justify="left",
+            ).pack(anchor="w")
             return
 
         expected, note = steps[self.tour_step]
-        ttk.Label(self.flow_panel, text=self.tx(f"다음 목표: {WARD_ZONES[expected]['korean']}", f"Next target: {WARD_ZONES[expected]['korean']}"), style="Panel.TLabel").pack(anchor="w")
-        ttk.Label(self.flow_panel, text=note, style="Muted.TLabel", wraplength=620).pack(anchor="w", pady=(2, 8))
-        chooser = ttk.Frame(self.flow_panel, style="Panel.TFrame")
+        target = tk.Frame(self.flow_panel, bg=COLORS["soft_gold"], highlightthickness=1, highlightbackground=COLORS["card_border"], padx=10, pady=8)
+        target.pack(fill="x", pady=(0, 10))
+        tk.Label(target, text=self.tx("현재 목표", "Current Target"), bg=COLORS["soft_gold"], fg=COLORS["muted"], font=FONT_CHIP).pack(anchor="w")
+        tk.Label(target, text=WARD_ZONES[expected]["korean"], bg=COLORS["soft_gold"], fg=COLORS["ink"], font=FONT_SMALL_BOLD).pack(anchor="w", pady=(2, 0))
+        tk.Label(target, text=note, bg=COLORS["soft_gold"], fg=COLORS["ink"], font=FONT_SMALL, wraplength=300, justify="left").pack(anchor="w", pady=(2, 0))
+        ttk.Label(
+            self.flow_panel,
+            text=self.tx("오른쪽 버튼 또는 좌측 지도를 눌러 선택하세요.", "Choose with the buttons below or by clicking the map."),
+            style="Muted.TLabel",
+            wraplength=300,
+            justify="left",
+        ).pack(anchor="w", pady=(0, 8))
+        chooser = tk.Frame(self.flow_panel, bg=COLORS["panel"])
         chooser.pack(fill="x")
-        for zone in WARD_ZONES:
-            ttk.Button(chooser, text=WARD_ZONES[zone]["korean"], command=lambda choice=zone: self.choose_tour_next(choice)).pack(side="left", padx=(0, 5), pady=2)
+        for index, zone in enumerate(WARD_ZONES):
+            chooser.columnconfigure(index % 2, weight=1, uniform="tour_choices")
+            is_current = zone == self.current_zone
+            bg = WARD_ZONES[zone]["color"] if is_current else COLORS["panel_alt"]
+            button = self.choice_button(
+                chooser,
+                text=WARD_ZONES[zone]["korean"],
+                command=lambda choice=zone: self.choose_tour_next(choice),
+                bg=bg,
+                active=WARD_ZONES[zone]["color"],
+                font=FONT_SMALL_BOLD,
+                wraplength=170,
+            )
+            button.grid(row=index // 2, column=index % 2, sticky="ew", padx=3, pady=3)
 
     def choose_tour_next(self, zone):
         steps = TOUR_MODES[self.tour_mode.get()]["steps"]
@@ -4752,52 +5532,71 @@ class WardSimulatorApp(tk.Tk):
     def _render_zone_details(self, zone):
         data = WARD_ZONES[zone]
         ttk.Label(self.zone_panel, text=data["korean"], style="CardTitle.TLabel").pack(anchor="w")
-        photo = self.scaled_image(self.zone_photo_key(zone), 460, 280)
+
+        overview = tk.Frame(self.zone_panel, bg=COLORS["panel"])
+        overview.pack(fill="x", pady=(8, 10))
+        overview.columnconfigure(1, weight=1)
+        photo = self.scaled_image(self.zone_photo_key(zone), 280, 175)
         if photo:
-            tk.Label(self.zone_panel, image=photo, bg=COLORS["panel"], highlightthickness=1, highlightbackground=COLORS["card_border"]).pack(anchor="w", pady=(8, 10))
-        ttk.Label(self.zone_panel, text=self.clean_text(data["subtitle"]), style="Muted.TLabel", wraplength=520, justify="left").pack(anchor="w", pady=(4, 8))
-        ttk.Label(self.zone_panel, text=self.clean_text(data["role"]), style="Panel.TLabel", wraplength=520, justify="left").pack(anchor="w", pady=(0, 10))
+            tk.Label(overview, image=photo, bg=COLORS["panel"], highlightthickness=1, highlightbackground=COLORS["card_border"]).grid(row=0, column=0, sticky="nw", padx=(0, 14))
+        summary = tk.Frame(overview, bg=COLORS["panel"])
+        summary.grid(row=0, column=1, sticky="new")
+        tk.Label(summary, text=self.tx("이 공간의 역할", "Purpose of This Space"), bg=COLORS["panel"], fg=COLORS["accent_dark"], font=FONT_CHIP).pack(anchor="w")
+        tk.Label(summary, text=self.clean_text(data["subtitle"]), bg=COLORS["panel"], fg=COLORS["ink"], font=FONT_SMALL_BOLD, wraplength=520, justify="left").pack(anchor="w", pady=(4, 6))
+        tk.Label(summary, text=self.clean_text(data["role"]), bg=COLORS["panel"], fg=COLORS["muted"], font=FONT_SMALL, wraplength=520, justify="left").pack(anchor="w")
+        tk.Label(summary, text=self.compact_variation_note(), bg=COLORS["panel_alt"], fg=COLORS["muted"], font=FONT_CHIP, padx=8, pady=5, anchor="w").pack(fill="x", pady=(10, 0))
 
         cue_board = tk.Frame(self.zone_panel, bg=COLORS["panel"])
-        cue_board.pack(fill="x", pady=(0, 14))
+        cue_board.pack(fill="x", pady=(0, 10))
         object_names = " / ".join(name for name, _desc in data["objects"][:2])
         cards = [
             (self.tx("눈에 보이는 단서", "Visual Cues"), object_names, data["color"], self.zone_icon_key(zone)),
             (self.tx("귀에 들어오는 신호", "Auditory Cue"), data["common_calls"][0], COLORS["soft_blue"], "icon_safety"),
             (self.tx("RN 멈춤 지점", "RN Stop Point"), data["missions"][0], COLORS["soft_gold"], "icon_handoff"),
         ]
-        for row, (title, body, color, icon_key) in enumerate(cards):
-            card = self._cue_card(cue_board, title, body, color, icon_key, icon_size=22, wraplength=500)
-            card.pack(fill="x", pady=3)
+        for col, (title, body, color, icon_key) in enumerate(cards):
+            cue_board.columnconfigure(col, weight=1, uniform="zone_cues")
+            card = self._cue_card(cue_board, title, body, color, icon_key, icon_size=20, wraplength=210)
+            card.grid(row=0, column=col, sticky="new", padx=(0, 5) if col < 2 else 0)
 
         ttk.Label(self.zone_panel, text=self.tx("업무 오브젝트", "Workflow Objects"), style="CardTitle.TLabel").pack(anchor="w", pady=(2, 6))
         obj_grid = tk.Frame(self.zone_panel, bg=COLORS["panel"])
         obj_grid.pack(fill="x")
-        for index, (name, desc) in enumerate(data["objects"]):
-            row, col = divmod(index, 2)
+        for index, (name, desc) in enumerate(data["objects"][:4]):
+            row, col = 0, index
             card = tk.Frame(obj_grid, bg=data["color"], highlightthickness=2, highlightbackground=COLORS["card_border"])
             card.grid(row=row, column=col, sticky="nsew", padx=4, pady=4)
-            obj_grid.columnconfigure(col, weight=1)
+            obj_grid.columnconfigure(col, weight=1, uniform="zone_objects")
             tk.Label(card, text=name, bg=data["color"], fg=COLORS["ink"], font=FONT_SMALL_BOLD).pack(anchor="w", padx=10, pady=(8, 1))
-            tk.Label(card, text=self.clean_text(desc), bg=data["color"], fg=COLORS["ink"], font=FONT_SMALL, wraplength=230, justify="left").pack(anchor="w", padx=10, pady=(0, 8))
+            tk.Label(card, text=self.clean_text(desc), bg=data["color"], fg=COLORS["ink"], font=FONT_SMALL, wraplength=180, justify="left").pack(anchor="w", padx=10, pady=(0, 8))
 
-        ttk.Label(self.zone_panel, text=self.tx("자주 들어오는 신호", "Common Signals"), style="CardTitle.TLabel").pack(anchor="w", pady=(14, 4))
-        for call in data["common_calls"]:
-            tk.Label(self.zone_panel, text=call, bg=COLORS["panel_alt"], fg=COLORS["ink"], font=FONT_SMALL, anchor="w", padx=10, pady=6).pack(fill="x", pady=2)
+        lower = tk.Frame(self.zone_panel, bg=COLORS["panel"])
+        lower.pack(fill="x", pady=(10, 0))
+        lower.columnconfigure(0, weight=1, uniform="zone_lower")
+        lower.columnconfigure(1, weight=1, uniform="zone_lower")
+        signals = tk.Frame(lower, bg=COLORS["panel"], padx=0, pady=0)
+        signals.grid(row=0, column=0, sticky="new", padx=(0, 8))
+        decision_panel = tk.Frame(lower, bg=COLORS["panel"], padx=0, pady=0)
+        decision_panel.grid(row=0, column=1, sticky="new", padx=(8, 0))
 
-        ttk.Label(self.zone_panel, text=self.tx("이 구역에서 할 선택", "Decision in This Zone"), style="CardTitle.TLabel").pack(anchor="w", pady=(14, 4))
+        ttk.Label(signals, text=self.tx("자주 들어오는 신호", "Common Signals"), style="CardTitle.TLabel").pack(anchor="w", pady=(0, 4))
+        for call in data["common_calls"][:3]:
+            tk.Label(signals, text=call, bg=COLORS["panel_alt"], fg=COLORS["ink"], font=FONT_SMALL, anchor="w", padx=10, pady=5, wraplength=360, justify="left").pack(fill="x", pady=2)
+
+        ttk.Label(decision_panel, text=self.tx("이 구역에서 할 선택", "Decision in This Zone"), style="CardTitle.TLabel").pack(anchor="w", pady=(0, 4))
         decision = data["decisions"][0]
-        ttk.Label(self.zone_panel, text=self.clean_text(decision["prompt"]), style="Panel.TLabel", wraplength=520, justify="left").pack(anchor="w", pady=(0, 6))
+        ttk.Label(decision_panel, text=self.clean_text(decision["prompt"]), style="Panel.TLabel", wraplength=390, justify="left").pack(anchor="w", pady=(0, 6))
         for choice, ok in shuffled_bool_choices(decision["choices"]):
             self.choice_button(
-                self.zone_panel,
+                decision_panel,
                 text=choice,
                 command=lambda is_ok=ok, feedback=decision["feedback"]: self.answer_tour_decision(is_ok, feedback),
                 bg=COLORS["panel_alt"],
                 active=data["color"],
                 font=FONT_SMALL,
-                wraplength=500,
+                wraplength=390,
             ).pack(fill="x", pady=3)
+        self._schedule_responsive_wraps(update_all=True)
 
     def answer_tour_decision(self, is_correct, feedback):
         prefix = self.tx("안전한 선택입니다. ", "Safe choice. ") if is_correct else self.tx("다시 생각해볼 선택입니다. ", "Think again. ")
@@ -4817,7 +5616,7 @@ class WardSimulatorApp(tk.Tk):
         panel = self.panel(padding=20)
         progress = shift_progress_percent(self.shift_index)
         ttk.Label(panel, text=self.tx(f"진행률 {progress}%", f"Progress {progress}%"), style="CardTitle.TLabel").pack(anchor="w")
-        self.modern_progress(panel, progress, maximum=100, height=13, fill=COLORS["accent"], bg=COLORS["panel"]).pack(fill="x", pady=(8, 16))
+        self.modern_progress(panel, progress, maximum=100, height=13, fill=COLORS["primary"], bg=COLORS["panel"]).pack(fill="x", pady=(8, 16))
 
         if self.shift_index >= len(SHIFT_EVENTS):
             ttk.Label(panel, text=self.tx("Day Shift 완료", "Day Shift Complete"), style="CardTitle.TLabel").pack(anchor="w")
@@ -4828,16 +5627,17 @@ class WardSimulatorApp(tk.Tk):
         event = SHIFT_EVENTS[self.shift_index]
         detail = tk.Frame(panel, bg=COLORS["panel"])
         detail.pack(fill="x")
+        detail.columnconfigure(0, weight=3)
+        detail.columnconfigure(1, weight=2)
         left = tk.Frame(detail, bg=COLORS["panel"])
-        left.pack(side="left", fill="both", expand=True)
-        right = tk.Frame(detail, bg=COLORS["panel_alt"], width=430, padx=14, pady=12, highlightthickness=1, highlightbackground=COLORS["card_border"])
-        right.pack(side="right", fill="y", padx=(18, 0))
-        right.pack_propagate(False)
+        left.grid(row=0, column=0, sticky="new", padx=(0, 14))
+        right = tk.Frame(detail, bg=COLORS["panel_alt"], padx=12, pady=10, highlightthickness=1, highlightbackground=COLORS["card_border"])
+        right.grid(row=0, column=1, sticky="new")
 
         ttk.Label(left, text=f"{event['time']}  {event['title']}", style="CardTitle.TLabel").pack(anchor="w")
-        ttk.Label(left, text=self.clean_text(event["details"]), style="Panel.TLabel", wraplength=860, justify="left").pack(anchor="w", pady=(6, 12))
+        ttk.Label(left, text=self.clean_text(event["details"]), style="Panel.TLabel", wraplength=420, justify="left").pack(anchor="w", pady=(6, 12))
         ttk.Label(left, text=self.tx("이 시점에서 할 일", "Actions at This Point"), style="CardTitle.TLabel").pack(anchor="w", pady=(4, 4))
-        self.bullet_list(left, event["actions"], wraplength=860)
+        self.bullet_list(left, event["actions"], wraplength=420)
 
         tk.Label(right, text=self.tx("현재 cue board", "Current Cue Board"), bg=COLORS["panel_alt"], fg=COLORS["ink"], font=FONT_SMALL_BOLD).pack(anchor="w")
         shift_cues = [
@@ -4845,9 +5645,17 @@ class WardSimulatorApp(tk.Tk):
             (self.tx("우선순위", "Priority"), event["title"], COLORS["soft_gold"], "icon_nurse"),
             (self.tx("놓치면 위험", "Risk if missed"), event["actions"][0], COLORS["soft_orange"], "icon_handoff"),
         ]
-        for title, body, color, icon_key in shift_cues:
-            card = self._cue_card(right, title, body, color, icon_key, icon_size=24, wraplength=335)
-            card.pack(fill="x", pady=(8, 0))
+        cue_grid = tk.Frame(right, bg=COLORS["panel_alt"])
+        cue_grid.pack(fill="x", pady=(6, 0))
+        for col in range(2):
+            cue_grid.columnconfigure(col, weight=1)
+        for index, (title, body, color, icon_key) in enumerate(shift_cues):
+            if index < 2:
+                row, col, span = 0, index, 1
+            else:
+                row, col, span = 1, 0, 2
+            card = self._cue_card(right, title, body, color, icon_key, icon_size=18, wraplength=280)
+            card.grid(in_=cue_grid, row=row, column=col, columnspan=span, sticky="new", padx=(0, 4) if col == 0 and span == 1 else (4, 0) if col == 1 else 0, pady=(0, 5) if row == 0 else 0)
 
         btns = ttk.Frame(panel, style="Panel.TFrame")
         btns.pack(anchor="w", pady=(16, 0))
@@ -4856,17 +5664,22 @@ class WardSimulatorApp(tk.Tk):
 
         timeline = self.panel(padding=18)
         ttk.Label(timeline, text=self.tx("전체 타임라인", "Full Timeline"), style="CardTitle.TLabel").pack(anchor="w", pady=(0, 8))
+        timeline_grid = tk.Frame(timeline, bg=COLORS["panel"])
+        timeline_grid.pack(fill="x")
+        for col in range(2):
+            timeline_grid.columnconfigure(col, weight=1, uniform="timeline_columns")
         for i, item in enumerate(SHIFT_EVENTS):
             marker = self.tx("완료", "Done") if i < self.shift_index else (self.tx("현재", "Now") if i == self.shift_index else self.tx("대기", "Queued"))
             color = COLORS["success"] if i < self.shift_index else (COLORS["accent"] if i == self.shift_index else COLORS["muted"])
-            row = ttk.Frame(timeline, style="Panel.TFrame")
-            row.pack(fill="x", pady=2)
-            tk.Label(row, text=marker, bg=COLORS["panel"], fg=color, width=6, anchor="w", font=FONT_SMALL_BOLD).pack(side="left")
-            ttk.Label(row, text=f"{item['time']}  {item['title']}", style="Panel.TLabel").pack(side="left")
+            row_index, col_index = divmod(i, 2)
+            row = tk.Frame(timeline_grid, bg=COLORS["panel_alt"], highlightthickness=1, highlightbackground=COLORS["card_border"], padx=8, pady=6)
+            row.grid(row=row_index, column=col_index, sticky="ew", padx=(0, 4) if col_index == 0 else (4, 0), pady=3)
+            tk.Label(row, text=marker, bg=COLORS["panel_alt"], fg=color, width=5, anchor="w", font=FONT_CHIP).pack(side="left")
+            tk.Label(row, text=f"{item['time']}  {item['title']}", bg=COLORS["panel_alt"], fg=COLORS["ink"], font=FONT_SMALL, wraplength=310, justify="left", anchor="w").pack(side="left", fill="x", expand=True)
 
     def _draw_shift_board(self, canvas, width):
         canvas.delete("all")
-        width = max(int(width), 900)
+        width = max(int(width), 620)
         canvas.create_rectangle(0, 0, width, 255, fill=COLORS["panel"], outline="")
         canvas.create_text(28, 30, text="Live Shift Board", fill=COLORS["ink"], font=FONT_SECTION, anchor="w")
         canvas.create_text(28, 58, text=self.tx("현재 단계와 놓치면 위험한 업무를 한 화면에서 봅니다.", "See the current stage and high-risk missed tasks in one view."), fill=COLORS["muted"], font=FONT_SMALL, anchor="w")
@@ -4880,7 +5693,7 @@ class WardSimulatorApp(tk.Tk):
             progress_units = progress_steps if self.shift_index >= len(SHIFT_EVENTS) else min(self.shift_index, progress_steps)
             progress_w = int(rail_w * progress_units / progress_steps)
             if progress_w:
-                self.rounded_rect(canvas, start_x, rail_y - 8, start_x + max(progress_w, 16), rail_y + 8, 8, fill=COLORS["accent"], outline="")
+                self.rounded_rect(canvas, start_x, rail_y - 8, start_x + max(progress_w, 16), rail_y + 8, 8, fill=COLORS["primary"], outline="")
         for index, event in enumerate(SHIFT_EVENTS):
             x = start_x + int(rail_w * index / max(len(SHIFT_EVENTS) - 1, 1))
             fill = COLORS["success"] if index < self.shift_index else (COLORS["accent"] if index == self.shift_index else "#ffffff")
@@ -4901,7 +5714,7 @@ class WardSimulatorApp(tk.Tk):
             x = 28 + i * (card_w + card_gap)
             self.rounded_rect(canvas, x, 160, x + card_w, 232, 14, fill=color, outline=COLORS["card_border"], width=1)
             canvas.create_text(x + 14, 178, text=label, fill=COLORS["ink"], font=FONT_SMALL_BOLD, anchor="w")
-            canvas.create_text(x + 14, 205, text=body, fill=COLORS["ink"], font=FONT_SMALL, anchor="w", width=card_w - 28)
+            canvas.create_text(x + 14, 198, text=body, fill=COLORS["ink"], font=FONT_SMALL, anchor="nw", width=card_w - 28)
 
     def complete_shift_step(self):
         self.shift_index += 1
@@ -4919,23 +5732,28 @@ class WardSimulatorApp(tk.Tk):
             self.tx("구역별로 실제 병동에서 마주칠 판단을 고르고, 안전 흐름과 비교합니다.", "Choose decisions you will face by ward zone and compare them with the safe workflow."),
         )
         filters = self.panel(padding=14)
-        zone_row = tk.Frame(filters, bg=COLORS["panel"])
-        zone_row.pack(fill="x")
-        ttk.Label(zone_row, text=self.tx("구역 선택", "Choose Zone"), style="CardTitle.TLabel").pack(side="left", padx=(0, 10))
+        filter_header = tk.Frame(filters, bg=COLORS["panel"])
+        filter_header.pack(fill="x", pady=(0, 8))
+        ttk.Label(filter_header, text=self.tx("오늘 연습 필터", "Today's practice filters"), style="CardTitle.TLabel").pack(side="left")
+        ttk.Button(filter_header, text=self.tx("새 문항 뽑기", "Draw new items"), command=self.reroll_quests).pack(side="right")
+        ttk.Label(filters, text=self.tx("구역", "Zone"), style="Muted.TLabel").pack(anchor="w", pady=(0, 4))
+        zone_grid = tk.Frame(filters, bg=COLORS["panel"])
+        zone_grid.pack(fill="x")
         station_names = [self.all_station_label()] + list(WARD_ZONES.keys())
-        for station in station_names:
+        for index, station in enumerate(station_names):
             label = self.all_station_label() if station == self.all_station_label() else WARD_ZONES[station]["korean"]
-            style = "Accent.TButton" if station == self.quest_station.get() else "TButton"
-            ttk.Button(zone_row, text=label, style=style, command=lambda value=station: self.set_quest_station(value)).pack(side="left", padx=3)
-        ttk.Button(zone_row, text=self.tx("랜덤 문항", "Random Items"), command=self.reroll_quests).pack(side="right")
+            style = "Primary.TButton" if station == self.quest_station.get() else "TButton"
+            row, col = divmod(index, 4)
+            zone_grid.columnconfigure(col, weight=1, uniform="quest_zones")
+            ttk.Button(zone_grid, text=label, style=style, command=lambda value=station: self.set_quest_station(value)).grid(row=row, column=col, sticky="ew", padx=(0, 5) if col < 3 else 0, pady=(0, 5))
 
-        skill_row = tk.Frame(filters, bg=COLORS["panel"])
-        skill_row.pack(fill="x", pady=(10, 0))
-        ttk.Label(skill_row, text=self.tx("역량 필터", "Skill Filter"), style="Muted.TLabel").pack(side="left", padx=(0, 10))
-        for skill_key, label in self.quest_skill_options():
+        ttk.Label(filters, text=self.tx("역량", "Skill"), style="Muted.TLabel").pack(anchor="w", pady=(5, 4))
+        skill_grid = tk.Frame(filters, bg=COLORS["panel"])
+        skill_grid.pack(fill="x")
+        for index, (skill_key, label) in enumerate(self.quest_skill_options()):
             selected_skill = self.quest_skill.get() == skill_key
             button = tk.Button(
-                skill_row,
+                skill_grid,
                 text=label,
                 command=lambda value=skill_key: self.set_quest_skill(value),
                 bg=COLORS["primary"] if selected_skill else COLORS["panel_alt"],
@@ -4949,11 +5767,13 @@ class WardSimulatorApp(tk.Tk):
                 padx=9,
                 pady=5,
             )
-            button.pack(side="left", padx=(0, 5), pady=2)
+            row, col = divmod(index, 4)
+            skill_grid.columnconfigure(col, weight=1, uniform="quest_skills")
+            button.grid(row=row, column=col, sticky="ew", padx=(0, 5) if col < 3 else 0, pady=(0, 5))
         self._render_role_selector(filters, "quests")
 
         console = self.panel(padding=0)
-        quest_canvas = tk.Canvas(console, height=150, bg=COLORS["panel"], highlightthickness=0)
+        quest_canvas = tk.Canvas(console, height=160, bg=COLORS["panel"], highlightthickness=0)
         quest_canvas.pack(fill="x")
         self._draw_quest_console(quest_canvas, 900)
         quest_canvas.bind("<Configure>", lambda event: self._draw_quest_console(event.widget, event.width))
@@ -4972,15 +5792,15 @@ class WardSimulatorApp(tk.Tk):
             and self.question_matches_role(q, self.practice_role.get())
         ]
         random.shuffle(visible_questions)
-        draw_limit = 18 if selected == self.all_station_label() else 12
+        draw_limit = 5 if selected == self.all_station_label() else 4
         total_available = len(visible_questions)
         visible_questions = visible_questions[:draw_limit]
         panel = self.panel(padding=20)
         ttk.Label(
             panel,
             text=self.tx(
-                f"현재 필터에서 총 {total_available}개 중 랜덤 {len(visible_questions)}개를 뽑았습니다. 랜덤 문항을 누르면 새 세트가 나옵니다.",
-                f"Showing {len(visible_questions)} random items from {total_available} in the current filter. Use Random Items to draw a new set.",
+                f"오늘 세트: 총 {total_available}개 중 {len(visible_questions)}개만 뽑았습니다. 짧게 풀고 바로 피드백을 확인하세요.",
+                f"Today set: {len(visible_questions)} items drawn from {total_available}. Keep it short and review feedback right away.",
             ),
             style="Muted.TLabel",
             wraplength=980,
@@ -5021,35 +5841,33 @@ class WardSimulatorApp(tk.Tk):
                 self.zone_photo_key(q["station"]),
                 title=station["korean"],
                 bg=COLORS["panel"],
-                max_width=300,
-                max_height=300,
+                max_width=260,
+                max_height=230,
             )
-            photo.grid(row=0, column=0, sticky="nsw", padx=(0, 12))
+            photo.grid(row=0, column=0, sticky="nw", padx=(0, 12))
             right_flow = tk.Frame(body, bg=COLORS["panel_alt"])
             right_flow.grid(row=0, column=1, sticky="nsew")
             body.columnconfigure(1, weight=1)
             cue = tk.Frame(right_flow, bg=COLORS["panel_alt"])
             cue.pack(fill="x", pady=(0, 8))
-            for col, (title, cue_body, color, icon_key) in enumerate(
+            cue.columnconfigure(0, weight=1)
+            for cue_index, (title, cue_body, color, icon_key) in enumerate(
                 [
                     (self.tx("멈춤 포인트", "Pause Point"), q["title"], COLORS["soft_gold"], "icon_safety"),
                     (self.tx("공간 신호", "Space Signal"), station["common_calls"][0], station["color"], self.zone_icon_key(q["station"])),
                     (self.tx("판단", "Decision"), self.tx("다음 RN 행동 선택", "Choose the next RN action"), COLORS["soft_blue"], "icon_handoff"),
                 ]
-                ,
-                start=1,
             ):
-                cue.columnconfigure(col, weight=1)
                 card = tk.Frame(cue, bg=color, highlightthickness=1, highlightbackground=COLORS["card_border"], padx=8, pady=6)
-                card.grid(row=0, column=col, sticky="new", padx=3)
+                card.grid(row=cue_index, column=0, sticky="ew", pady=(0, 5) if cue_index < 2 else 0)
                 icon = self.icon_image(icon_key, 22)
                 if icon:
                     tk.Label(card, image=icon, bg=color).pack(side="left", padx=(0, 6), anchor="n")
                 text_box = tk.Frame(card, bg=color)
                 text_box.pack(side="left", fill="x", expand=True)
                 tk.Label(text_box, text=title, bg=color, fg=COLORS["muted"], font=FONT_CHIP).pack(anchor="w")
-                tk.Label(text_box, text=self.clean_text(cue_body), bg=color, fg=COLORS["ink"], font=FONT_SMALL, wraplength=300, justify="left").pack(anchor="w")
-            tk.Label(right_flow, text=self.clean_text(q["prompt"]), bg=COLORS["panel_alt"], fg=COLORS["ink"], font=FONT_BOLD, wraplength=980, justify="left").pack(anchor="w", pady=(0, 8))
+                tk.Label(text_box, text=self.clean_text(cue_body), bg=color, fg=COLORS["ink"], font=FONT_SMALL, wraplength=500, justify="left").pack(anchor="w")
+            tk.Label(right_flow, text=self.clean_text(q["prompt"]), bg=COLORS["panel_alt"], fg=COLORS["ink"], font=FONT_BOLD, wraplength=500, justify="left").pack(anchor="w", pady=(0, 8))
             var = tk.IntVar(value=-1)
             self.quest_vars.append((question_index, var))
             choice_buttons = []
@@ -5061,7 +5879,7 @@ class WardSimulatorApp(tk.Tk):
                     bg=COLORS["panel"],
                     active=WARD_ZONES[q["station"]]["color"],
                     font=FONT_SMALL,
-                    wraplength=980,
+                    wraplength=500,
                 )
                 button.configure(
                     command=lambda target=var, value=original_choice_index, selected_button=button, buttons=choice_buttons, selected_bg=WARD_ZONES[q["station"]]["color"]: self.mark_choice_selection(
@@ -5079,21 +5897,24 @@ class WardSimulatorApp(tk.Tk):
 
     def _draw_quest_console(self, canvas, width):
         canvas.delete("all")
-        width = max(int(width), 900)
-        canvas.create_rectangle(0, 0, width, 150, fill=COLORS["panel"], outline="")
+        width = max(int(width), 620)
+        canvas.create_rectangle(0, 0, width, 160, fill=COLORS["panel"], outline="")
         canvas.create_text(26, 30, text="Station Decision Console", fill=COLORS["ink"], font=FONT_SECTION, anchor="w")
         canvas.create_text(26, 58, text=self.tx("투약실, 병실, 스테이션, 인수인계 허브에서 실제로 멈춰야 하는 판단만 모았습니다.", "Focused decision pauses from med room, patient rooms, station, and handoff."), fill=COLORS["muted"], font=FONT_SMALL, anchor="w")
         station_counts = {}
         for question in QUESTIONS:
             station_counts[question["station"]] = station_counts.get(question["station"], 0) + 1
+        stations = list(station_counts.items())
+        gap = 7
+        card_w = (width - 56 - gap * max(len(stations) - 1, 0)) / max(len(stations), 1)
         x = 28
         y = 92
-        for station, count in station_counts.items():
+        for station, count in stations:
             color = WARD_ZONES[station]["color"]
-            canvas.create_rectangle(x, y, x + 134, y + 36, fill=color, outline=COLORS["card_border"], width=2)
-            canvas.create_text(x + 12, y + 11, text=WARD_ZONES[station]["korean"], fill=COLORS["ink"], font=FONT_CHIP, anchor="w")
-            canvas.create_text(x + 12, y + 27, text=f"{count} tasks", fill=COLORS["muted"], font=FONT_SMALL, anchor="w")
-            x += 142
+            canvas.create_rectangle(x, y, x + card_w, y + 54, fill=color, outline=COLORS["card_border"], width=1)
+            canvas.create_text(x + 9, y + 9, text=WARD_ZONES[station]["korean"], fill=COLORS["ink"], font=FONT_CHIP, anchor="nw", width=card_w - 16)
+            canvas.create_text(x + 9, y + 34, text=f"{count} tasks", fill=COLORS["muted"], font=FONT_CHIP, anchor="nw", width=card_w - 16)
+            x += card_w + gap
 
     def set_quest_station(self, station):
         self.quest_station.set(station)
@@ -5138,7 +5959,7 @@ class WardSimulatorApp(tk.Tk):
             self.tx(f"{len(SCENARIOS)}개 병동 상황에서 RN의 다음 행동을 선택합니다.", f"Choose the next RN action in {len(SCENARIOS)} ward situations."),
         )
         console = self.panel(padding=0)
-        scenario_canvas = tk.Canvas(console, height=165, bg=COLORS["panel"], highlightthickness=0)
+        scenario_canvas = tk.Canvas(console, height=142, bg=COLORS["panel"], highlightthickness=0)
         scenario_canvas.pack(fill="x")
         self._draw_scenario_console(scenario_canvas, 900)
         scenario_canvas.bind("<Configure>", lambda event: self._draw_scenario_console(event.widget, event.width))
@@ -5157,10 +5978,11 @@ class WardSimulatorApp(tk.Tk):
 
     def _draw_scenario_console(self, canvas, width):
         canvas.delete("all")
-        width = max(int(width), 900)
-        canvas.create_rectangle(0, 0, width, 165, fill=COLORS["panel"], outline="")
+        width = max(int(width), 620)
+        canvas.create_rectangle(0, 0, width, 142, fill=COLORS["panel"], outline="")
         canvas.create_text(26, 30, text="Case Library", fill=COLORS["ink"], font=FONT_SECTION, anchor="w")
-        canvas.create_text(26, 58, text=self.tx("활력징후 변화, 투약 지연, 격리, 낙상, 퇴원 지연, 가족 전화까지 병동에서 자주 만나는 갈림길을 다룹니다.", "Practice common ward forks: vital changes, med delays, isolation, falls, discharge delays, and family calls."), fill=COLORS["muted"], font=FONT_SMALL, anchor="w")
+        canvas.create_text(width - 26, 30, text=f"{len(SCENARIOS)} CASES", fill=COLORS["primary"], font=FONT_SMALL_BOLD, anchor="e")
+        canvas.create_text(26, 58, text=self.tx("활력징후 변화, 투약 지연, 격리, 낙상, 퇴원 지연, 가족 전화까지 병동에서 자주 만나는 갈림길을 다룹니다.", "Practice common ward forks: vital changes, med delays, isolation, falls, discharge delays, and family calls."), fill=COLORS["muted"], font=FONT_SMALL, anchor="w", width=width - 52)
         tags = [
             ("Assessment", COLORS["soft_blue"]),
             ("Medication", COLORS["soft_orange"]),
@@ -5168,12 +5990,13 @@ class WardSimulatorApp(tk.Tk):
             ("Handoff", COLORS["soft_green"]),
             ("Discharge", COLORS["soft_gold"]),
         ]
+        gap = 8
+        card_w = (width - 56 - gap * (len(tags) - 1)) / len(tags)
         x = 28
         for label, color in tags:
-            canvas.create_rectangle(x, 96, x + 132, 130, fill=color, outline=COLORS["card_border"], width=2)
-            canvas.create_text(x + 66, 113, text=label, fill=COLORS["ink"], font=FONT_SMALL_BOLD)
-            x += 142
-        canvas.create_text(width - 42, 113, text=f"{len(SCENARIOS)} cases", fill=COLORS["primary"], font=FONT_METRIC, anchor="e")
+            canvas.create_rectangle(x, 96, x + card_w, 130, fill=color, outline=COLORS["card_border"], width=1)
+            canvas.create_text(x + card_w / 2, 113, text=label, fill=COLORS["ink"], font=FONT_SMALL_BOLD, width=card_w - 10)
+            x += card_w + gap
 
     def start_scenario(self):
         self.scenario_step = 0
@@ -5194,14 +6017,14 @@ class WardSimulatorApp(tk.Tk):
         patient_card.pack(fill="x", pady=(0, 14))
         case_top = tk.Frame(patient_card, bg=COLORS["panel_alt"])
         case_top.pack(fill="x", padx=14, pady=12)
-        patient_photo = self.scaled_image("photo_patient_room", 360, 230)
+        patient_photo = self.scaled_image("photo_patient_room", 180, 110)
         if patient_photo:
             tk.Label(case_top, image=patient_photo, bg=COLORS["panel_alt"], highlightthickness=1, highlightbackground=COLORS["card_border"]).pack(side="left", padx=(0, 12), anchor="n")
         case_text = tk.Frame(case_top, bg=COLORS["panel_alt"])
         case_text.pack(side="left", fill="both", expand=True)
         tk.Label(case_text, text=self.scenario_name.get(), bg=COLORS["panel_alt"], fg=COLORS["ink"], font=FONT_CARD_TITLE).pack(anchor="w")
-        tk.Label(case_text, text=self.clean_text(scenario["patient"]), bg=COLORS["panel_alt"], fg=COLORS["ink"], font=FONT_NORMAL, wraplength=900, justify="left").pack(anchor="w", pady=(4, 3))
-        tk.Label(case_text, text=self.clean_text(scenario["goals"]), bg=COLORS["panel_alt"], fg=COLORS["muted"], font=FONT_SMALL, wraplength=900, justify="left").pack(anchor="w")
+        tk.Label(case_text, text=self.clean_text(scenario["patient"]), bg=COLORS["panel_alt"], fg=COLORS["ink"], font=FONT_NORMAL, wraplength=700, justify="left").pack(anchor="w", pady=(4, 3))
+        tk.Label(case_text, text=self.clean_text(scenario["goals"]), bg=COLORS["panel_alt"], fg=COLORS["muted"], font=FONT_SMALL, wraplength=700, justify="left").pack(anchor="w")
         if self.scenario_step >= len(scenario["steps"]):
             ttk.Label(
                 self.scenario_area,
@@ -5209,22 +6032,20 @@ class WardSimulatorApp(tk.Tk):
                 style="CardTitle.TLabel",
             ).pack(anchor="w", pady=(6, 10))
             ttk.Label(self.scenario_area, text=self.tx("디브리핑 질문: 어떤 정보가 부족했을 때 가장 불안했나요?", "Debrief question: What missing information made you most uneasy?"), style="Panel.TLabel").pack(anchor="w")
+            self._schedule_responsive_wraps(update_all=True)
             return
 
         step = scenario["steps"][self.scenario_step]
         cue_board = tk.Frame(self.scenario_area, bg=COLORS["panel"])
         cue_board.pack(fill="x", pady=(0, 12))
         cue_items = [
-            (self.tx("환자 단서", "Patient Cue"), scenario["patient"], COLORS["soft_blue"], "icon_bed"),
-            (self.tx("현재 목표", "Current Goal"), scenario["goals"], COLORS["soft_green"], "icon_nurse"),
-            (self.tx("지금 보이는 변화", "Current Change"), step["prompt"], COLORS["soft_orange"], "icon_safety"),
+            (self.tx("지금 보이는 변화", "Current Change"), self.clean_text(step["prompt"]), COLORS["soft_orange"], "icon_safety"),
             (self.tx("위험 렌즈", "Risk Lens"), self.risk_lens(scenario["patient"] + " " + scenario["goals"] + " " + step["prompt"]), COLORS["soft_lavender"], "icon_handoff"),
         ]
         for col, (title, body, color, icon_key) in enumerate(cue_items):
-            row, col = divmod(col, 2)
             cue_board.columnconfigure(col, weight=1)
-            card = self._cue_card(cue_board, title, body, color, icon_key, icon_size=22, wraplength=760)
-            card.grid(row=row, column=col, sticky="nsew", padx=4, pady=(0, 6))
+            card = self._cue_card(cue_board, title, body, color, icon_key, icon_size=20, wraplength=360)
+            card.grid(row=0, column=col, sticky="new", padx=(0, 5) if col == 0 else (5, 0), pady=(0, 4))
 
         ttk.Label(self.scenario_area, text=f"Step {self.scenario_step + 1}", style="CardTitle.TLabel").pack(anchor="w")
         ttk.Label(self.scenario_area, text=step["prompt"], style="Panel.TLabel", wraplength=860, justify="left").pack(anchor="w", pady=(4, 10))
@@ -5237,6 +6058,7 @@ class WardSimulatorApp(tk.Tk):
                 font=FONT_NORMAL,
                 wraplength=840,
             ).pack(fill="x", anchor="w", pady=4)
+        self._schedule_responsive_wraps(update_all=True)
 
     def answer_scenario(self, is_correct, feedback):
         if is_correct:
@@ -5254,6 +6076,8 @@ class WardSimulatorApp(tk.Tk):
         self._render_safety_notice(panel)
         compare = tk.Frame(panel, bg=COLORS["panel"])
         compare.pack(fill="x", pady=(0, 14))
+        compare.columnconfigure(0, weight=1)
+        compare.columnconfigure(1, weight=3)
         samples = [
             (
                 self.tx("부족한 보고", "Weak report"),
@@ -5267,14 +6091,13 @@ class WardSimulatorApp(tk.Tk):
             ),
         ]
         for col, (title, body, color) in enumerate(samples):
-            compare.columnconfigure(col, weight=1)
             card = tk.Frame(compare, bg=COLORS["panel"], highlightthickness=1, highlightbackground=COLORS["card_border"], padx=0, pady=0)
             card.grid(row=0, column=col, sticky="nsew", padx=(0, 6) if col == 0 else (6, 0))
             tk.Frame(card, bg=color, height=4).pack(fill="x")
             inner = tk.Frame(card, bg=COLORS["panel"], padx=14, pady=12)
             inner.pack(fill="both", expand=True)
             tk.Label(inner, text=title, bg=COLORS["panel"], fg=COLORS["ink"], font=FONT_SMALL_BOLD).pack(anchor="w")
-            tk.Label(inner, text=self.clean_text(body), bg=COLORS["panel"], fg=COLORS["muted"], font=FONT_NORMAL, wraplength=760, justify="left").pack(anchor="w", pady=(4, 0))
+            tk.Label(inner, text=self.clean_text(body), bg=COLORS["panel"], fg=COLORS["muted"], font=FONT_NORMAL, wraplength=180 if col == 0 else 520, justify="left").pack(anchor="w", pady=(4, 0))
         self.sbar_fields = {}
         labels = [
             (
@@ -5314,6 +6137,8 @@ class WardSimulatorApp(tk.Tk):
             ).pack(fill="x", pady=(4, 0))
             text = self.modern_textbox(panel, height=2)
             text.pack(fill="x", pady=(4, 10))
+            if self.sbar_draft.get(key):
+                text.insert("1.0", self.sbar_draft[key])
             self.sbar_fields[key] = text
         btns = ttk.Frame(panel, style="Panel.TFrame")
         btns.pack(anchor="w", pady=(2, 10))
@@ -5323,8 +6148,12 @@ class WardSimulatorApp(tk.Tk):
         ttk.Label(panel, text=self.tx("생성 결과", "Generated Output"), style="CardTitle.TLabel").pack(anchor="w", pady=(8, 4))
         self.sbar_output = self.modern_textbox(panel, height=5)
         self.sbar_output.pack(fill="x")
+        if self.sbar_output_draft:
+            self.sbar_output.insert("1.0", self.sbar_output_draft)
         self.sbar_quality_frame = tk.Frame(panel, bg=COLORS["panel"])
         self.sbar_quality_frame.pack(fill="x", pady=(12, 0))
+        if self.sbar_output_draft and any(self.sbar_draft.values()):
+            self.render_sbar_quality(self.sbar_draft)
 
     def fill_sbar_sample(self):
         sample = {
@@ -5399,6 +6228,7 @@ class WardSimulatorApp(tk.Tk):
             tk.Label(text_box, text=title, bg=color, fg=COLORS["ink"], font=FONT_SMALL_BOLD, wraplength=860, justify="left").pack(anchor="w")
             if not passed:
                 tk.Label(text_box, text=tip, bg=color, fg=COLORS["muted"], font=FONT_SMALL, wraplength=860, justify="left").pack(anchor="w", pady=(2, 0))
+        self._schedule_responsive_wraps(update_all=True)
 
     def copy_sbar(self):
         text = self.sbar_output.get("1.0", "end").strip()
@@ -5446,19 +6276,21 @@ class WardSimulatorApp(tk.Tk):
         all_sentences = [(topic["topic"], *sentence) for topic in topics for sentence in topic["sentences"]]
         random.shuffle(all_words)
         random.shuffle(all_sentences)
-        word_sample = all_words[:16]
-        sentence_sample = all_sentences[:10]
-        topic_sample = random.sample(topics, min(6, len(topics)))
+        word_sample = all_words[:6]
+        sentence_sample = all_sentences[:4]
+        topic_sample = random.sample(topics, min(3, len(topics)))
         drill_sentence = random.choice(all_sentences)
         if not self.english_drill.get():
             self.english_drill.set(drill_sentence[1])
 
         controls = self.panel(padding=16)
-        ttk.Label(controls, text=self.tx("연습 모드", "Practice Mode"), style="CardTitle.TLabel").pack(side="left", padx=(0, 10))
+        ttk.Label(controls, text=self.tx("연습 모드", "Practice Mode"), style="CardTitle.TLabel").pack(anchor="w", pady=(0, 8))
+        mode_buttons = ttk.Frame(controls, style="Panel.TFrame")
+        mode_buttons.pack(fill="x")
         for mode in ["daily", "nursing", "mixed"]:
-            style = "Accent.TButton" if self.english_mode.get() == mode else "TButton"
-            ttk.Button(controls, text=self.english_mode_title(mode), style=style, command=lambda value=mode: self.set_english_mode(value)).pack(side="left", padx=3)
-        ttk.Button(controls, text=self.tx("랜덤 다시 뽑기", "Draw Again"), style="Primary.TButton", command=self.reroll_english_study).pack(side="right")
+            style = "Primary.TButton" if self.english_mode.get() == mode else "TButton"
+            ttk.Button(mode_buttons, text=self.english_mode_title(mode), style=style, command=lambda value=mode: self.set_english_mode(value)).pack(side="left", padx=(0, 6))
+        ttk.Button(mode_buttons, text=self.tx("랜덤 다시 뽑기", "Draw Again"), style="Primary.TButton", command=self.reroll_english_study).pack(side="right")
 
         summary = self.panel(padding=18)
         intro = self.tx(
@@ -5466,10 +6298,10 @@ class WardSimulatorApp(tk.Tk):
             "Confidence can be low. In a U.S. unit, safe English is often less about fluency and more about clarifying, reading back, and asking for the right help.",
         )
         ttk.Label(summary, text=self.english_mode_title(), style="CardTitle.TLabel").pack(anchor="w")
-        ttk.Label(summary, text=intro, style="Panel.TLabel", wraplength=980, justify="left").pack(anchor="w", pady=(6, 10))
+        ttk.Label(summary, text=intro, style="Panel.TLabel", wraplength=800, justify="left").pack(anchor="w", pady=(6, 10))
         count_text = self.tx(
-            f"현재 모드: 토픽 {len(topics)}개, 단어 {len(all_words)}개, 문장 {len(all_sentences)}개 중 랜덤 추출",
-            f"Current mode: drawing randomly from {len(topics)} topics, {len(all_words)} words, and {len(all_sentences)} sentences",
+            f"오늘 세트: 단어 {len(word_sample)}개, 문장 {len(sentence_sample)}개. 전체 풀은 {len(all_words) + len(all_sentences)}개입니다.",
+            f"Today set: {len(word_sample)} words and {len(sentence_sample)} sentences from a {len(all_words) + len(all_sentences)}-card pool.",
         )
         tk.Label(summary, text=count_text, bg=COLORS["soft_blue"], fg=COLORS["ink"], font=FONT_SMALL_BOLD, padx=10, pady=6).pack(anchor="w")
 
@@ -5504,7 +6336,7 @@ class WardSimulatorApp(tk.Tk):
         outer.columnconfigure(1, weight=1)
 
         word_outer, word_panel = self._card_shell(outer, padding=18)
-        word_outer.grid(row=0, column=0, sticky="nsew", padx=(0, 8))
+        word_outer.grid(row=0, column=0, sticky="new", padx=(0, 8))
         ttk.Label(word_panel, text=self.tx("오늘의 단어", "Today's Words"), style="CardTitle.TLabel").pack(anchor="w", pady=(0, 8))
         for topic, word, meaning, example in word_sample:
             card = tk.Frame(word_panel, bg=COLORS["panel_alt"], highlightthickness=1, highlightbackground=COLORS["card_border"], padx=10, pady=8)
@@ -5517,7 +6349,7 @@ class WardSimulatorApp(tk.Tk):
             tk.Label(card, text=example, bg=COLORS["panel_alt"], fg=COLORS["ink"], font=FONT_SMALL, wraplength=520, justify="left").pack(anchor="w", pady=(2, 0))
 
         sentence_outer, sentence_panel = self._card_shell(outer, padding=18)
-        sentence_outer.grid(row=0, column=1, sticky="nsew", padx=(8, 0))
+        sentence_outer.grid(row=0, column=1, sticky="new", padx=(8, 0))
         ttk.Label(sentence_panel, text=self.tx("오늘의 문장", "Today's Sentences"), style="CardTitle.TLabel").pack(anchor="w", pady=(0, 8))
         for topic, phrase, meaning, usage in sentence_sample:
             card = tk.Frame(sentence_panel, bg=COLORS["panel_alt"], highlightthickness=1, highlightbackground=COLORS["card_border"], padx=10, pady=8)
@@ -5548,7 +6380,8 @@ class WardSimulatorApp(tk.Tk):
         self._render_safety_notice(panel)
         self.check_vars = {}
         self.checklist_progress_labels = {}
-        for title, items in CHECKLISTS.items():
+        self.check_var_state_keys = {}
+        for group_index, (title, items) in enumerate(CHECKLISTS.items()):
             group = tk.Frame(panel, bg=COLORS["panel_alt"], highlightthickness=1, highlightbackground=COLORS["card_border"], padx=14, pady=12)
             group.pack(fill="x", pady=(0, 14))
             header = tk.Frame(group, bg=COLORS["panel_alt"])
@@ -5557,9 +6390,12 @@ class WardSimulatorApp(tk.Tk):
             progress_label = tk.Label(header, text="", bg=COLORS["soft_cyan"], fg=COLORS["ink"], font=FONT_CHIP, padx=8, pady=3)
             progress_label.pack(side="right")
             self.checklist_progress_labels[title] = (progress_label, len(items))
-            for item in items:
-                var = tk.BooleanVar(value=False)
-                self.check_vars[f"{title}|{item}"] = var
+            for item_index, item in enumerate(items):
+                state_key = (group_index, item_index)
+                display_key = f"{title}|{item}"
+                var = tk.BooleanVar(value=self.checklist_state.get(state_key, False))
+                self.check_vars[display_key] = var
+                self.check_var_state_keys[display_key] = state_key
                 self.modern_checkbox(group, item, var, wraplength=920, on_change=self.update_checklist_progress).pack(fill="x", pady=4)
         self.update_checklist_progress()
 
@@ -5579,9 +6415,11 @@ class WardSimulatorApp(tk.Tk):
             card = tk.Frame(notes_grid, bg=COLORS["panel_alt"], highlightthickness=1, highlightbackground=COLORS["card_border"], padx=12, pady=10)
             card.grid(row=row, column=col, sticky="nsew", padx=(0, 6) if col == 0 else (6, 0), pady=6)
             tk.Label(card, text=title, bg=COLORS["panel_alt"], fg=COLORS["ink"], font=FONT_SMALL_BOLD).pack(anchor="w")
-            tk.Label(card, text=hint, bg=COLORS["panel_alt"], fg=COLORS["muted"], font=FONT_SMALL, wraplength=480, justify="left").pack(anchor="w", pady=(2, 6))
+            tk.Label(card, text=hint, bg=COLORS["panel_alt"], fg=COLORS["muted"], font=FONT_SMALL, wraplength=350, justify="left", anchor="w").pack(anchor="w", pady=(2, 6))
             text = self.modern_textbox(card, height=4)
             text.pack(fill="x")
+            if self.debrief_drafts.get(key):
+                text.insert("1.0", self.debrief_drafts[key])
             self.debrief_note_fields[key] = (title, text)
         btns = ttk.Frame(panel, style="Panel.TFrame")
         btns.pack(anchor="w", pady=(12, 0))
@@ -5599,6 +6437,8 @@ class WardSimulatorApp(tk.Tk):
     def reset_checklist_notes(self):
         for var in self.check_vars.values():
             var.set(False)
+        self.checklist_state = {}
+        self.debrief_drafts = {}
         for _title, text in getattr(self, "debrief_note_fields", {}).values():
             text.delete("1.0", "end")
         self.update_checklist_progress()
@@ -5701,7 +6541,7 @@ class WardSimulatorApp(tk.Tk):
                     "2:40-3:00 Debrief/Q&A",
                 ]
             ),
-            wraplength=760,
+            wraplength=360,
         )
         self.label_block(
             right,
@@ -5727,7 +6567,7 @@ class WardSimulatorApp(tk.Tk):
                     "EHR, staffing ratio, and delegation policy vary by facility.",
                 ]
             ),
-            wraplength=760,
+            wraplength=360,
         )
 
         refs = self.panel(padding=18)
@@ -5796,8 +6636,11 @@ def main():
     if "--gui-smoke" in sys.argv:
         app = WardSimulatorApp()
         app.update_idletasks()
+        app.update()
         app.destroy()
-        return
+        # A windowed one-file build can retain the bootloader process after Tk
+        # teardown; the smoke flag is test-only, so terminate deterministically.
+        os._exit(0)
     app = WardSimulatorApp()
     app.mainloop()
 
