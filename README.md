@@ -96,8 +96,6 @@ Do not include real patient information.
 
 ## Screenshots
 
-Actual Windows v0.1.1-beta app screens (home, first-week simulation, and ward tour):
-
 ![Main screen](screenshots/main.png)
 
 ![First 7 Days](screenshots/first_7_days.png)
