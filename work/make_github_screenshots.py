@@ -1,8 +1,9 @@
-"""Capture the official GitHub screenshots from the real Tk application.
+"""Capture repeatable local QA screenshots from the real Tk application.
 
 Run this on Windows from any working directory. The capture is deliberately the
 minimum supported app size so layout regressions in the sidebar and top bar are
-visible in the repository screenshots.
+visible. Curated public screenshots live in ``screenshots/`` and are not
+overwritten by this script.
 """
 
 from __future__ import annotations
@@ -17,7 +18,7 @@ from PIL import ImageGrab
 
 ROOT = Path(__file__).resolve().parents[1]
 WORK = ROOT / "work"
-SCREENSHOTS = ROOT / "screenshots"
+SCREENSHOTS = ROOT / "outputs" / "ui-smoke"
 CAPTURE_WIDTH = 1180
 CAPTURE_HEIGHT = 700
 WINDOW_X = 40
@@ -94,7 +95,7 @@ def main() -> None:
     finally:
         app.destroy()
 
-    print("GITHUB_SCREENSHOTS_OK 1180x700")
+    print("UI_SMOKE_SCREENSHOTS_OK 1180x700")
 
 
 if __name__ == "__main__":

@@ -96,8 +96,20 @@ Do not include real patient information.
 
 ## Screenshots
 
-![Main screen](screenshots/main.png)
+New full-screen captures supplied from the Windows v0.1.1-beta app. No real patient information is shown.
 
-![First 7 Days](screenshots/first_7_days.png)
+![Korean home screen](screenshots/ward_1_KO.png)
 
-![Ward Tour](screenshots/ward_tour.png)
+| Screen | Image |
+| --- | --- |
+| English home | [View](screenshots/ward_1.png) |
+| First 7 Days | [View](screenshots/ward_2.png) |
+| Ward Tour | [View](screenshots/ward_3.png) |
+| Shift Flow | [View](screenshots/ward_4.png) |
+| Station Practice | [View](screenshots/ward_5.png) |
+| Patient Cases | [View](screenshots/ward_6.png) |
+| SBAR Reporting | [View](screenshots/ward_7.png) |
+| Ward English | [View](screenshots/ward_8.png) |
+| Specialty Tracks | [View](screenshots/ward_9.png) |
+| Readiness Check | [View](screenshots/ward_10.png) |
+| Facilitator Guide | [View](screenshots/ward_11.png) |

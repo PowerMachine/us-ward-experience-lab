@@ -187,15 +187,19 @@
       padding: 18px;
       overflow: hidden;
       min-height: 520px;
+      display: flex;
+      align-items: center;
+      background: #f3f6f4;
     }
 
     .hero-visual img {
       width: 100%;
-      height: 100%;
-      min-height: 480px;
-      object-fit: cover;
+      height: auto;
+      min-height: 0;
+      object-fit: contain;
       border-radius: 18px;
       display: block;
+      border: 1px solid var(--line);
     }
 
     .hero-foot {
@@ -345,12 +349,17 @@
 
     .screenshot-card img {
       width: 100%;
-      aspect-ratio: 16 / 10;
-      object-fit: cover;
-      object-position: left top;
+      aspect-ratio: 16 / 9;
+      object-fit: contain;
+      background: #f3f6f4;
       border-radius: 14px;
       border: 1px solid var(--line);
       display: block;
+    }
+
+    .screenshot-card a {
+      color: inherit;
+      text-decoration: none;
     }
 
     .screenshot-card strong {
@@ -398,7 +407,7 @@
       }
 
       .hero-visual img {
-        min-height: 320px;
+        min-height: 0;
       }
 
       .grid,
@@ -485,7 +494,7 @@
         </div>
       </div>
       <div class="hero-visual">
-        <img src="work/assets/hospital-ward-hero.png" alt="미국 병동 시뮬레이션 이미지">
+        <img src="screenshots/ward_1_KO.png" alt="U.S. Ward Experience Lab 한국어 홈 화면" width="2560" height="1380">
       </div>
     </section>
 
@@ -570,21 +579,27 @@
         <div>
           <div class="eyebrow">Screenshots</div>
           <h2>프로그램 화면</h2>
-          <p>현재 베타는 교육용 데스크톱 앱이며, 실제 환자 정보 입력 없이 mock data로만 진행합니다.</p>
+          <p>실제 Windows v0.1.1-beta 앱 화면입니다. 이미지를 누르면 원본 크기로 볼 수 있습니다.</p>
         </div>
       </div>
       <div class="screenshot-grid">
         <div class="screenshot-card">
-          <img src="screenshots/main.png" alt="메인 화면">
-          <strong>Simulation Hub</strong>
+          <a href="screenshots/ward_1_KO.png"><img src="screenshots/ward_1_KO.png" alt="한국어 홈 화면" loading="lazy"><strong>홈 · 한국어</strong></a>
         </div>
         <div class="screenshot-card">
-          <img src="screenshots/first_7_days.png" alt="첫 7일 시뮬레이션 화면">
-          <strong>First 7 Days</strong>
+          <a href="screenshots/ward_2.png"><img src="screenshots/ward_2.png" alt="첫 7일 시뮬레이션과 선택 패널" loading="lazy"><strong>첫 7일 시뮬레이션</strong></a>
         </div>
         <div class="screenshot-card">
-          <img src="screenshots/ward_tour.png" alt="병동 투어 화면">
-          <strong>Ward Tour</strong>
+          <a href="screenshots/ward_3.png"><img src="screenshots/ward_3.png" alt="병동 투어와 동선 선택" loading="lazy"><strong>병동 투어</strong></a>
+        </div>
+        <div class="screenshot-card">
+          <a href="screenshots/ward_5.png"><img src="screenshots/ward_5.png" alt="스테이션 판단 연습" loading="lazy"><strong>스테이션 연습</strong></a>
+        </div>
+        <div class="screenshot-card">
+          <a href="screenshots/ward_6.png"><img src="screenshots/ward_6.png" alt="환자 사례에서 다음 행동 선택" loading="lazy"><strong>환자 사례</strong></a>
+        </div>
+        <div class="screenshot-card">
+          <a href="screenshots/ward_8.png"><img src="screenshots/ward_8.png" alt="병동 영어 표현 연습" loading="lazy"><strong>병동 영어 연습</strong></a>
         </div>
       </div>
     </section>
